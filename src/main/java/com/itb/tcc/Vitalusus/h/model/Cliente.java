@@ -8,9 +8,8 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="usuarios")
-public class Usuario {
-	
+@Table(name="clientes")
+public class Cliente {
 	@Id // Chave Primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -21,6 +20,7 @@ public class Usuario {
 	private LocalDateTime dataDeNascimento;
 	private String senha;
 	private boolean codStatus;
+	private String cpf;
 	
 	public Long getId() {
 		return id;
@@ -70,6 +70,11 @@ public class Usuario {
 	public void setCodStatus(boolean codStatus) {
 		this.codStatus = codStatus;
 	}
-	
-	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 }
