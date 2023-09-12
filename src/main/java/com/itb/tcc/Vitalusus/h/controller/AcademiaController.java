@@ -1,5 +1,6 @@
 package com.itb.tcc.Vitalusus.h.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import com.itb.tcc.Vitalusus.h.model.Cliente;
 @Controller
 @RequestMapping("/Vitalusus-2h/Clientes")
 public class AcademiaController {
-	List<Cliente> listaDeClientes = new ArrayList<Cliente>();
+	List<Cliente> listaDeClientes = new ArrayList<Cliente>(); // Variável Array
 	@GetMapping("/clientes")
 	public String listarClientes(Model model) {
 		
@@ -24,7 +25,7 @@ public class AcademiaController {
 		cliente0.setId(0);
 		cliente0.setNome("Otta Fidela");
 		cliente0.setCodStatus(true);
-		cliente0.setDataDeNascimento(12,05,2006);
+		cliente0.setDataDeNascimento(2023, 9, 12);
 		cliente0.setEmail("ottafifidela@gmail.com");
 		cliente0.setSenha("otta123");
 		cliente0.setTelefone("11 1234-5678");

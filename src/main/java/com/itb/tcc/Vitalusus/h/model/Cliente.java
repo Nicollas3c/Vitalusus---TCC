@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,20 +14,20 @@ import java.time.LocalDateTime;
 public class Cliente {
 	@Id // Chave Primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	private String nome;
 	private String tipoPessoa;
 	private String email;
 	private String telefone;
-	private LocalDateTime dataDeNascimento;
+	private LocalDate dataDeNascimento;
 	private String senha;
 	private boolean codStatus;
 	private String cpf;
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -52,10 +54,10 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public LocalDateTime getDataDeNascimento() {
+	public LocalDate getDataDeNascimento() {
 		return dataDeNascimento;
 	}
-	public void setDataDeNascimento(LocalDateTime dataDeNascimento) {
+	public void setDataDeNascimento(LocalDate dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 	public String getSenha() {
