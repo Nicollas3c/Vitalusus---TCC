@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+// import java.time.LocalDateTime; Não sendo usado no momento.
 
 @Entity
 @Table(name="clientes")

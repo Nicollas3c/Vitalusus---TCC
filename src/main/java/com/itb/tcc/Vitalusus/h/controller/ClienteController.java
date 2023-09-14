@@ -16,7 +16,7 @@ import com.itb.tcc.Vitalusus.h.model.Cliente;
 
 @Controller
 @RequestMapping("/Vitalusus-2h/Clientes")
-public class AcademiaController {
+public class ClienteController {
 	List<Cliente> listaDeClientes = new ArrayList<Cliente>(); // Variável Array
 	@GetMapping("/clientes")
 	public String listarClientes(Model model) {
@@ -25,7 +25,7 @@ public class AcademiaController {
 		cliente0.setId(0);
 		cliente0.setNome("Otta Fidela");
 		cliente0.setCodStatus(true);
-		cliente0.setDataDeNascimento(2023, 9, 12);
+		// cliente0.setDataDeNascimento('2023-01-12T00:00:00');
 		cliente0.setEmail("ottafifidela@gmail.com");
 		cliente0.setSenha("otta123");
 		cliente0.setTelefone("11 1234-5678");
@@ -40,4 +40,16 @@ public class AcademiaController {
 		
 		return "clientes";
 	}
+	
+	@GetMapping("/CADASTRAR")
+	public String novoCliente(Cliente cliente, Model model) {
+		
+		model.addAttribute("cliente", cliente);
+		return "CADASTRAR";
+	}
+	@PostMapping("/listar")
+	public String gravarCliente(Cliente cliente) {
+		listaDeClientes.add(cliente);
+		return "redirect:/Vitalusus-2h/Clientes";
+	} 
 }
