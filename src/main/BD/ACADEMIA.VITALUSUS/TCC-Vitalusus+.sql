@@ -2,11 +2,11 @@
 
 use master if exists(
 	select * from SYS.databases where name = 'bd_Academia')
-	drop database bd_Academia
+	drop database bd_vitalusus2h
 	go
-	create database bd_Academia
+	create database bd_vitalusus2h
 	go
-	use bd_Academia
+	use bd_vitalusus2h
 	
 	create table Cliente
 	(
