@@ -1,7 +1,7 @@
 
 
 use master if exists(
-	select * from SYS.databases where name = 'bd_Academia')
+	select * from SYS.databases where name = 'bd_vitalusus2h')
 	drop database bd_vitalusus2h
 	go
 	create database bd_vitalusus2h
@@ -128,6 +128,15 @@ use master if exists(
 	20.00,
 	'ativo'
 	
+	)
+	create table evolução(
+	id					int					identity,
+	muscInicial		    decimal(4,2)		not null,
+	muscAtual		    decimal(4,2)		not null,
+	gorduraCInicial		decimal(4,2)    	not null,
+	gorduraCAtual		decimal(4,2)		not null,
+
+
 	)
 
 
