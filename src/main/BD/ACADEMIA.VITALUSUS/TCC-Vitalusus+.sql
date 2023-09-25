@@ -10,21 +10,33 @@ use master if exists(
 	
 	create table Cliente
 	(
-	id			int				identity,
-	senha       varchar(110)	not null,
-	email       varchar(200)	not null,
-	nome		varchar(100)	not null,
-	imc			decimal(4,2)	null,
-	genero		varchar(10)		not null,
-	met_basal	decimal(4,2)	null,
-	altura		decimal(4,2)	not null,
-	cpf			char(11)		not null,
-	peso		decimal(4,2)	not null,
-	idade		int				not null,
-	foto		varbinary(max)	null,
-	nivelAcesso varchar(10)		null,
-	nivelSeden	int				not null,
-    statusCli	varchar(6)		not null,
+	id				int				identity,
+	senha			varchar(110)	not null,
+	email			varchar(200)	not null,
+	nome			varchar(100)	not null,
+	imc				decimal(4,2)	null,
+	genero			varchar(10)		not null,
+	met_basal		decimal(4,2)	null,
+	altura			decimal(4,2)	not null,
+	cpf				char(11)		not null,
+	peso			decimal(4,2)	not null,
+	idade			int				not null,
+	foto			varbinary(max)	null,
+	nivelAcesso		varchar(10)		null,
+	nivelSeden		int				not null,
+    statusCli		varchar(6)		not null,
+
+	tempSent		varchar(3)      not null,
+	antCirurgicos	varchar(3)		not null,
+	tratEstetico	varchar(3)		not null,
+	antAlergicos	varchar(3)		not null,
+	funcIntestinal	varchar(3)		not null,
+	praticFisica	varchar(3)		not null,
+	fumante			varchar(3)		not null,
+	alimentBalanc	varchar(3)		not null,
+	liquidosFreq    varchar(3)		not null,
+	gestante		varchar(3)		not null,
+	problemOrtop	varchar(3)		not null,
 
 	primary key(id)
 	)
@@ -135,8 +147,11 @@ use master if exists(
 	muscAtual		    decimal(4,2)		not null,
 	gorduraCInicial		decimal(4,2)    	not null,
 	gorduraCAtual		decimal(4,2)		not null,
-
-
+	pesoInicial			decimal(4,2)    	not null,
+	pesoAtual			decimal(4,2)		not null,
+	imc					decimal(5,3)		not null,
+	alturaInicial		decimal(4,2)		not null,
+	alturaAtual			decimal(4,2)		not null,
 	)
 
 
