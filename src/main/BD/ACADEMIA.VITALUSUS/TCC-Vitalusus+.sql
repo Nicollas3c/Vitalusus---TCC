@@ -26,17 +26,30 @@ use master if exists(
 	nivelSeden		int				not null,
     statusCli		varchar(6)		not null,
 
-	tempSent		varchar(3)      not null,
-	antCirurgicos	varchar(3)		not null,
-	tratEstetico	varchar(3)		not null,
-	antAlergicos	varchar(3)		not null,
-	funcIntestinal	varchar(3)		not null,
-	praticFisica	varchar(3)		not null,
-	fumante			varchar(3)		not null,
-	alimentBalanc	varchar(3)		not null,
-	liquidosFreq    varchar(3)		not null,
-	gestante		varchar(3)		not null,
-	problemOrtop	varchar(3)		not null,
+	tempSent		varchar(100)        not null,
+	antCirurgicos	varchar(100)		not null,
+	tratEstetico	varchar(100)		not null,
+	antAlergicos	varchar(100)		not null,
+	funcIntestinal	varchar(100)		not null,
+	praticFisica	varchar(100)		not null,
+	fumante			varchar(100)		not null,
+	alimentBalanc	varchar(100)		not null,
+	liquidosFreq    varchar(100)		not null,
+	gestante		varchar(100)		not null,
+	problemOrtop	varchar(100)		not null,
+	tratMedico		varchar(100)		not null,
+	ácidoNaPl		varchar(100)		not null,
+	tratOrtomel		varchar(100)		not null,
+	cuidDiario		varchar(100)		not null,
+	portMarcap		varchar(100)		not null,
+	presenMetais	varchar(100)		not null,
+	AntOncolo		varchar(100)		not null,
+	cicloM			varchar(100)		not null,
+	metodAnticonc   varchar(100)        not null,
+	varizes			varchar(100)		not null,
+	lesoes			varchar(100)		not null,
+	hipertencao		varchar(100)		not null,
+	epilepsia		varchar(100)		not null,
 
 	primary key(id)
 	)
@@ -143,15 +156,17 @@ use master if exists(
 	)
 	create table evolução(
 	id					int					identity,
-	muscInicial		    decimal(4,2)		not null,
-	muscAtual		    decimal(4,2)		not null,
-	gorduraCInicial		decimal(4,2)    	not null,
-	gorduraCAtual		decimal(4,2)		not null,
+	gorduraInicial		decimal(4,2)    	not null,
+	gorduraAtual		decimal(4,2)		not null,
 	pesoInicial			decimal(4,2)    	not null,
 	pesoAtual			decimal(4,2)		not null,
-	imc					decimal(5,3)		not null,
+	imc					decimal(5,3)	    not null,
 	alturaInicial		decimal(4,2)		not null,
 	alturaAtual			decimal(4,2)		not null,
+	idCliente			int					not null,
+
+	Primary Key(id),
+	Foreign Key (idCliente) references Cliente(id)
 	)
 
 
