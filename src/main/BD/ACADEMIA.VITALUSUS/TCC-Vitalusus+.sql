@@ -8,6 +8,12 @@ use master if exists(
 	go
 	use bd_vitalusus2h
 	
+	-- drop table Cliente
+	-- drop table Treinador
+	-- drop table Evolução
+	-- drop table Categoria
+	-- drop table Chat
+	-- drop table Exercicio
 	create table Cliente
 	(
 	id				int				identity,
@@ -22,39 +28,39 @@ use master if exists(
 	peso			decimal(4,2)	not null,
 	idade			int				not null,
 	foto			varbinary(max)	null,
-	nivelAcesso		varchar(10)		null,
+	nivelAcesso		varchar(9)		not null, -- Admin, Cliente e Treinador.
 	nivelSeden		int				not null,
-    statusCli		varchar(6)		not null,
-
-	tempSent		varchar(100)        not null,
-	antCirurgicos	varchar(100)		not null,
-	tratEstetico	varchar(100)		not null,
-	antAlergicos	varchar(100)		not null,
-	funcIntestinal	varchar(100)		not null,
-	praticFisica	varchar(100)		not null,
-	fumante			varchar(100)		not null,
-	alimentBalanc	varchar(100)		not null,
-	liquidosFreq    varchar(100)		not null,
-	gestante		varchar(100)		not null,
-	problemOrtop	varchar(100)		not null,
-	tratMedico		varchar(100)		not null,
-	ácidoNaPl		varchar(100)		not null,
-	tratOrtomel		varchar(100)		not null,
-	cuidDiario		varchar(100)		not null,
-	portMarcap		varchar(100)		not null,
-	presenMetais	varchar(100)		not null,
-	AntOncolo		varchar(100)		not null,
-	cicloM			varchar(100)		not null,
-	metodAnticonc   varchar(100)        not null,
-	varizes			varchar(100)		not null,
-	lesoes			varchar(100)		not null,
-	hipertencao		varchar(100)		not null,
-	epilepsia		varchar(100)		not null,
+    statusCli		varchar(7)		not null, -- Ativo ou Inativo.
+	
+	tempSent		varchar(100)        null,
+	antCirurgicos	varchar(100)		null,
+	tratEstetico	varchar(100)		null,
+	antAlergicos	varchar(100)		null,
+	funcIntestinal	varchar(100)		null,
+	praticFisica	varchar(100)		null,
+	fumante			varchar(100)		null,
+	alimentBalanc	varchar(100)		null,
+	liquidosFreq    varchar(100)		null,
+	gestante		varchar(100)		null,
+	problemOrtop	varchar(100)		null,
+	tratMedico		varchar(100)		null,
+	ácidoNaPl		varchar(100)		null,
+	tratOrtomel		varchar(100)		null,
+	cuidDiario		varchar(100)		null,
+	portMarcap		varchar(100)		null,
+	presenMetais	varchar(100)		null,
+	AntOncolo		varchar(100)		null,
+	cicloM			varchar(100)		null,
+	metodAnticonc   varchar(100)        null,
+	varizes			varchar(100)		null,
+	lesoes			varchar(100)		null,
+	hipertencao		varchar(100)		null,
+	epilepsia		varchar(100)		null,
 
 	primary key(id)
 	)
 	insert Cliente (
-	    senha,
+	    senha, 
 		email,
 	    nome,
 	    genero,
@@ -63,6 +69,7 @@ use master if exists(
 	    peso,
 		idade,
 		nivelSeden,
+		nivelAcesso,
 		statusCli
 		)
 	    values (
@@ -75,7 +82,8 @@ use master if exists(
 	    65.50,
 		14,
 		1,
-		'ativo'
+		'Cliente',
+		'Ativo'
 		)
 
 	create table Treinador(
@@ -87,15 +95,15 @@ use master if exists(
 	 nome		varchar(100)	not null,
 	 genero		varchar(10)		not null,
 
-	 primary key(id),
+	primary key(id),
 	)
 	insert Treinador (
-	cref,
-	senha,
-	idade,
-	email,
-	nome, 
-	genero
+	 cref,
+	 senha,
+	 idade,
+	 email,
+	 nome, 
+	 genero
 	) 
 	values(
 	'Cref123456G',
@@ -128,9 +136,9 @@ use master if exists(
 	nome			varchar(100)	not null,
 	descricao		varchar(500)	not null,
 	tempo			decimal(4,2)	not null,
-	statusExerc		varchar(20)		not null,
+	statusExerc		varchar(7)		not null, -- Ativo ou Inativo.
 	treinador_id	int				null,
-	categoria_id	int				 null,
+	categoria_id	int				null,
 
 	primary key(id),
 	foreign key(treinador_id) references Treinador(id),
@@ -143,18 +151,15 @@ use master if exists(
 	descricao,
 	tempo,
 	statusExerc
-
-
 	)
 	values(
 	'https://www.youtube.com/embed/QVAmbJrlyvk?si=3cBiub-NjKpgBDUc',
 	'Musculação',
 	'10 exercícios essenciais na musculação',
 	20.00,
-	'ativo'
-	
+	'Ativo'
 	)
-	create table evolução(
+	create table Evolução(
 	id					int					identity,
 	gorduraInicial		decimal(4,2)    	not null,
 	gorduraAtual		decimal(4,2)		not null,
@@ -173,5 +178,7 @@ use master if exists(
 
 	
 	select * from Cliente
+	select * from Categoria
+	select * from Evolução
 	select * from Treinador
 	select * from Exercicio
