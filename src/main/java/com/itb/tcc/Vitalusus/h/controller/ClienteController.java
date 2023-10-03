@@ -50,6 +50,13 @@ public class ClienteController {
 	@PostMapping("/clientes")
 	public String gravarNovoCliente(Cliente cliente) {
 		listaDeClientes.add(cliente);
-		return "redirect:/Vitalusus-2h/Clientes/clientes";
+		cliente.setCodStatus(true);
+		// Cliente clientedb = clienteRepository.save(cliente);
+		return "redirect:/Vitalusus-2h/Clientes/cliente-sucesso";
 	} 
+	// página de sucesso
+	@GetMapping("cliente-sucesso")
+	String showPageSuccess() {
+		return "Vitalusus-2h/sucesso";
+	}
 }
