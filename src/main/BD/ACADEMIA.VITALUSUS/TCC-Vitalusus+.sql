@@ -12,7 +12,6 @@ use master if exists(
 	-- drop table Treinador
 	-- drop table Evolução
 	-- drop table Categoria
-	-- drop table Chat
 	-- drop table Exercicio
 	create table Cliente
 	(
@@ -112,14 +111,6 @@ use master if exists(
 	'marombinha1234@hotmail.com',
 	'Juliana',
 	'masculino'
-	)
-
-	create table Chat(
-	 id				int		identity,		
-	 treinador_id	int		not null,
-	 cliente_id		int		not null,
-
-	 primary key(id),
 	)
 
 	create table Categoria(
