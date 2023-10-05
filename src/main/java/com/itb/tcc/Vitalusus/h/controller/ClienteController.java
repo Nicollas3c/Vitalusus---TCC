@@ -25,7 +25,7 @@ public class ClienteController {
 		cliente0.setId(0);
 		cliente0.setNome("Otta Fidela");
 		cliente0.setCodStatus(true);
-		// cliente0.setDataDeNascimento('2023-01-12T00:00:00');
+		cliente0.setDataDeNascimento(null);
 		cliente0.setEmail("ottafifidela@gmail.com");
 		cliente0.setSenha("otta123");
 		cliente0.setTelefone("11 1234-5678");
@@ -41,11 +41,11 @@ public class ClienteController {
 		return "clientes";
 	}
 	
-	@GetMapping("/cadastrar")
+	@GetMapping("/cadnovo")
 	public String novoCliente(Cliente cliente, Model model) {
 		
 		model.addAttribute("cliente", cliente);
-		return "cadastrar";
+		return "cadnovo";
 	}
 	@PostMapping("/clientes")
 	public String gravarNovoCliente(Cliente cliente) {
