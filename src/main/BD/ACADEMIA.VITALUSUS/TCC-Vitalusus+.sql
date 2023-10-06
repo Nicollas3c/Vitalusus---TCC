@@ -13,78 +13,60 @@ use master if exists(
 	-- drop table Evolução
 	-- drop table Categoria
 	-- drop table Exercicio
+
+	CREATE TABLE Usuario
+( 
+   id            INT IDENTITY,
+   nome          VARCHAR(100)	NOT NULL,
+   email         VARCHAR(100)	NOT NULL,
+   senha         VARCHAR(100)	NOT NULL,
+   nivelAcesso   VARCHAR(10)    NULL, -- ADM, TEC ou USER
+   foto		 VARBINARY(MAX) NULL,
+   statusUsuario VARCHAR(20)    NOT NULL, -- ATIVO ou INATIVO ou TROCAR_SENHA
+
+   PRIMARY KEY (id)
+)
 	create table Cliente
 	(
 	id				int				identity,
-	senha			varchar(110)	not null,
-	email			varchar(200)	not null,
+	senha			varchar(50)	not null,
+	email			varchar(100)	not null,
 	nome			varchar(100)	not null,
-	imc				decimal(4,2)	null,
 	genero			varchar(10)		not null,
-	met_basal		decimal(4,2)	null,
-	altura			decimal(4,2)	not null,
 	cpf				char(11)		not null,
-	peso			decimal(4,2)	not null,
-	idade			int				not null,
-	foto			varbinary(max)	null,
+	dataNasc			date				not null,
 	nivelAcesso		varchar(9)		not null, -- Admin, Cliente e Treinador.
-	nivelSeden		int				not null,
     statusCli		varchar(7)		not null, -- Ativo ou Inativo.
-	
-	tempSent		varchar(100)        null,
-	antCirurgicos	varchar(100)		null,
-	tratEstetico	varchar(100)		null,
-	antAlergicos	varchar(100)		null,
-	funcIntestinal	varchar(100)		null,
-	praticFisica	varchar(100)		null,
-	fumante			varchar(100)		null,
-	alimentBalanc	varchar(100)		null,
-	liquidosFreq    varchar(100)		null,
-	gestante		varchar(100)		null,
-	problemOrtop	varchar(100)		null,
-	tratMedico		varchar(100)		null,
-	ácidoNaPl		varchar(100)		null,
-	tratOrtomel		varchar(100)		null,
-	cuidDiario		varchar(100)		null,
-	portMarcap		varchar(100)		null,
-	presenMetais	varchar(100)		null,
-	AntOncolo		varchar(100)		null,
-	cicloM			varchar(100)		null,
-	metodAnticonc   varchar(100)        null,
-	varizes			varchar(100)		null,
-	lesoes			varchar(100)		null,
-	hipertencao		varchar(100)		null,
-	epilepsia		varchar(100)		null,
-
+	usuario_id       int				null,
+    foreign key(usuario_id) references Usuario(id),
 	primary key(id)
 	)
+
 	insert Cliente (
 	    senha, 
 		email,
 	    nome,
 	    genero,
-		altura,
 		cpf,
-	    peso,
-		idade,
-		nivelSeden,
 		nivelAcesso,
 		statusCli
 		)
 	    values (
-		'3U$0u$@F@d@',
-		'ottihnha123@yahoo.com.br',
-	    'Otta',
-	    'feminino',
-	    1.78,
-		'8874865958',
-	    65.50,
-		14,
-		1,
+		12344343,
+		'ottafidela@gmail.com',
+		'feminnino',
+		984398402190-21,
 		'Cliente',
-		'Ativo'
+		'ativo'
 		)
-
+		create table Ficha(
+		peso			decimal(4,2)	not null,
+		imc				decimal(4,2)	null,
+		met_basal		decimal(4,2)	null,
+		altura			decimal(4,2)	not null,
+		foto			varbinary(max)	null,
+		    
+		)
 	create table Treinador(
 	 id			int				identity,		
 	 cref		char(11)		not null,
@@ -112,6 +94,10 @@ use master if exists(
 	'Juliana',
 	'masculino'
 	)
+	table Admin{
+	nome    
+	
+	}
 
 	create table Categoria(
 	id			int				identity,
