@@ -11,9 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
-  
+        
     </style>
     <title>Vitalusus+</title>
+    <script>
+        function Teste() {
+            var tre = document.getElementById("opttre").value
+
+            if (tre == "Treinador(a)") {
+                document.write("")
+            }
+            else {
+             document.write("")
+            }
+        }
+    </script>
 </head>
  
 <body>
@@ -38,13 +50,16 @@
       <strong>DATA DE NASCIMENTO:</strong>  <input type="date" th:field="${cliente.dataDeNascimento}" class="input" name="data" min="" maxlength="" required="required">
      <br/>
      <br/>
-     <strong>CPF:</strong> <input type="number" th:field="${cliente.cpf}" class="input" name="cpf" min="" maxlength="" required="required">
-     <br/>
-     <br/>
      <strong>TELEFONE:</strong> <input type="tel" th:field="${cliente.telefone}" class="input" name="telefone" min="" maxlength="" required="required">
      <br/>
      <br/>
-     <strong>TIPO DE PESSOA:</strong> <select th:field="${cliente.tipoPessoa}" class="input" required="required" name="tipoPessoa"> <option value="Aluno(a)">Aluno(a)</option> <option value="Treinador(a)">Treinador(a)</option> </select>
+
+     <strong>TIPO DE PESSOA:</strong> 
+     <select th:field="${cliente.tipoPessoa}" class="input" required="required" name="tipoPessoa"> 
+        <option value="Aluno(a)" id="optalu">Aluno(a)</option> 
+        <option value="Treinador(a)" id="opttre">Treinador(a)</option> 
+    </select>
+
      <br/>
      <br/>
      <div class="cadastrar">

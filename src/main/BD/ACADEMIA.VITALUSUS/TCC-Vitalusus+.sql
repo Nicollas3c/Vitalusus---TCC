@@ -1,5 +1,3 @@
-
-
 use master if exists(
 	select * from SYS.databases where name = 'bd_vitalusus2h')
 	drop database bd_vitalusus2h
@@ -14,141 +12,111 @@ use master if exists(
 	-- drop table Categoria
 	-- drop table Exercicio
 
-	CREATE TABLE Usuario
-( 
-   id            INT IDENTITY,
-   nome          VARCHAR(100)	NOT NULL,
-   email         VARCHAR(100)	NOT NULL,
-   senha         VARCHAR(100)	NOT NULL,
-   nivelAcesso   VARCHAR(10)    NULL, -- ADM, TEC ou USER
-   foto		 VARBINARY(MAX) NULL,
-   statusUsuario VARCHAR(20)    NOT NULL, -- ATIVO ou INATIVO ou TROCAR_SENHA
+	create table Usuario
+	( 
+		id				int				identity,
+		nome			varchar(100)	not null,
+		senha			varchar(30)		not null,
+		email			varchar(100)	not null,
+		dataNasc		date			not null,
+		genero			varchar(10)		not null,   -- Masculino, Feminino e Outro
+		nivelAcesso		varchar(1)		not null,	-- CLI = 1 TRE = 2 ADM = 3
+		foto			varbinary(max)	null,
+		statusUsuario	varchar(7)		not null,	-- Ativo ou Inativo
 
-   PRIMARY KEY (id)
-)
+		primary key (id)
+	)
 	create table Cliente
 	(
-	id				int				identity,
-	senha			varchar(50)	not null,
-	email			varchar(100)	not null,
-	nome			varchar(100)	not null,
-	genero			varchar(10)		not null,
-	cpf				char(11)		not null,
-	dataNasc			date				not null,
-	nivelAcesso		varchar(9)		not null, -- Admin, Cliente e Treinador.
-    statusCli		varchar(7)		not null, -- Ativo ou Inativo.
-	usuario_id       int				null,
-    foreign key(usuario_id) references Usuario(id),
-	primary key(id)
+		id				int				identity,
+		peso			decimal(5,2)	not null,
+		imc				decimal(4,2)	null,
+		met_basal		decimal(4,2)	null,		-- Ánalisando the choice
+		altura			decimal(3,2)	not null,		  
+	    statusCli		varchar(7)		not null,	-- Ativo ou Inativo.
+		usuario_id      int				null,
+
+		foreign key(usuario_id) references Usuario(id),
+		primary key(id)
 	)
 
-	insert Cliente (
-	    senha, 
-		email,
-	    nome,
-	    genero,
-		cpf,
-		nivelAcesso,
+	insert Cliente 
+	(
+		peso,
+		altura,
 		statusCli
 		)
 	    values (
-		12344343,
-		'ottafidela@gmail.com',
-		'feminnino',
-		984398402190-21,
-		'Cliente',
+		999.99,
+		9.99,
 		'ativo'
-		)
-		create table Ficha(
-		peso			decimal(4,2)	not null,
-		imc				decimal(4,2)	null,
-		met_basal		decimal(4,2)	null,
-		altura			decimal(4,2)	not null,
-		foto			varbinary(max)	null,
-		    
-		)
-	create table Treinador(
-	 id			int				identity,		
-	 cref		char(11)		not null,
-	 senha		varchar(100)    not null,
-	 idade      int				not null,
-	 email		varchar(100)	not null,
-	 nome		varchar(100)	not null,
-	 genero		varchar(10)		not null,
+	)
 
-	primary key(id),
+	create table Treinador
+	(
+		id				int				identity,		
+		cref			char(11)		not null,
+		categoria_id	int				not null,
+
+		primary key(id),
+
 	)
 	insert Treinador (
-	 cref,
-	 senha,
-	 idade,
-	 email,
-	 nome, 
-	 genero
+		 cref,
+		 categoria_id
 	) 
-	values(
-	'Cref123456G',
-	'$0uF0rt3',
-	37,
-	'marombinha1234@hotmail.com',
-	'Juliana',
-	'masculino'
+		values(
+		'Cref123456G',
+		69
+
 	)
-	table Admin{
-	nome    
-	
-	}
 
 	create table Categoria(
-	id			int				identity,
-	nome		varchar(100)	not null,
-	descricao	varchar(100)	not null,		
+		id			int				identity,
+		nome		varchar(100)	not null,
+		descricao	varchar(100)	not null,		
+	
+		primary key(id),
 
-	primary key(id)
 	)
 
 	create table Exercicio(
-	id				int				identity,
-	urlVideo		varchar(150)	not null,
-	nome			varchar(100)	not null,
-	descricao		varchar(500)	not null,
-	tempo			decimal(4,2)	not null,
-	statusExerc		varchar(7)		not null, -- Ativo ou Inativo.
-	treinador_id	int				null,
-	categoria_id	int				null,
-
-	primary key(id),
-	foreign key(treinador_id) references Treinador(id),
-	foreign key(categoria_id) references Categoria(id)
+		id				int				identity,
+		urlVideo		varchar(150)	not null,
+		nome			varchar(100)	not null,
+		descricao		varchar(500)	not null,
+		statusExerc		varchar(7)		not null, -- Ativo ou Inativo.
+		treinador_id	int				null,
+		categoria_id	int				null,
+	
+		primary key(id),
+		foreign key(treinador_id) references Treinador(id),
+		foreign key(categoria_id) references Categoria(id)
 
 	)
 	insert Exercicio(
-	urlVideo,
-	nome,
-	descricao,
-	tempo,
-	statusExerc
+		urlVideo,
+		nome,
+		descricao,
+		statusExerc
 	)
-	values(
-	'https://www.youtube.com/embed/QVAmbJrlyvk?si=3cBiub-NjKpgBDUc',
-	'Musculação',
-	'10 exercícios essenciais na musculação',
-	20.00,
-	'Ativo'
+	values
+	(
+		'https://www.youtube.com/embed/QVAmbJrlyvk?si=3cBiub-NjKpgBDUc',
+		'Musculação',
+		'10 exercícios essenciais na musculação',
+		'Ativo'
 	)
 	create table Evolução(
-	id					int					identity,
-	gorduraInicial		decimal(4,2)    	not null,
-	gorduraAtual		decimal(4,2)		not null,
-	pesoInicial			decimal(4,2)    	not null,
-	pesoAtual			decimal(4,2)		not null,
-	imc					decimal(5,3)	    not null,
-	alturaInicial		decimal(4,2)		not null,
-	alturaAtual			decimal(4,2)		not null,
-	idCliente			int					not null,
-
-	Primary Key(id),
-	Foreign Key (idCliente) references Cliente(id)
+		id					int					identity,
+		gorduraAtual		decimal(4,2)		not null,
+		pesoAtual			decimal(4,2)		not null,
+		imc					decimal(5,3)	    not null,
+		alturaAtual			decimal(4,2)		not null,
+		idCliente			int					not null,
+	
+		Primary Key(id),
+		Foreign Key (idCliente) references Cliente(id)
 	)
 
 

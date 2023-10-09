@@ -57,7 +57,6 @@
                     <th>Senha</th>
                     <th>Telefone</th>
                     <th>Tipo de Pessoa</th>
-                    <th>CPF</th>
                 </thead>
                 <tbody>
                     <tr th:each="clientes: ${listaDeClientes}" >
@@ -68,9 +67,7 @@
                         <td th:text="${clientes.email}"></td>
                         <td th:text="${clientes.senha}"></td>
                         <td th:text="${clientes.telefone}"></td>
-                        <td th:text="${clientes.tipoPessoa}"></td>
-                        <td th:text="${clientes.cpf}"></td>
-                    </tr>
+                        <td th:text="${clientes.tipoPessoa}"></td>                    </tr>
                 </tbody>
             </table>
         </section>

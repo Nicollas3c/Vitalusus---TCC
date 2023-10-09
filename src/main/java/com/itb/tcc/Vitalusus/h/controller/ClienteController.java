@@ -30,7 +30,6 @@ public class ClienteController {
 		cliente0.setSenha("otta123");
 		cliente0.setTelefone("11 1234-5678");
 		cliente0.setTipoPessoa("Aluno(a)");
-		cliente0.setCpf("557-282-465-19");
 		
 		// Cliente na ArrayList
 		
@@ -41,22 +40,26 @@ public class ClienteController {
 		return "clientes";
 	}
 	
-	@GetMapping("/cadnovo")
+	@GetMapping("/cadastrar")
 	public String novoCliente(Cliente cliente, Model model) {
 		
 		model.addAttribute("cliente", cliente);
-		return "cadnovo";
+		return "cadastrar";
 	}
-	@PostMapping("/clientes")
+	
+	// página de sucesso
+		@GetMapping("clienteSucesso")
+		String showPageSuccess() {
+			return "clienteSucesso";
+		}
+	
+	@PostMapping("/clienteSucesso")
 	public String gravarNovoCliente(Cliente cliente) {
 		listaDeClientes.add(cliente);
 		cliente.setCodStatus(true);
 		// Cliente clientedb = clienteRepository.save(cliente);
-		return "redirect:/Vitalusus-2h/Clientes/cliente-sucesso";
+		return "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
 	} 
-	// página de sucesso
-	@GetMapping("cliente-sucesso")
-	String showPageSuccess() {
-		return "Vitalusus-2h/sucesso";
-	}
+	
+	
 }
