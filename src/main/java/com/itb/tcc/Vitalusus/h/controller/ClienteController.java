@@ -9,16 +9,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.itb.tcc.Vitalusus.h.repository.*;
 
 import com.itb.tcc.Vitalusus.h.model.Cliente;
 
-// http://localhost:8080/Vitalusus-2h/Clientes/clientes
+// http://localhost:8080/Vitalusus-2h/Clientes/listaClientes
 
 @Controller
 @RequestMapping("/Vitalusus-2h/Clientes")
 public class ClienteController {
 	List<Cliente> listaDeClientes = new ArrayList<Cliente>(); // Variável Array
-	@GetMapping("/clientes")
+	private ClienteRepository clienteRepository;
+	@GetMapping("/listaClientes")
 	public String listarClientes(Model model) {
 		
 		Cliente cliente0 = new Cliente();
@@ -48,18 +50,45 @@ public class ClienteController {
 	}
 	
 	// página de sucesso
-		@GetMapping("clienteSucesso")
-		String showPageSuccess() {
-			return "clienteSucesso";
-		}
+	@GetMapping("clienteSucesso")
+	String showPageSuccess() {
+		return "clienteSucesso";
+	}
 	
 	@PostMapping("/clienteSucesso")
 	public String gravarNovoCliente(Cliente cliente) {
 		listaDeClientes.add(cliente);
 		cliente.setCodStatus(true);
-		// Cliente clientedb = clienteRepository.save(cliente);
+		Cliente clientedb = clienteRepository.save(cliente);
 		return "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
 	} 
 	
+	// carregar formulário login
+	
+	@GetMapping("/login")
+	public String showFormLogin(Cliente cliente, Model model){
+		
+		model.addAttribute("cliente", cliente);
+		return "login";
+	}
+	
+	@PostMapping("/login")
+	public String efetuarLogin() {
+		String page = "redirect:/Viatlusus-2h/Clientes/login";
+		// Lógica de verificação
+		Cliente clienteDb = clienteRepository.findByEmail(cliente.getEmail());
+		
+		if(clienteDb != null && clienteDb.getSenha().equals(clienteDb.getSenha())) {
+			page = "redirect:/Viatlusus-2h/Clientes/perfil";
+		}
+		
+		return page;
+	}
+	
+	@GetMapping("/perfil")
+	public String showPerfil() {
+		
+		return "Vitalusus-2h/perfil";
+	}
 	
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/Vitalusus-2h")
 public class indexControllerVita {
 	
-	@GetMapping("index")
+	@GetMapping("/index")
 	public String index() {
 		return "index";
 	}

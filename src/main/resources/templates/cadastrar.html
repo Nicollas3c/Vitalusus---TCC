@@ -25,6 +25,18 @@
              document.write("")
             }
         }
+        function Validar() {
+		var sen = document.getElementById("txtsen").value
+		var conSen = document.getElementById("txtconsen").value
+		
+		if (sen != conSen) {
+			window.alert("Senhas Diferentes!")
+			return false
+		}
+		else{
+			return true
+		}
+	}
     </script>
 </head>
  
@@ -36,18 +48,22 @@
     </div>
     </header>
     <main>
-    <form class="form" th:action="@{/Vitalusus-2h/Clientes/clientes}" method="post">
-       <a th:href="LOGIN.html" target="_self"><i class='bx bx-left-arrow-circle' id="seta"></i></a>
+    <form class="form" th:action="@{/Vitalusus-2h/Clientes/clienteSucesso}" method="post" onsubmit="return Validar()">
+       <a th:href="@{/Vitalusus-2h/Clientes/login}" target="_self"><i class='bx bx-left-arrow-circle' id="seta"></i></a>
         <h1>Cadastre-se</h1>
      <strong>NOME:</strong> <input type="text" th:field="${cliente.nome}" class="input" name="name" min="" maxlength="" required="required">
      <br/>
-     <br/>    
-      <strong>EMAIL</strong>  <input type="email" th:field="${cliente.email}" class="input" name="email" min="" maxlength="" required="required">
+     <br/>          
+     <strong>EMAIL</strong>  <input type="email" th:field="${cliente.email}" class="input" name="email" min="" maxlength="" required="required">
      <br/>
      <br/>
-      <strong>SENHA:</strong>  <input type="password" th:field="${cliente.senha}" class="input" name="senha" min="" maxlength="" required="required">
+     <strong>SENHA:</strong>  <input type="password" class="input" th:field="${cliente.senha}"  name="name" min="8"  maxlength="8" required="required" id="txtsen" checked="checked">
      <br/>
-      <strong>DATA DE NASCIMENTO:</strong>  <input type="date" th:field="${cliente.dataDeNascimento}" class="input" name="data" min="" maxlength="" required="required">
+     <br/>
+     <strong>CONFIRMAR SENHA:</strong>  <input type="password" class="input" name="Consenha" min="" maxlength="" required="required" id="txtconsen">
+     <br/>
+     <br />
+     <strong>DATA DE NASCIMENTO:</strong>  <input type="date" th:field="${cliente.dataDeNascimento}" class="input" name="data" min="" maxlength="" required="required">
      <br/>
      <br/>
      <strong>TELEFONE:</strong> <input type="tel" th:field="${cliente.telefone}" class="input" name="telefone" min="" maxlength="" required="required">
@@ -63,7 +79,7 @@
      <br/>
      <br/>
      <div class="cadastrar">
-     <a href="ESQUECEUASENHA.html">Esqueceu sua senha ?</a>
+     <a th:href="@{/Vitalusus-2h/Clientes/esqueceuSenha}">Esqueceu sua senha ?</a>
      </div>
       <div >
       <input class="botao" type="submit" value="Confirmar" id="Botao">

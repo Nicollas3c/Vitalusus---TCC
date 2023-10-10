@@ -19,14 +19,14 @@
 
     <img src="/Logo2.png" >
     <h1>Login</h1>
-    <form action="">
+    <form th:action="@{/Vitalusus-2h/cliente/login}">
     <div class="Desing-login">
     <p>Academia</p>
     <p>Vitalusus+</p>
 </div>
     <div class="input">
-    <strong>EMAIL</strong>  <input type="email" class="Alteracao" name="name" min="" maxlength="200" placeholder="Nome@gmail.com" required="required"  checked="checked">
-    <strong>SENHA:</strong>  <input type="password" class="Alteracao"  name="name" min="8" placeholder="********" maxlength="8" required="required" checked="checked">
+    <strong>EMAIL</strong>  <input type="email" class="Alteracao" th:field="*{email}" min="" maxlength="200" placeholder="Nome@gmail.com" required="required"  checked="checked">
+    <strong>SENHA:</strong>  <input type="password" class="Alteracao" th:field="*{senha}"  name="name" min="8" placeholder="********" maxlength="8" required="required" checked="checked">
     <div class="cadastrar">
         <a href="cadnovo.html">Cadastre-se</a>
         <a href="">Esqueceu sua senha?</a>

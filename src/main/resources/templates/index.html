@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/LOGIN.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="shortcut icon" href="/logo.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitalusus+ Login</title>
 </head>
-<body background="/Academia3.jfif" > 
-      <header>
-    <img src="/Logo.png" class="logo">
-    </header>
-     <br/>
-     <br/>
-     <div class="cadastrar">
-        <p>INDEX TESTE</p>
-        <a th:href="@{/Vitalusus-2h/Clientes/clientes}">Tabela de clientes</a>
-      </div>
-      <div>
-    </div>
-    <div class="cor">
-      <p>.</p>
-    </div>
-    <footer>.</footer>
-    </body>
+<body>
+  <header>
+    <i class='bx bx-menu'></i>
+    <img class="arroz" src="Logo.png">
+    <i class='bx bx-user-plus'></i>
+  </header>
+  <form action="">
+    <fieldset>
+      <h1>LOGIN</h1>
+      <p>Email:</p>
+      <input type="text" class="inputs">
+      <p>Senha:</p>
+      <input type="text" class="inputs">
+      <button type="submit" class="buttons" style="margin-left: 187px">Confirmar</button>
+    </fieldset>
+  </form>
+  <a th:href="@{/Vitalusus-2h/Clientes/listaClientes}">tablea clientes</a>
+  <footer>
+    Footer
+  </footer>
+</body>
 </html>
