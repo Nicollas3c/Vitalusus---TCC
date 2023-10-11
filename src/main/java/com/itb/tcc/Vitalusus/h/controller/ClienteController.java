@@ -59,7 +59,7 @@ public class ClienteController {
 	public String gravarNovoCliente(Cliente cliente) {
 		listaDeClientes.add(cliente);
 		cliente.setCodStatus(true);
-		Cliente clientedb = clienteRepository.save(cliente);
+		// Cliente clientedb = clienteRepository.save(cliente);
 		return "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
 	} 
 	
@@ -76,7 +76,7 @@ public class ClienteController {
 	public String efetuarLogin() {
 		String page = "redirect:/Viatlusus-2h/Clientes/login";
 		// Lógica de verificação
-		Cliente clienteDb = clienteRepository.findByEmail(cliente.getEmail());
+		// Cliente clienteDb = clienteRepository.findByEmail(cliente.getEmail());
 		
 		if(clienteDb != null && clienteDb.getSenha().equals(clienteDb.getSenha())) {
 			page = "redirect:/Viatlusus-2h/Clientes/perfil";
