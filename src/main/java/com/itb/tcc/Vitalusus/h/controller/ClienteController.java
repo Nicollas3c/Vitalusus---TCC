@@ -85,6 +85,13 @@ public class ClienteController {
 		return page;
 	}
 	
+	@GetMapping("/esqueceuSenha")
+	public String esqueceuSenha(Cliente cliente, Model model) {
+		
+		model.addAttribute("cliente", cliente);
+		return "esqueceuSenha";
+	}
+	
 	@GetMapping("/perfil")
 	public String showPerfil() {
 		
