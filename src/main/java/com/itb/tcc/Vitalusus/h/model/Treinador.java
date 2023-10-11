@@ -14,6 +14,6 @@ public class Treinador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	// Fazer a classe Usuário e dar extend na classe Cliente.
-	// Igual no diagrama de classes.
+	// Igual no diagrama de classes. 
 	
 }
