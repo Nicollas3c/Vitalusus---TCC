@@ -6,8 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import java.sql.Date;
 import java.time.LocalDate;
-// import java.time.LocalDateTime; Não sendo usado no momento.
 
 @Entity
 @Table(name="clientes")
@@ -19,7 +19,7 @@ public class Cliente {
 	private String tipoPessoa;
 	private String email;
 	private String telefone;
-	private LocalDate dataDeNascimento;
+	private Date dataDeNascimento;
 	private String senha;
 	private boolean codStatus;
 	private String cpf;
@@ -54,10 +54,10 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public LocalDate getDataDeNascimento() {
+	public Date getDataDeNascimento() {
 		return dataDeNascimento;
 	}
-	public void setDataDeNascimento(LocalDate dataDeNascimento) {
+	public void setDataDeNascimento(Date dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 	public String getSenha() {

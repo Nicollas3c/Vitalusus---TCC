@@ -47,7 +47,7 @@
         <section>
             <h2>Clientes</h2>
            
-            <table class="tableT">
+            <table class="tableC">
                 <thead>
                     <th>ID</th>
                     <th>Nome</th>
@@ -57,7 +57,6 @@
                     <th>Senha</th>
                     <th>Telefone</th>
                     <th>Tipo de Pessoa</th>
-                    <th>CPF</th>
                 </thead>
                 <tbody>
                     <tr th:each="clientes: ${listaDeClientes}" >
@@ -68,8 +67,36 @@
                         <td th:text="${clientes.email}"></td>
                         <td th:text="${clientes.senha}"></td>
                         <td th:text="${clientes.telefone}"></td>
-                        <td th:text="${clientes.tipoPessoa}"></td>
-                        <td th:text="${clientes.cpf}"></td>
+                        <td th:text="${clientes.tipoPessoa}"></td>                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Treinador</h2>
+           
+            <table class="tableT">
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Status</th>
+                    <th>Data de Nascimento</th>
+                    <th>E-Mail</th>
+                    <th>Senha</th>
+                    <th>Telefone</th>
+                    <th>Tipo de Pessoa</th>
+                    <th>CREF</th>
+                </thead>
+                <tbody>
+                    <tr th:each="clientes: ${listaDeClientes}" >
+                        <td th:text="${clientes.id}"></td>
+                        <td th:text="${clientes.nome}"></td>
+                        <td th:text="${clientes.codStatus}"></td>
+                        <td th:text="${clientes.dataDeNascimento}"></td>
+                        <td th:text="${clientes.email}"></td>
+                        <td th:text="${clientes.senha}"></td>
+                        <td th:text="${clientes.telefone}"></td>
+                        <td th:text="${clientes.tipoPessoa}"></td>       
+                        <!-- <td></td>  cref aqui -->           
                     </tr>
                 </tbody>
             </table>
