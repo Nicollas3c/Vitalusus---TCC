@@ -111,18 +111,19 @@ margin-left:27.4%;
     width: 45%;
     
 }
-
+body{
+    background-image: url("/Academia3.jfif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .imagem-fundo {
     position:fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url("Academia3.jfif");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.5; /* Aplicando opacidade apenas à imagem de fundo */
+   
 }
 
 /* Restante do seu CSS para o conteúdo dentro da div .imagem */
