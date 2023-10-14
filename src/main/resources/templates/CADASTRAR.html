@@ -51,29 +51,32 @@
 </div>
 </header>
     <form th:action="@{/Vitalusus-2h/Clientes/clienteSucesso}" method="post" onsubmit="return Validar()" class="form">
-       <a th:href="@{/Vitalusus-2h/Clientes/login}" target="_self"><i class='bx bx-left-arrow-circle' id="seta"></i></a>
-        <h1>Cadastre-se</h1>
+      
+      <div class="txtcad"> 
+      <a class="linkseta" th:href="@{/Vitalusus-2h/Clientes/login}" target="_self"><i class='bx bx-left-arrow-circle' id="seta" ></i></a>
+        <h1 class="textaocad">Cadastre-se</h1>
+      </div>
         <strong>NOME COMPLETO:</strong><input type="text" th:field="${cliente.nome}" class="input" name="name" required="required" >  
         <br />
-        <br />  
+         
       <strong>EMAIL</strong>  <input type="email" th:field="${cliente.email}" class="input" name="name" required="required" >
      <br/>
-     <br/>
+    
      <strong>DATA DE NASCIMENTO:</strong>  <input type="date" th:field="${cliente.dataDeNascimento}" class="input" name="data" min="" maxlength="" required="required">
      <br/>
-     <br/>
+     
      <strong>TELEFONE:</strong> <input type="tel" th:field="${cliente.telefone}" class="input" name="telefone" min="" maxlength="" required="required">
      <br/>
-     <br/>
+     
      <strong>CREF:</strong><input type="text" th:field="${cliente.cpf}" class="input" name="name" required="required" >
      <br/>
-     <br/>
+    
      <strong>SENHA:</strong>  <input type="password" class="input" th:field="${cliente.senha}"  name="name" min="8"  maxlength="8" required="required" id="txtsen" checked="checked">
      <br/>
-     <br/>
+    
      <strong>CONFIRMAR SENHA:</strong>  <input type="password" class="input" name="Consenha" min="" maxlength="" required="required" id="txtconsen">
      <br/>
-     <br />
+    
      <strong>TIPO DE PESSOA:</strong> 
      <select th:field="${cliente.tipoPessoa}" class="input" required="required" name="tipoPessoa"> 
         <option value="Aluno(a)" id="optalu">Aluno(a)</option> 

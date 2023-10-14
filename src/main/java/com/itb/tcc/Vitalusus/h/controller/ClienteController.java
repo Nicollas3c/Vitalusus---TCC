@@ -72,18 +72,18 @@ public class ClienteController {
 		return "login";
 	}
 	
-	@PostMapping("/login")
-	public String efetuarLogin() {
-		String page = "redirect:/Viatlusus-2h/Clientes/login";
+//	@PostMapping("/login")
+//	public String efetuarLogin() {
+//		String page = "redirect:/Viatlusus-2h/Clientes/login";
 		// Lógica de verificação
 		// Cliente clienteDb = clienteRepository.findByEmail(cliente.getEmail());
 		
-		if(clienteDb != null && clienteDb.getSenha().equals(clienteDb.getSenha())) {
-			page = "redirect:/Viatlusus-2h/Clientes/perfil";
-		}
-		
-		return page;
-	}
+//		if(clienteDb != null && clienteDb.getSenha().equals(clienteDb.getSenha())) {
+//			page = "redirect:/Viatlusus-2h/Clientes/perfil";
+//		}
+//		
+//		return page;
+//	}
 	
 	@GetMapping("/esqueceuSenha")
 	public String esqueceuSenha(Cliente cliente, Model model) {
