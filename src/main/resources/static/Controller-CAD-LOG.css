@@ -1,81 +1,110 @@
 /*Cadastro*/
-html,body{
-    height:100vh;
-    width:100vw;
-    margin:0;
-    padding:0;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+
+html,body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 }
-.linkseta{
-    text-size-adjust: 1px;
+
+.linkseta {
+    position: fixed;
+    right:0;
+    top:20px;
+    margin-right: 650px;
+    margin-top: 5px;
 }
-.txtcad{
-    display:flex; 
+
+.txtcad {
+    margin-top: 0;
 }
-body{
-    background-image: url("/Fundao.png");
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("background.jpeg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
     background: cover;
-}
-h1{
-    margin-bottom: 30px;
-    font-family: 'Work Sans', sans-serif; 
-    text-align: center;
-    color:white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-img{
-    width:5%;
+h1 {
+    margin: 30px;
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    color: white;
 }
-.imgLogo{
- text-align: center;
+
+img {
+    width: 5%;
 }
-strong{
+
+.imgLogo {
+
+    text-align: center;
+}
+
+strong {
     margin-left: 17%;
-    color:white;
+    color: white;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 }
-header{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 100%);
+
+header {
+    position: fixed;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
     padding: 5px;
+    width:100%;
+    min-width:100vw;
     box-shadow: 0 0 4px black;
     border-radius: 4px;
-    
+
 }
-.input{
+
+.input {
     background-color: white;
     border-radius: 30px;
-    display:block;
-    width:500px;
+    display: block;
+    width: 500px;
     margin-left: 17%;
 }
-.input:hover{
+
+.input:hover {
     opacity: 0.8;
     background-color: red;
-    color:white;
+    color: white;
 }
-#Botao{
+
+#Botao {
     margin-top: 15px;
 }
-.botao{
-     padding: 10px;
-     background-color: red;
-     color: white;
-     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-     border: solid 2px black;
-     border-radius: 20px;
-     box-shadow: 0 0 4px ;
+
+.botao {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: solid 2px black;
+    border-radius: 20px;
+    box-shadow: 0 0 4px;
 }
-.botao:hover{
+
+.botao:hover {
     background-color: white;
-    color:black
+    color: black
 }
-.bt{
-   text-align: center;
+
+.bt {
+    text-align: center;
 }
+
 .form{
     background-color: rgba(245, 9, 9, 0.63);
     width: 100%;
@@ -83,59 +112,134 @@ header{
     margin: 0 auto;
     padding: 30px;
     border-radius: 8px;
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
-a{
+
+
+a {
     padding: 10px;
     font-family: 'Lato', sans-serif;
     text-decoration: none;
-    color:white;
-}
-a:hover{
-    text-decoration:underline;
-    color:blue;
-    font-size: 18px;
-} 
-.bx-user , .bx-menu{
-   font-size: 60px;
-}
-.bx-user {
-    cursor: pointer;
-    transform: translate(40vw, 0%);
-}
-.bx-user:hover{
-    cursor: pointer;
-    color:white;
+    color: white;
 }
 
-.bx-menu{
-    transform: translate(-40vw, 0%);
+a:hover {
+    text-decoration: underline;
+    color: blue;
+    font-size: 18px;
 }
-.bx-menu:hover{
-    color:white;
+
+.bx-user,.bx-menu {
+    font-size: 60px;
 }
-.Head{
-    align-items: center;
-    justify-content: center;
-    display:flex;
+
+.bx-user:hover {
+    cursor: pointer;
+    color: white;
 }
-#seta{
-    color:white;
+
+
+.bx-menu:hover {
+    color: white;
+}
+
+
+#seta {
+    color: white;
     margin-right: 500px;
     font-size: 50px;
 }
 
-footer{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 100%);
+footer {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
     box-shadow: 0 0 4px black;
-    margin-top:16%;
-    padding:30px;
+    margin-top: 7%;
+    z-index:1;
+    padding: 10px;
 }
-.cadastrar{
+.perfil{
+    position: fixed;
+    right:0;
+    top:20px;
+}
+.cadastrar {
     text-align: center;
-    display:grid;
-    margin:10x;
+    display: grid;
+    margin: 10x;
+}
+/*Menu*/
+menu {
+    position: fixed;
 }
 
+#menu-options {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 2%;
+    list-style: none;
+    width: auto;
+    font-size: 20px;
+    padding: 0;
+    margin-top: 1%;
+    background-color: #ad0000;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+#menu-options li {
+    padding: 10px 0;
+}
+
+#menu-options a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#menu-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.bx-x:focus+#menu-options {
+    display: block;
+ 
+}
+.bx-x:focus{
+    top: 0;
+    left: 0;
+    position: relative;
+}
+#menu-options:target {
+ 
+    display: block;
+}
+
+/*ajuste no "X"*/
+.bx-x {
+    padding-left: 0%;
+    font-size: 60px;
+}
+menu li a .bx-x{
+    position: absolute;
+    top:0%;
+    left:0%;
+}
+.bx-x{
+    font-size: 90px;
+}
+
+
+.element {
+    width: 100px;
+    height: 100px;
+    
+    position: absolute;
+    cursor: pointer;
+  }
+  /*FIM MENU*/

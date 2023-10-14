@@ -1,97 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/Controller-CAD-LOG.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="shortcut icon" href="/logo.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function Teste() {
-            var tre = document.getElementById("opttre").value
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/Controller-CAD-LOG.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="/logo.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script>
+    function Teste() {
+      var tre = document.getElementById("opttre").value
 
-            if (tre == "Treinador(a)") {
-                document.write("")
-            }
-            else {
-             document.write("")
-            }
-        }
-        function Validar() {
-		var sen = document.getElementById("txtsen").value
-		var conSen = document.getElementById("txtconsen").value
-		
-		if (sen != conSen) {
-			window.alert("Senhas Diferentes!")
-			return false
-		}
-		else{
-			return true
-		}
-	}
-    </script>
-    <title>Vitalusus+</title>
+      if (tre == "Treinador(a)") {
+        document.write("")
+      }
+      else {
+        document.write("")
+      }
+    }
+    function Validar() {
+      var sen = document.getElementById("txtsen").value
+      var conSen = document.getElementById("txtconsen").value
+
+      if (sen != conSen) {
+        window.alert("Senhas Diferentes!")
+        return false
+      }
+      else {
+        return true
+      }
+    }
+  </script>
+  <title>Vitalusus+</title>
 </head>
-<body> 
+
+<body>
   <header>
-    <div class="Head">
-<a href="Menu.html">
-  <i class='bx bx-menu'></i>
-</a>
+    <menu>
+      <a href="#menu-options" id="menu-button"><i class='bx bx-menu' style='color:#ffffff'></i></a>
+      <ul id="menu-options">
+          <li><a href="#"></a></li>
 
-  <img src="/Logo.png">
+          <li>
+              <a href="#">
+                  <i class='bx bx-x' ></i>
+              </a>
+          </li>
+          <span class="material-symbols-outlined">settings</span>
+          <a href="#">Configuração</a>
+          </li>
 
- <a href="Perfil.html" target="_self" id="iperfil"> 
-   <i class='bx bx-user'></i>
-</a>
-</div>
-</header>
-    <form th:action="@{/Vitalusus-2h/Clientes/clienteSucesso}" method="post" onsubmit="return Validar()" class="form">
+          <li><span class="material-symbols-outlined">library_add</span>
+              <a href="#">Seus Vídeos</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">trending_up</span>
+              <a href="#">Estatísticas</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">support_agent</span>
+              <a href="#">Contate-nos</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">info</span>
+              <a href="#">Sobre nós</a>
+          </li>
+      </ul>
+  </menu>
+  <div class="imgLogo">
+      <img src="/Logo.png">
+    </div>
+    <div class="linkseta">
+    <a th:href="@{/Vitalusus-2h/Clientes/login}"  target="_self"><i class='bx bx-left-arrow-circle'
+      id="seta"></i></a>
+    </div>
+    <div class="perfil">
+      <a href="Perfil.html" target="_self" id="iperfil">
+        <i class='bx bx-user'></i>
+      </a>
+    </div>
+  </header>
+  
+  <form th:action="@{/Vitalusus-2h/Clientes/clienteSucesso}" method="post" onsubmit="return Validar()" class="form">
+    
       
-      <div class="txtcad"> 
-      <a class="linkseta" th:href="@{/Vitalusus-2h/Clientes/login}" target="_self"><i class='bx bx-left-arrow-circle' id="seta" ></i></a>
-        <h1 class="textaocad">Cadastre-se</h1>
-      </div>
-        <strong>NOME COMPLETO:</strong><input type="text" th:field="${cliente.nome}" class="input" name="name" required="required" >  
-        <br />
-         
-      <strong>EMAIL</strong>  <input type="email" th:field="${cliente.email}" class="input" name="name" required="required" >
-     <br/>
-    
-     <strong>DATA DE NASCIMENTO:</strong>  <input type="date" th:field="${cliente.dataDeNascimento}" class="input" name="data" min="" maxlength="" required="required">
-     <br/>
-     
-     <strong>TELEFONE:</strong> <input type="tel" th:field="${cliente.telefone}" class="input" name="telefone" min="" maxlength="" required="required">
-     <br/>
-     
-     <strong>CREF:</strong><input type="text" th:field="${cliente.cpf}" class="input" name="name" required="required" >
-     <br/>
-    
-     <strong>SENHA:</strong>  <input type="password" class="input" th:field="${cliente.senha}"  name="name" min="8"  maxlength="8" required="required" id="txtsen" checked="checked">
-     <br/>
-    
-     <strong>CONFIRMAR SENHA:</strong>  <input type="password" class="input" name="Consenha" min="" maxlength="" required="required" id="txtconsen">
-     <br/>
-    
-     <strong>TIPO DE PESSOA:</strong> 
-     <select th:field="${cliente.tipoPessoa}" class="input" required="required" name="tipoPessoa"> 
-        <option value="Aluno(a)" id="optalu">Aluno(a)</option> 
-        <option value="Treinador(a)" id="opttre">Treinador(a)</option> 
-     </select>
-     <br/>
-     <br/>
-     
-     <div class="cadastrar">
-        <a th:href="@{/Vitalusus-2h/Clientes/login}">Já tem conta?</a>
-      </div>
-      <div class="bt" >
+    <div class="txtcad">
+      <h1 class="textaocad">Cadastre-se</h1>
+    </div>
+    <div class="alignCad">
+      <strong>NOME COMPLETO:</strong><input type="text" th:field="${cliente.nome}" class="input" name="name"
+        required="required">
+      <br />
+
+      <strong>EMAIL</strong> <input type="email" th:field="${cliente.email}" class="input" name="name"
+        required="required">
+      <br />
+
+      <strong>DATA DE NASCIMENTO:</strong> <input type="date" th:field="${cliente.dataDeNascimento}" class="input"
+        name="data" min="" maxlength="" required="required">
+      <br />
+
+      <strong>TELEFONE:</strong> <input type="tel" th:field="${cliente.telefone}" class="input" name="telefone" min=""
+        maxlength="" required="required">
+      <br />
+
+      <strong>CREF:</strong><input type="text" th:field="${cliente.cpf}" class="input" name="name" required="required">
+      <br />
+
+      <strong>SENHA:</strong> <input type="password" class="input" th:field="${cliente.senha}" name="name" min="8"
+        maxlength="8" required="required" id="txtsen" checked="checked">
+      <br />
+
+      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input" name="Consenha" min="" maxlength=""
+        required="required" id="txtconsen">
+      <br />
+
+      <strong>TIPO DE PESSOA:</strong>
+      <select th:field="${cliente.tipoPessoa}" class="input" required="required" name="tipoPessoa">
+        <option value="Aluno(a)" id="optalu">Aluno(a)</option>
+        <option value="Treinador(a)" id="opttre">Treinador(a)</option>
+      </select>
+      <br />
+      <br />
+    </div>
+
+    <div class="cadastrar">
+      <a th:href="@{/Vitalusus-2h/Clientes/login}">Já tem conta?</a>
+    </div>
+    <div class="bt">
       <input class="botao" type="submit" value="Confirmar" id="Botao">
     </div>
-    </form>
-    <footer>.</footer>
-    </body>
+  </form>
+  <footer>.</footer>
+</body>
+
 </html>

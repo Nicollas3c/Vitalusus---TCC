@@ -2,9 +2,18 @@
     padding: 0;
     margin: 0;
 }
+.Head{
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
 body
+.linkseta{
+    position:absolute;
+    width: 12px;
+}
 h1{
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     font-family:Arial, Helvetica, sans-serif;  
     text-align: center;
     color:white;
@@ -23,14 +32,15 @@ strong{
     font-family: Arial, Helvetica, sans-serif;
 }
 form{
-    text-align: center;
+    
 }
 header{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 100%);
-    padding: 30px;
+    padding: 5px;
     box-shadow: 0 0 4px black;
     border-radius: 4px;
+    
     
 }
 .input{
@@ -98,7 +108,8 @@ a:hover{
 footer{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 100%);
-    margin-top:200px;
-    padding:60px;
+    box-shadow: 0 0 4px black;
+    margin-top:23%;
+    padding:30px;
 }
 

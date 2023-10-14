@@ -13,19 +13,51 @@
     <title>Vitalusus+</title>
 </head>
 <body> 
-      <header>
-        <div class="Head">
-    <a href="Menu.html">
-      <i class='bx bx-menu'></i>
-    </a>
-    
-      <img src="/Logo.png">
+  <header>
+    <menu>
+      <a href="#menu-options" id="menu-button"><i class='bx bx-menu' style='color:#ffffff'></i></a>
+      <ul id="menu-options">
+          <li><a href="#"></a></li>
 
-     <a href="Perfil.html" target="_self" id="iperfil"> 
-       <i class='bx bx-user'></i>
-    </a>
-</div>
-    </header>
+          <li>
+              <a href="#">
+                  <i class='bx bx-x' ></i>
+              </a>
+          </li>
+          <span class="material-symbols-outlined">settings</span>
+          <a href="#">Configuração</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">library_add</span>
+              <a href="#">Seus Vídeos</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">trending_up</span>
+              <a href="#">Estatísticas</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">support_agent</span>
+              <a href="#">Contate-nos</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">info</span>
+              <a href="#">Sobre nós</a>
+          </li>
+      </ul>
+  </menu>
+  <div class="imgLogo">
+      <img src="/Logo.png">
+    </div>
+    <div class="linkseta">
+      <a th:href="@{/Vitalusus-2h/Clientes/login}"  target="_self"><i class='bx bx-left-arrow-circle'
+        id="seta"></i></a>
+      </div>
+    <div class="perfil">
+      <a href="Perfil.html" target="_self" id="iperfil">
+        <i class='bx bx-user'></i>
+      </a>
+    </div>
+  </header>
     <form action="" class="form"> 
       <h1>LOGIN</h1>    
       <strong>EMAIL:</strong>  <input type="email" class="input" name="name" min="" maxlength="" required="required">
