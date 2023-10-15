@@ -77,10 +77,6 @@
   <div class="imgLogo">
       <img src="/Logo.png">
     </div>
-    <div class="linkseta">
-    <a th:href="@{/Vitalusus-2h/Clientes/login}"  target="_self"><i class='bx bx-left-arrow-circle'
-      id="seta"></i></a>
-    </div>
     <div class="perfil">
       <a href="Perfil.html" target="_self" id="iperfil">
         <i class='bx bx-user'></i>
@@ -89,7 +85,8 @@
   </header>
   
   <form th:action="@{/Vitalusus-2h/Clientes/clienteSucesso}" method="post" onsubmit="return Validar()" class="form">
-    
+    <a th:href="@{/Vitalusus-2h/Clientes/login}" class="linkseta"  target="_self"><i class='bx bx-left-arrow-circle'
+      id="seta"></i></a>
       
     <div class="txtcad">
       <h1 class="textaocad">Cadastre-se</h1>

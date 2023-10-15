@@ -7,15 +7,25 @@ html,body {
     margin: 0;
     padding: 0;
 }
-
-.linkseta {
-    position: fixed;
-    right:0;
-    top:20px;
-    margin-right: 650px;
-    margin-top: 5px;
+.uservezin{
+    font-size: 100px;
+    color: #FFFFFF;
+    margin-left:20px ;
 }
-
+.linkseta {
+    position: absolute;
+    width: 12px;
+    z-index: 1;
+}
+th, td {
+    border: 1px solid #FFFFFF; 
+    padding: 8px; 
+    text-align: center; 
+    background-color:#ff0000;
+}
+th {
+    background-color: #ff0000; 
+}
 .txtcad {
     margin-top: 0;
 }
@@ -48,14 +58,29 @@ img {
 
     text-align: center;
 }
-
+table {
+    box-shadow: 0 0 4px #FA8072; 
+    border-collapse: collapse; 
+    width: 100%;
+}
 strong {
     margin-left: 17%;
     color: white;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.cor{
+    background-color: rgba(245, 9, 9, 0.63);
+    width: 15%;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    height: 1000px;
+}
 header {
     position: fixed;
     background: rgb(2, 0, 36);
@@ -65,7 +90,7 @@ header {
     min-width:100vw;
     box-shadow: 0 0 4px black;
     border-radius: 4px;
-
+    z-index: 2;
 }
 
 .input {
@@ -152,17 +177,26 @@ a:hover {
 }
 
 footer {
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
-    box-shadow: 0 0 4px black;
-    margin-top: 7%;
-    z-index:1;
-    padding: 10px;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
+        box-shadow: 0 0 4px black;
+        margin-top: 20%;
+        z-index:1;
+        padding: 10px;
 }
 .perfil{
     position: fixed;
     right:0;
     top:20px;
+}
+.sucesso{
+    color: #fff;
+    text-decoration:underline;
+}
+.voltartab{
+    margin-top:70px;
+    width: 120px;
+    margin-left: 30px;
 }
 .cadastrar {
     text-align: center;
