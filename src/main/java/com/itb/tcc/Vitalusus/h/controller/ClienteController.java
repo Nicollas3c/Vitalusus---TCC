@@ -97,5 +97,10 @@ public class ClienteController {
 		
 		return "Vitalusus-2h/perfil";
 	}
+	@GetMapping("/configT")
+	public String configuracoes() {
+		
+		return "Vitalusus-2h/configuracoes";
+	}
 	
 }
