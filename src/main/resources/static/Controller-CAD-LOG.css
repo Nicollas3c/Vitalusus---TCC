@@ -223,7 +223,7 @@ footer {
 .cadastrar {
     text-align: center;
     display: grid;
-    margin: 10x;
+    margin-inline: 325px;
 }
 /*Menu*/
 menu {
