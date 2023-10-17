@@ -100,7 +100,7 @@ public class ClienteController {
 	@GetMapping("/configT")
 	public String configuracoes() {
 		
-		return "Vitalusus-2h/configuracoes";
+		return "configT";
 	}
 	
 }
