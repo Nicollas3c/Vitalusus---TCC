@@ -17,7 +17,7 @@
     <title>Vitalusus+</title>
 </head>
 <body> 
-  <header>
+ <header>
     <menu>
       <a href="#menu-options" id="menu-button"><i class='bx bx-menu' style='color:#ffffff'></i></a>
       <ul id="menu-options">
@@ -29,7 +29,7 @@
               </a>
           </li>
           <span class="material-symbols-outlined">settings</span>
-          <a href="#">Configuração</a>
+          <a th:href="@{/Vitalusus-2h/Clientes/configT}" target="_self">Configuração</a>
           </li>
 
           <li><span class="material-symbols-outlined">library_add</span>
@@ -49,9 +49,10 @@
           </li>
       </ul>
   </menu>
-  <div class="imgLogo">
+  <div class="imgLogologin">
       <img src="/Logo.png">
     </div>
+    
     <div class="perfil">
       <a href="Perfil.html" target="_self" id="iperfil">
         <i class='bx bx-user'></i>

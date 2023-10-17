@@ -79,8 +79,18 @@ img {
 }
 
 .imgLogo {
-
     text-align: center;
+}
+.imgLogo img{
+	width:4.5%;
+	height:4.5%;
+}
+.imgLogologin {
+    text-align: center;
+}
+.imgLogologin img{
+	width:4.5%;
+	height:130%;
 }
 table {
     box-shadow: 0 0 4px #FA8072; 
@@ -116,6 +126,7 @@ header {
     box-shadow: 0 0 4px black;
     border-radius: 4px;
     z-index: 2;
+    height:8%
 }
 
 .input {
