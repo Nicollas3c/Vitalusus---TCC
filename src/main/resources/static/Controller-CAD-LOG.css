@@ -105,7 +105,7 @@ strong {
 }
 .cor{
     background-color: rgba(245, 9, 9, 0.63);
-    width: 7%;
+    width: 10%;
     max-width: 800px;
     text-align: center;
     align-self: center;
@@ -192,7 +192,7 @@ a:hover {
 }
 
 .bx-user,.bx-menu {
-    font-size: 60px;
+    font-size: 250%;
 }
 
 .bx-user:hover {
