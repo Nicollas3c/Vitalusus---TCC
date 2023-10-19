@@ -248,14 +248,17 @@ footer {
 menu {
     position: fixed;
 }
-
+menu a{
+    margin-bottom: 10px;
+}
 #menu-options {
     display: none;
     position: fixed;
     top: 0;
     left: 2%;
     list-style: none;
-    width: auto;
+    width: 200px;
+    height:350px;
     font-size: 20px;
     padding: 0;
     margin-top: 1%;
@@ -297,17 +300,19 @@ menu {
 
 /*ajuste no "X"*/
 .bx-x {
+    margin-right: 17px;
     padding-left: 0%;
-    font-size: 60px;
+    margin-left: 0px;
+    font-size: 70px;
+    margin-top: 12px;
+    position: relative;
 }
 menu li a .bx-x{
     position: absolute;
     top:0%;
     left:0%;
 }
-.bx-x{
-    font-size: 90px;
-}
+
 
 
 .element {
@@ -318,3 +323,132 @@ menu li a .bx-x{
     cursor: pointer;
   }
   /*FIM MENU*/
+  /*Estatisticas*/
+  .espec {
+    margin-left: 17%;
+    color: rgb(187, 184, 184);
+    text-align: left;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.txtstat{
+    margin-left: 17%;
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.video{
+    text-align: center;
+}
+#Text-H2-estat{
+    text-align: center;
+    color: white;
+}
+#Text-H3-estat{
+    color: white;  
+}
+#Text-H4-estat{
+    color: white;     
+}
+#videoicon{
+    font-size: 300%;
+    color: white;
+}
+/*User*/
+.alignBack{
+    width:50px;
+    position: absolute;
+    left: 180px;
+    z-index: 1;
+    top:110px;
+}
+.container{
+    Top:130px;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+}
+.alignBack .material-symbols-outlined{
+        font-size: 30px;
+       
+}
+.student{
+    margin-top: 100px;
+    background-color: #ffffff;   
+    height:90vh;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+    width:70%;
+}
+.student img {
+    width: 150px;
+    height: 170px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 30%;
+  }
+  .alignUser{
+    margin-top:60px;
+    cursor: pointer;
+    position: absolute;
+    left:10%;
+    transform: translate(-70%);
+  }
+  .alignUser .material-symbols-outlined{
+    color:#c5c5c5;
+    font-size: 140px;
+  }
+  .alignConfig .material-symbols-outlined{
+    color:#000;
+    font-size:60px;
+  }
+  .alignConfig{
+    margin-top:230px;
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    left:10%;
+    transform: translate(-70%);
+  }
+  .alignConfig .span1{
+    position: absolute;
+    top:25%;
+  }
+  .span1{
+    font-size: 20px;
+  }
+  .alignConfig .span1{
+    font-style: italic;
+color:black;
+  }
+
+  /*DIVS DO MENU*/
+  
+
+.bxs-user-plus {
+    position: fixed;
+    cursor: pointer;
+    margin-top: 10px;
+    z-index: 1;
+    top: 0%;
+    right: 10px;
+    font-size: 40px;
+}
+
+.alinharUser {}
+
+.img1 {
+    width: 80px;
+    height: 100px;
+}
+
+.alinharImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footeruser{
+    margin-top: 1100px;
+}
