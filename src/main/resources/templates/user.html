@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -7,61 +7,53 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Perfil Treinador</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/configUser.css">
+    <link rel="stylesheet" type="text/css" href="/Controller-CAD-LOG.css">
 </head>
 
 <body>
     <header>
-
         <menu>
-            <a href="#menu-options" id="menu-button"><i class='bx bx-menu' style='color:#ffffff'></i></a>
-            <ul id="menu-options">
-                <li><a href="#"></a></li>
-
-                <li>
-                    <a href="#">
-                        <i class='bx bx-x'></i>
-                    </a>
-                </li>
-                <span class="material-symbols-outlined">settings</span>
-                <a href="#">Configuração</a>
-                </li>
-
-                <li><span class="material-symbols-outlined">library_add</span>
-                    <a href="#">Seus Vídeos</a>
-                </li>
-
-                <li><span class="material-symbols-outlined">trending_up</span>
-                    <a href="#">Estatísticas</a>
-                </li>
-
-                <li><span class="material-symbols-outlined">support_agent</span>
-                    <a href="#">Contate-nos</a>
-                </li>
-
-                <li><span class="material-symbols-outlined">info</span>
-                    <a href="#">Sobre nós</a>
-                </li>
-            </ul>
-        </menu>
-
-        <div class="alinharImg">
-
-            <img class="img1" src="/Logo.png">
+          <a href="#menu-options" id="menu-button"><i class='bx bx-menu' style='color:#ffffff'></i></a>
+          <ul id="menu-options">
+              <li><a href="#"></a></li>
+    
+              <li>
+                  <a href="#">
+                      <i class='bx bx-x' ></i>
+                  </a>
+              </li>
+              <span class="material-symbols-outlined">settings</span>
+              <a class="menu-a"th:href="@{/Vitalusus-2h/Clientes/configT}" target="_self">Configuração</a>
+              </li>
+    
+              <li><span class="material-symbols-outlined">library_add</span>
+                  <a class="menu-a" href="#">Seus Vídeos</a>
+              </li>
+    
+              <li><span class="material-symbols-outlined">trending_up</span>
+                  <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Estatisticas}">Estatísticas</a>
+              </li>
+    
+              <li><span class="material-symbols-outlined">support_agent</span>
+                  <a class="menu-a" href="#">Contate-nos</a>
+              </li>
+    
+              <li><span class="material-symbols-outlined">info</span>
+                  <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Sobre-nos}">Sobre nós</a>
+              </li>
+          </ul>
+      </menu>
+      <div class="imgLogo">
+          <img src="/Logo.png">
         </div>
-
-        <div class="alinharUser2">
-            <a href="contato.html">
-            <i class='bx bxs-user-plus' style='color:#ffffff'></i>
-        </a>
+        <div class="perfil">
+            <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador}" target="_self" id="iperfil">
+            <i class='bx bx-user'></i>
+          </a>
         </div>
-    </header>
+      </header>
 </div>
-<div class="alignBack">
-<span class="material-symbols-outlined">
-    arrow_back_ios
-    </span>
-</div>
+
     <div class="student">
 
 
@@ -79,12 +71,9 @@
             <span class="material-symbols-outlined">
                 settings
             </span>
-            <a href class="span1">Configurações</a>
+            <a th:href="@{/Vitalusus-2h/Clientes/configT}" class="span1">Configurações</a>
         </div>
-        
-
-
     </div>
+    <footer class="footeruser">.</footer>
 </body>
-
 </html>

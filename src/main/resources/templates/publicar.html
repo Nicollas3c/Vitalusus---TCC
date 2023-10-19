@@ -15,12 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <title>Vitalusus+ | Publicar Vídeoaula</title>
+  <title>Vitalusus+</title>
 </head>
 
 <body>
   <header>
-    <menu>
+    <menu class="menuMenu">
       <a href="#menu-options" id="menu-button"><i class='bx bx-menu' style='color:#ffffff'></i></a>
       <ul id="menu-options">
           <li><a href="#"></a></li>
@@ -31,23 +31,23 @@
               </a>
           </li>
           <span class="material-symbols-outlined">settings</span>
-          <a href="#">Configuração</a>
+          <a class="menu-a"th:href="@{/Vitalusus-2h/Clientes/configT}" target="_self">Configuração</a>
           </li>
 
           <li><span class="material-symbols-outlined">library_add</span>
-              <a href="#">Seus Vídeos</a>
+              <a class="menu-a" href="#">Seus Vídeos</a>
           </li>
 
           <li><span class="material-symbols-outlined">trending_up</span>
-              <a href="#">Estatísticas</a>
+              <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Estatisticas}">Estatísticas</a>
           </li>
 
           <li><span class="material-symbols-outlined">support_agent</span>
-              <a href="#">Contate-nos</a>
+              <a class="menu-a" href="#">Contate-nos</a>
           </li>
 
           <li><span class="material-symbols-outlined">info</span>
-              <a href="#">Sobre nós</a>
+              <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Sobre-nos}">Sobre nós</a>
           </li>
       </ul>
   </menu>
@@ -55,32 +55,52 @@
       <img src="/Logo.png">
     </div>
     <div class="perfil">
-      <a href="Perfil.html" target="_self" id="iperfil">
+      <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador}" target="_self" id="iperfil">
         <i class='bx bx-user'></i>
       </a>
     </div>
   </header>
-  <form action="" class="form">
-    <fieldset>
-      <h1>Criar Vídeoaula</h1>
-      <p>Tìtulo</p>
-      <input class="input" type="text" name="tituloV" id="" placeholder="Dê um título bonito e atraente...">
-      <p>Descrição</p>
-      <textarea class="input" type="text" name="descricaoV" placeholder="Conte sobre a vídeoaula..."></textarea>
-      <p>Categoria de Treino</p>
-      <select class="input" name="categoriaV" id="">
+  
+  <form th:action="@{/Vitalusus-2h/Clientes/clienteSucesso}" method="post" onsubmit="return Validar()" class="formPublicar">
+    <a href="HomeTreinador.html" th:href="@{/Vitalusus-2h/Clientes/login}" class="linkseta"  target="_self"><i class='bx bx-left-arrow-circle'
+      id="seta"></i></a>
+      
+    <div class="txtcad">
+      <h1 class="textaocad">Criar vídeoAula</h1>
+    </div>
+    <div class="alignTitle">
+      <strong>Titulo</strong><input type="text"  placeholder="Dê um título bonito e atraente..." class="input" name="name"
+        required="required">
+      <br />
+
+      <strong>Descrição</strong> <textarea  class="input" name="name"
+      required="required" id="" cols="30" rows="10"></textarea>
+      <br />
+</div>
+<div class="alignTreiner">
+      <strong>Categoria de Treino</strong> 
+      <select type="tel"  class="inputTreb"  name="categoria" min=""
+      maxlength="" required="required" id="">
         <option value="musculação">Musculação</option>
         <option value="levantamento">Levantamento</option>
         <option value="yoga">Yoga</option>
       </select>
-      <p>Mídia</p>
-      <input class="input" type="url" name="linkV" id="">
-      <button class="bt" type="submit">Enviar Vídeoaula!</button>
-    </fieldset>
+      <br />
+      <strong>MIDIA</strong>
+      <input  class="inputTreb" name="name" required="required" type="url"  id="">
+      </select>
+    </div>
+      <br />
+      <br />
+    </div>
+    <div class="btPublicar">
+      <input class="botao" type="submit" value="Enviar vídeo!" id="Botao">
+    </div>
   </form>
-  <footer>
-    Footer
-  </footer>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<footer>.</footer>
 </body>
 
 </html>

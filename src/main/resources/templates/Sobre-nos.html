@@ -29,23 +29,23 @@
                   </a>
               </li>
               <span class="material-symbols-outlined">settings</span>
-              <a th:href="@{/Vitalusus-2h/Clientes/configT}" target="_self">Configuração</a>
+              <a class="menu-a"th:href="@{/Vitalusus-2h/Clientes/configT}" target="_self">Configuração</a>
               </li>
     
               <li><span class="material-symbols-outlined">library_add</span>
-                  <a href="#">Seus Vídeos</a>
+                  <a class="menu-a" href="#">Seus Vídeos</a>
               </li>
     
               <li><span class="material-symbols-outlined">trending_up</span>
-                  <a href="#">Estatísticas</a>
+                  <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Estatisticas}">Estatísticas</a>
               </li>
     
               <li><span class="material-symbols-outlined">support_agent</span>
-                  <a href="#">Contate-nos</a>
+                  <a class="menu-a" href="#">Contate-nos</a>
               </li>
     
               <li><span class="material-symbols-outlined">info</span>
-                  <a th:href="@{/Vitalusus-2h/Clientes/Sobre-nos}">Sobre nós</a>
+                  <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Sobre-nos}">Sobre nós</a>
               </li>
           </ul>
       </menu>
@@ -53,12 +53,11 @@
           <img src="/Logo.png">
         </div>
         <div class="perfil">
-          <a th:href="@{/Vitalusus-2h/perfil}" target="_self" id="iperfil">
+            <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador}" target="_self" id="iperfil">
             <i class='bx bx-user'></i>
           </a>
         </div>
       </header>
-
     <div class="cor-sobre-nós">
         <i class='bx bx-left-arrow-circle' id="seta-sobre-nos"></i>
         <h1 id="Texto-H-SN">O que nós somos?</h1>

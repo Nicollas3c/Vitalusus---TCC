@@ -102,5 +102,34 @@ public class ClienteController {
 		
 		return "configT";
 	}
-	
+	@GetMapping("/Sobre-nos")
+	public String sobrenos() {
+		
+		return "Sobre-nos";
+	}
+	@GetMapping("/Estatisticas")
+	public String estatisticas() {
+		
+		return "Estatisticas";
+	}
+	@GetMapping("/user")
+	public String user() {
+		
+		return "user";
+	}
+	@GetMapping("/index")
+	public String index() {
+		
+		return "index";
+	}
+	@GetMapping("/HomeTreinador")
+	public String hometreinador() {
+		
+		return "HomeTreinador";
+	}
+	@GetMapping("/publicar")
+	public String publicar() {
+		
+		return "publicar";
+	}
 }
