@@ -106,6 +106,12 @@ strong {
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 }
+#indexstrong{
+    margin-left: 0px;
+    color: white;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .cor{
     background-color: rgba(245, 9, 9, 0.63);
     width: 10%;
