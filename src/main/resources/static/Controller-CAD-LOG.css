@@ -106,9 +106,9 @@ strong {
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 }
-#indexstrong{
+.indexstrong strong{
     margin-left: 0px;
-    color: white;
+    color: #000;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -837,7 +837,7 @@ color:black;
     
     /*COMEÇAR (TELA DE BAIXO DA LOGO)*/
     .comecar {
-        height: 300px;
+        height: 350px;
         position: absolute;
         top: 1500px;
         left: 50%;
@@ -940,4 +940,8 @@ color:black;
         position:absolute;
         top:170px;
         left:29%;
+    }
+    .fazerloginIndex:hover{
+        font-size: 110%;
+        color: red
     }
