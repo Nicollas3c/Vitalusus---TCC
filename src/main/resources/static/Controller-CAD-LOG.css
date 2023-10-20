@@ -348,6 +348,7 @@ nav li a .bx-x{
     width:35px;
     height:35px;
     margin-top: 15px;
+    transition: all ease .5s;
   }
    .menu-icon span{
     display: block;
