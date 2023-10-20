@@ -18,45 +18,41 @@
 
 <body>
   <header>
-    <menu>
-      <a href="#menu-options" id="menu-button"><i class='bx bx-menu' style='color:#ffffff'></i></a>
-      <ul id="menu-options">
-        <li><a href="#"></a></li>
-
-        <li>
-          <a href="#">
-            <i class='bx bx-x'></i>
-          </a>
-        </li>
-        <span class="material-symbols-outlined">settings</span>
-        <a href="#">Configuração</a>
-        </li>
-
-        <li><span class="material-symbols-outlined">library_add</span>
-          <a href="#">Seus Vídeos</a>
-        </li>
-
-        <li><span class="material-symbols-outlined">trending_up</span>
-          <a href="#">Estatísticas</a>
-        </li>
-
-        <li><span class="material-symbols-outlined">support_agent</span>
-          <a href="#">Contate-nos</a>
-        </li>
-
-        <li><span class="material-symbols-outlined">info</span>
-          <a href="#">Sobre nós</a>
-        </li>
-      </ul>
-    </menu>
-
-    <div class="alinharImg">
-      <img class="img1" src="Logo.jpeg">
+    <nav class="menuMenu">
+      <input type="checkbox" class="input-fake"/>
+      <div class="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+      <ul class="menu-options"><br/><br/><br/>
+          <li><span class="material-symbols-outlined">settings</span>
+          <a class="menu-a"th:href="@{/Vitalusus-2h/Clientes/configT}" target="_self">Configuração</a>
+          </li>
 
-    <div class="alinharUser">
-      <a href="Config.html">
-        <i class='bx bxs-user-plus' style='color:#ffffff'></i>
+          <li><span class="material-symbols-outlined">library_add</span>
+              <a class="menu-a" href="#">Seus Vídeos</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">trending_up</span>
+              <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Estatisticas}">Estatísticas</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">support_agent</span>
+              <a class="menu-a" href="#">Contate-nos</a>
+          </li>
+
+          <li><span class="material-symbols-outlined">info</span>
+              <a class="menu-a" th:href="@{/Vitalusus-2h/Clientes/Sobre-nos}">Sobre nós</a>
+          </li>
+      </ul>
+    </nav>
+  <div class="imgLogo">
+      <img src="/Logo.png">
+    </div>
+    <div class="perfil">
+      <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador}" target="_self" id="iperfil">
+        <i class='bx bx-user'></i>
       </a>
     </div>
   </header>
