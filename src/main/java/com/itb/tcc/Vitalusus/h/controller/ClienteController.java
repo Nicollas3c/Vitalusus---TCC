@@ -22,6 +22,10 @@ import com.itb.tcc.Vitalusus.h.model.Cliente;
 public class ClienteController {
 	List<Cliente> listaDeClientes = new ArrayList<Cliente>(); // Variável Array
 	private ClienteRepository clienteRepository;
+
+	public ClienteController {
+		this.clienteRepository = clienteRepository;
+	}
 	@GetMapping("/listaClientes")
 	public String listarClientes(Model model) {
 		
@@ -61,7 +65,7 @@ public class ClienteController {
 	public String gravarNovoCliente(Cliente cliente) {
 		listaDeClientes.add(cliente);
 		cliente.setCodStatus(true);
-		// Cliente clientedb = clienteRepository.save(cliente);
+		Cliente clientedb = clienteRepository.save(cliente);
 		return "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
 	} 
 	
