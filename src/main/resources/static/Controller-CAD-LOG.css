@@ -755,6 +755,12 @@ color:black;
         margin-top: -18px;
         text-align: left;
     }
+    .p4 strong{
+    margin-top: 0px;
+    margin-left: 0%;
+    text-align: none;
+    color: red;
+    }
     
     .bar1 {
     
@@ -1075,15 +1081,27 @@ color:black;
     .PlayStore img{
     height:35%;
     width:30%;
+    margin-bottom: 10px;
+    transition: all ease .5s;
     }
+    .PlayStore img:hover{
+        height:38%;
+        width:33%;
+        }
     .PlayStore{
         position:absolute;
         top:110px;
         left:29%;
     }
     .appStore img{
+        margin-top: 10px;
         height:45%;
-    width:38%;
+        width:38%;
+        transition: all ease .5s;
+    }
+    .appStore img:hover{
+        height:48%;
+    width:41%;
     }
     .appStore{
         position:absolute;
