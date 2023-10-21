@@ -144,11 +144,12 @@ header {
     display: block;
     width: 500px;
     margin-left: 17%;
+    transition: all ease .5s;
 }
 
 .input:hover {
     opacity: 0.8;
-    background-color: red;
+    background-color: rgb(250, 185, 185);
     color: white;
 }
 
@@ -206,6 +207,7 @@ a:hover {
 
 .bx-user,.bx-menu {
     font-size: 250%;
+    color: #fff;
 }
 
 .bx-user:hover {
@@ -416,9 +418,17 @@ nav li a .bx-x{
     font-size: 300%;
     color: white;
 }
+.bx-left-arrow-circle{
+    font-size: 50px;
+    transition: all ease .5s;
+    color: #fff;
+}
+.bx-left-arrow-circle:hover{
+    font-size: 60px;
+    color: #fff;
+}
 /*User*/
 .alignBack{
-    width:50px;
     position: absolute;
     left: 180px;
     z-index: 1;
@@ -1078,3 +1088,146 @@ color:black;
         font-size: 110%;
         color: red
     }
+    /*Vídeos*/
+    .Font{
+        text-align: center;
+        color:#ffffff;
+    }
+    /*VIDEOS*/
+    /*Principal*/
+    .videosCont{
+        margin-top: 100px;
+        position: absolute;
+        left:50%;
+        transform: translate(-50%);
+        top:50px;
+        background-color: rgba(218, 6, 6, 0.89);
+        height:130vh;
+        width:80%;
+        border-radius: 20px;
+    }
+    
+    #unic{
+       margin-top:40px;
+       margin:60px; 
+    }
+    
+    /*VOLTAR*/
+    .alignBackVD{
+        position: absolute;
+        top:2%;
+        left:1%;
+    }
+    .alignBackVD span{
+        color:#fff;
+        font-size: 40px;
+    }
+    .alignBackVD:hover{
+        cursor:pointer;
+    }
+    /*FIM VOLTAR*/
+    
+    /*BOTAO*/
+    .alignBotaoVD{
+        margin-top: 50px;
+        position: absolute;
+        left:50%;
+        transform:translate(-50%);
+    }
+    .alignBotaoVD button{
+        border:none;
+        background-color: #ff0606;
+        color:#fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: large;
+        border-radius: 5px;
+        padding: 8px;
+        padding-left:15px;
+        padding-right: 15px;
+    }
+    
+    
+    /*BOTAO FIM*/
+    
+    /*BUSCA*/
+    .buscaVD {
+        margin-top: 15px;
+        position: absolute;
+        right:50px;
+        top:10px;
+    }
+    .buscaVD input::placeholder{
+        color:#7a7474;
+        font-size: 40px;
+        cursor: pointer;
+        position: absolute;
+        right:10px;
+        top:5%;
+    }
+    
+    
+    .buscaVD input{
+        border-color: black;
+        background-color: white;
+        color: #6d6b6b;
+        border-radius: 20px;
+        border:4px;
+        height:40px;
+        width:250px;
+    }
+    /*FIM BUSCA*/
+    
+    .AlignVD{
+        display: flex;
+        margin-top: 90px;
+        
+    }
+    /*formatação do video*/
+    .videoVD video,.videoVD2 video,.videoVD3 video,.videoVD4 video{
+        height:65%;
+        margin:30px;
+        width:70%;
+        background-color: #000;
+        border-radius: 20px;
+    }
+    /*mudar cor do titulo do video*/
+    .videoVD span,.videoVD2 span,.videoVD3 span,.videoVD4 span{
+    color:#ffff;
+    margin-top: -100%;
+    transform: translate(0,-100%);
+    cursor: pointer;
+    }
+    /*alinhar texto do video*/
+    .videoVD,.videoVD2,.videoVD3,.videoVD4{
+        text-align: center;
+    }
+    
+    .clipAlign{
+        display: flex;
+    }
+    
+    /*formatação do video2*/
+    .clipVD video,.clipVD2 video,.clipVD3 video,.clipVD4 video{
+        height:65%;
+        margin:30px;
+        width:70%;
+        background-color: #000;
+        border-radius: 20px;
+        
+    }
+    /*mudar cor do titulo do video*/
+    .clipVD span,.clipVD2 span,.clipVD3 span,.clipVD4 span{
+        color:#ffff;
+        margin-top: -100%;
+        transform: translate(0,-100%);
+        cursor: pointer;
+    }
+    
+    /*alinhar texto do video2*/
+    .clipVD,.clipVD2,.clipVD3,.clipVD4{
+        text-align: center;
+    }
+    
+    
+    
+    

@@ -132,4 +132,9 @@ public class ClienteController {
 		
 		return "publicar";
 	}
+	@GetMapping("/bibliotecaVideos")
+	public String bibliotecaVideos() {
+		
+		return "bibliotecaVideos";
+	}
 }
