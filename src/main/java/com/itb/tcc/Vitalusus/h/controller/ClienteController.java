@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.itb.tcc.Vitalusus.h.repository.*;
 
 import com.itb.tcc.Vitalusus.h.model.Cliente;
@@ -22,10 +20,6 @@ import com.itb.tcc.Vitalusus.h.model.Cliente;
 public class ClienteController {
 	List<Cliente> listaDeClientes = new ArrayList<Cliente>(); // Variável Array
 	private ClienteRepository clienteRepository;
-
-	public ClienteController {
-		this.clienteRepository = clienteRepository;
-	}
 	@GetMapping("/listaClientes")
 	public String listarClientes(Model model) {
 		
@@ -65,7 +59,7 @@ public class ClienteController {
 	public String gravarNovoCliente(Cliente cliente) {
 		listaDeClientes.add(cliente);
 		cliente.setCodStatus(true);
-		Cliente clientedb = clienteRepository.save(cliente);
+		// Cliente clientedb = clienteRepository.save(cliente);
 		return "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
 	} 
 	
@@ -78,12 +72,18 @@ public class ClienteController {
 		return "login";
 	}
 	
-@PostMapping("/login")
-	public ModelAndView efetuarLogin() {
-	ModelAndView efetuarLogin = new ModelAndView("usuarioview");
-	
-	return efetuarLogin;
-}
+//	@PostMapping("/login")
+//	public String efetuarLogin() {
+//		String page = "redirect:/Viatlusus-2h/Clientes/login";
+		// Lógica de verificação
+		// Cliente clienteDb = clienteRepository.findByEmail(cliente.getEmail());
+		
+//		if(clienteDb != null && clienteDb.getSenha().equals(clienteDb.getSenha())) {
+//			page = "redirect:/Viatlusus-2h/Clientes/perfil";
+//		}
+//		
+//		return page;
+//	}
 	
 	@GetMapping("/esqueceuSenha")
 	public String esqueceuSenha(Cliente cliente, Model model) {
