@@ -200,7 +200,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: blue;
+    color: rgb(252, 183, 183);
     font-size: 18px;
     transition: all ease .5s;
 }
@@ -1107,6 +1107,9 @@ color:black;
         position:absolute;
         top:170px;
         left:29%;
+    }
+    .fazerloginIndex{
+        color: #ff0000;
     }
     .fazerloginIndex:hover{
         font-size: 110%;
