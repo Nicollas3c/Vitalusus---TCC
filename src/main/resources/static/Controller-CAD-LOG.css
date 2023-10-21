@@ -67,8 +67,12 @@ body {
     color: white;
     text-align: center;
     align-self: center;
-    background-color: rgba(245, 9, 9, 0.63);
+    background-color: rgba(255, 0, 0, 1);
     width: 150px;
+    padding: 6px;
+    border-color: #000;
+    border: 3px;
+    border-radius: 10px;
 }
 h1 {
     margin: 30px;
@@ -156,7 +160,17 @@ header {
 #Botao {
     margin-top: 15px;
 }
-
+#Botaoconfig{
+    width: 160px;
+    align-self: center;
+    margin-top: 0px;
+}
+.botao-a{
+    width: 160px;
+    height: 40px;
+    margin: 0px;
+    align-self: center;
+}
 .botao {
     padding: 10px;
     background-color: red;
