@@ -57,30 +57,30 @@
       <h1 class="textaocad">Cadastre-se</h1>
     </div>
     <div class="alignCad">
-      <strong>NOME COMPLETO:</strong><input type="text" th:field="${cliente.nome}" class="input" name="name"
+      <strong>NOME COMPLETO:</strong><input type="text" th:field="${cliente.nome}" class="input" name="nome"
         required="required">
       <br />
 
-      <strong>EMAIL</strong> <input type="email" th:field="${cliente.email}" class="input" name="name"
+      <strong>EMAIL</strong> <input type="email" th:field="${cliente.email}" class="input" name="email"
         required="required">
       <br />
 
       <strong>DATA DE NASCIMENTO:</strong> <input type="date" th:field="${cliente.dataDeNascimento}" class="input"
-        name="data" min="" maxlength="" required="required">
+        name="dataDeNascimento" min="" maxlength="" required="required">
       <br />
 
       <strong>TELEFONE:</strong> <input type="tel" th:field="${cliente.telefone}" class="input" name="telefone" min=""
         maxlength="" required="required">
       <br />
 
-      <strong>CREF:</strong><input type="text" th:field="${cliente.cpf}" class="input" name="name" required="required">
+      <strong>CREF:</strong><input type="text" th:field="${cliente.cpf}" class="input" name="cpf" required="required">
       <br />
 
-      <strong>SENHA:</strong> <input type="password" class="input" th:field="${cliente.senha}" name="name" min="8"
+      <strong>SENHA:</strong> <input type="password" class="input" th:field="${cliente.senha}" name="senha" min="8"
         maxlength="8" required="required" id="txtsen" checked="checked">
       <br />
 
-      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input" name="Consenha" min="" maxlength=""
+      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input" name="senha" min="" maxlength=""
         required="required" id="txtconsen">
       <br />
 

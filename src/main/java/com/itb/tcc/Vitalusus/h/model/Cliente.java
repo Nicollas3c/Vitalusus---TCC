@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.sql.Date;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name="clientes")
 @Table(name="clientes")
 public class Cliente {
 	@Id // Chave Primária

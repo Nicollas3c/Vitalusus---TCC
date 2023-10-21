@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
 import com.itb.tcc.Vitalusus.h.repository.*;
 
 import com.itb.tcc.Vitalusus.h.model.Cliente;
@@ -72,18 +74,12 @@ public class ClienteController {
 		return "login";
 	}
 	
-//	@PostMapping("/login")
-//	public String efetuarLogin() {
-//		String page = "redirect:/Viatlusus-2h/Clientes/login";
-		// Lógica de verificação
-		// Cliente clienteDb = clienteRepository.findByEmail(cliente.getEmail());
-		
-//		if(clienteDb != null && clienteDb.getSenha().equals(clienteDb.getSenha())) {
-//			page = "redirect:/Viatlusus-2h/Clientes/perfil";
-//		}
-//		
-//		return page;
-//	}
+@PostMapping("/login")
+	public ModelAndView efetuarLogin() {
+	ModelAndView efetuarLogin = new ModelAndView("usuarioview");
+	
+	return efetuarLogin;
+}
 	
 	@GetMapping("/esqueceuSenha")
 	public String esqueceuSenha(Cliente cliente, Model model) {
