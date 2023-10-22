@@ -78,6 +78,9 @@ top:110px;
     left:10%;
     transform: translate(-70%);
   }
+  .alignUser a{
+    margin-left: 10%;
+  }
   .alignUser .material-symbols-outlined{
     color:#c5c5c5;
     font-size: 140px;

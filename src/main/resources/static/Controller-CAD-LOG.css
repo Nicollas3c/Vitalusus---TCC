@@ -448,12 +448,36 @@ nav li a .bx-x{
     z-index: 1;
     top:110px;
 }
-.container{
+.container-nome{
     Top:130px;
     position: absolute;
-    left:50%;
+    left:40%;
     transform: translate(-50%);
 }
+.container-nome h4{
+    text-decoration: underline;
+}
+.container-nome p{
+    color: #535353;
+}
+.container{
+    Top:230px;
+    position: absolute;
+    text-align: left;
+    left:17%;
+    transform: translate(-50%);
+}
+.container h4{
+    margin-left: 150px;
+    text-decoration: underline;
+}
+.container p{
+    margin-left: 150px;
+    color: #535353;
+    background-color: #e6e1e1;
+    width: 400px;
+}
+
 .alignBack .material-symbols-outlined{
         font-size: 30px;
        
@@ -461,7 +485,7 @@ nav li a .bx-x{
 .student{
     margin-top: 100px;
     background-color: #ffffff;   
-    height:90vh;
+    height:100vh;
     position: absolute;
     left:50%;
     transform: translate(-50%);
@@ -481,6 +505,18 @@ nav li a .bx-x{
     position: absolute;
     left:10%;
     transform: translate(-70%);
+    display: block;
+  }
+  .alignUser img{
+    margin-left: 70px;
+    margin-top: -10px;
+  }
+  .alignUser a{
+    margin-left: 150px;
+    color:#8b8989
+  }
+  .alignUser a:hover{
+    color:#ff0000
   }
   .alignUser .material-symbols-outlined{
     color:#c5c5c5;
@@ -491,7 +527,9 @@ nav li a .bx-x{
     font-size:60px;
   }
   .alignConfig{
-    margin-top:230px;
+    margin-top:590px;
+    width: 400px;
+    margin-left: 880px;
     position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     left:10%;
