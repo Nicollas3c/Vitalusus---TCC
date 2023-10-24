@@ -80,23 +80,15 @@ public class ClienteController {
 	}
 	
 	@PostMapping("/login")
-	public ModelAndView efetuarLogin(@ModelAttribute Cliente cliente) {
-		ModelAndView mv = new ModelAndView("HomeTreinador");
-		Cliente clienteDb = clienteRepository.findByLogin(cliente.getEmail(),cliente.getSenha());
-		mv.addObject("login",cliente);
-		if (clienteDb !=null && clienteDb.getEmail() == cliente.getEmail()) {
-			mv.setViewName("HomeTreinador");
+	public String efetuarLogin(@ModelAttribute Cliente cliente){ 
+		String page = "redirect:/Vitalusus-2h/Clientes/login";
+		
+		Cliente clienteDb = clienteRepository.findByLogin(cliente.getEmail(), cliente.getSenha());
+		if (cliente !=null && cliente.getSenha().equals("otta123")){
+			page = "redirect:/Vitalusus-2h/Clientes/HomeTreinador";
 		}
-		else{
-			mv.setViewName("login");
-		}
-		if (clienteDb !=null && clienteDb.getSenha() == cliente.getSenha()) {
-			mv.setViewName("HomeTreinador");
-		}
-		else {
-			mv.setViewName("login");
-		}
-		return mv;
+		
+		return page;
 	}
 	
 	@GetMapping("/esqueceuSenha")
