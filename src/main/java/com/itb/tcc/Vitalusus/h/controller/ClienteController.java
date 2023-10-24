@@ -84,7 +84,7 @@ public class ClienteController {
 		String page = "redirect:/Vitalusus-2h/Clientes/login";
 		
 		Cliente clienteDb = clienteRepository.findByLogin(cliente.getEmail(), cliente.getSenha());
-		if (cliente !=null && cliente.getSenha().equals("otta123")){
+		if (clienteDb !=null && cliente.getSenha().equals(clienteDb.getSenha())){
 			page = "redirect:/Vitalusus-2h/Clientes/HomeTreinador";
 		}
 		
