@@ -24,6 +24,8 @@ public class Cliente {
 	private boolean codStatus;
 	private String cpf;
 	
+
+	
 	public int getId() {
 		return id;
 	}

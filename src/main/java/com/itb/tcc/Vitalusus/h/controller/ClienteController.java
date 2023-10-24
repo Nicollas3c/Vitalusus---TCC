@@ -81,9 +81,21 @@ public class ClienteController {
 	
 	@PostMapping("/login")
 	public ModelAndView efetuarLogin(@ModelAttribute Cliente cliente) {
-		ModelAndView mv = new ModelAndView("/HomeTreinador");
+		ModelAndView mv = new ModelAndView("HomeTreinador");
 		Cliente clienteDb = clienteRepository.findByLogin(cliente.getEmail(),cliente.getSenha());
-		mv.addObject("/login",cliente);
+		mv.addObject("login",cliente);
+		if (clienteDb !=null && clienteDb.getEmail() == cliente.getEmail()) {
+			mv.setViewName("HomeTreinador");
+		}
+		else{
+			mv.setViewName("login");
+		}
+		if (clienteDb !=null && clienteDb.getSenha() == cliente.getSenha()) {
+			mv.setViewName("HomeTreinador");
+		}
+		else {
+			mv.setViewName("login");
+		}
 		return mv;
 	}
 	
