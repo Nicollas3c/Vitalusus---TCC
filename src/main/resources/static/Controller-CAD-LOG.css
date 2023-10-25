@@ -1313,7 +1313,7 @@ color:black;
     /*Configurações para a tela de celular*/
     @media(max-width:800px){
         body{
-            background-size: 300%;
+            background-size: 340%;
         }
         .AtributBotton .alignSeusVideos,.alingCriarVideo,.alignEstatisticas{
           width: 80px;
@@ -1372,12 +1372,20 @@ color:black;
             height: 300px;
             font-size: 5px;
         }
+        .homefooter{
+            display: none;
+        }
         footer{
-            width: 404px;
-            margin-bottom: 0px;
+            display: none;
+        }
+        .TrenH1{
+            margin-top: 200px;
         }
         header{
             max-width: 400px;
+        }
+        .cor-sobre-nos{
+            width: 300px;
         }
         html, body{
             max-width: 400px;
