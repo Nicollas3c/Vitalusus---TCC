@@ -129,7 +129,8 @@ public class ClienteController {
 		return "index";
 	}
 	@GetMapping("/HomeTreinador")
-	public String hometreinador() {
+	public String hometreinador(Cliente cliente, Model model) {
+		model.addAttribute("cliente", cliente);
 		
 		return "HomeTreinador";
 	}
