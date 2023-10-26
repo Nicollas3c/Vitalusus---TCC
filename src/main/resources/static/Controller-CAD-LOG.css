@@ -496,13 +496,14 @@ nav li a .bx-x{
        
 }
 .student{
-    margin-top: 100px;
+    top: 100px;
     background-color: #ffffff;   
     height:100vh;
     position: absolute;
     left:50%;
     transform: translate(-50%);
     width:70%;
+    margin: 0px;
 }
 .student img {
     width: 150px;
@@ -511,10 +512,13 @@ nav li a .bx-x{
     margin-bottom: 10px;
     position: absolute;
     left: 30%;
+    cursor: pointer;
+  }
+  .student a{
+    cursor: pointer;
   }
   .alignUser{
     margin-top:60px;
-    cursor: pointer;
     position: absolute;
     left:10%;
     transform: translate(-70%);
