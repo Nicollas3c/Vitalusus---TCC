@@ -1,12 +1,45 @@
 /*Cadastro*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
 
-html,body {
+/*CODIGOS PRINCIPAIS*/
+html,body{
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+body {
+    background-image: url("background.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    background: cover;
+}
+header {
+    position: fixed;
+    top:0;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
+    padding: 5px;
+    width:100%;
+    min-width:100%;
+    box-shadow: 0 0 4px black;
+    border-radius: 4px;
+    z-index: 2;
+    height:8%
+}
+footer {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
+    box-shadow: 0 0 4px black;
+    align-items: end;
+    z-index:1;
+    padding: 10px;
+    width: 100%;
+}
+/*FIM D CODIGOS PRINCIPAIS*/
+
 .uservezin{
     font-size: 100px;
     color: #FFFFFF;
@@ -33,18 +66,7 @@ th {
     color: #000;
     text-decoration: none;
 }
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url("background.jpeg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    background: cover;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
+
 .txtconfig{
     align-self: center;
     margin-top: 200px;
@@ -129,18 +151,7 @@ strong {
     height: 1000px;
     margin-bottom: 0px;
 }
-header {
-    position: fixed;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
-    padding: 5px;
-    width:100%;
-    min-width:100vw;
-    box-shadow: 0 0 4px black;
-    border-radius: 4px;
-    z-index: 2;
-    height:8%
-}
+
 
 .input {
     background-color: white;
@@ -246,14 +257,7 @@ a:hover {
     font-size: 60px;
 }
 
-footer {
-        background: rgb(2, 0, 36);
-        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
-        box-shadow: 0 0 4px black;
-        margin-top: 30%;
-        z-index:1;
-        padding: 10px;
-}
+
 .perfil{
     position: fixed;
     right:0;
@@ -572,18 +576,18 @@ color:black;
     justify-content: center;
     align-items: center;
 }
-.footeruser{
-    margin-top: 1100px;
-}
+
 .open{
     display: block;
 }
 /*HomeTreinador.html*/
 /*h1*/
 .TrenH1{
-    margin-top:150px;
-    margin-left: 60px;
-    margin-bottom: 60px;
+    position: absolute;
+    top:150px;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 60px;
 }
 /*botoes homeTreinador*/
 
@@ -676,7 +680,11 @@ color:black;
     border: solid 1px black;
     cursor: pointer;
 }
-
+.homeTreina{
+   min-height:100%;
+   display: flex;
+   align-items: end;
+}
 
 /*alinhar as divs dos botoes*/
 .alignSeusVideos{
@@ -697,9 +705,6 @@ color:black;
     top: 230px;
     left:80%;
     transform: translate(-20%)
-}
-.homefooter{
-    margin-top: 10%;
 }
 /*Fim de / */
 /*Publicar.html*/
@@ -1346,8 +1351,9 @@ color:black;
             margin-left: 200px;
         }
         .bomdia{
-            align-self: center;
-            position: relative;
+           justify-content: center;
+            margin-left: 5%;
+            width: 100%;
         }
         .alignTreiner .inputTreb{
             margin-left: 25px;
@@ -1379,7 +1385,8 @@ color:black;
             display: none;
         }
         .TrenH1{
-            margin-top: 200px;
+            position: absolute;
+            top: 15%;
         }
         header{
             max-width: 400px;
