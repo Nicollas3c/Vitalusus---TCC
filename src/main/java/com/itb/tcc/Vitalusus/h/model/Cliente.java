@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class Cliente {
 	@Id // Chave Primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String nome;
 	private String tipoPessoa;
 	private String email;
@@ -26,7 +26,7 @@ public class Cliente {
 	
 
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(int id) {

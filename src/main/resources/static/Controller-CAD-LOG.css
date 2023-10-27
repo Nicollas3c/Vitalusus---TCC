@@ -29,6 +29,25 @@ header {
     z-index: 2;
     height:8%
 }
+.listaHeader{
+    left: 0px;
+    height: 70px;
+}
+.bxs-message-alt-edit, .bxs-message-alt-x{
+    font-size: 30px;
+    opacity: 1;
+    border: 0px;
+}
+.editar-deletar{
+    text-decoration: none;
+    border: 0px;
+    opacity: 1;
+}
+.editar-deletar:hover{
+    text-decoration: none;
+    border: 0px;
+    opacity: 1;
+}
 footer {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
@@ -42,6 +61,9 @@ footer {
     margin-top: 26.041666666667%;
 }
 /*FIM D CODIGOS PRINCIPAIS*/
+.listaH2{
+    margin-top: 30px
+}
 .formContainer{
     min-height:100%;
     display: flex;
@@ -58,15 +80,7 @@ footer {
     width: 0.87847730600293%;
     z-index: 1;
 }
-th, td {
-    border: 1px solid #FFFFFF; 
-    padding: 8px; 
-    text-align: center; 
-    background-color:#ff0000;
-}
-th {
-    background-color: #ff0000; 
-}
+
 .txtcad {
     margin-top: 0;
 }
@@ -127,11 +141,7 @@ img {
 	width:4.5%;
 	height:139%;
 }
-table {
-    box-shadow: 0 0 4px #FA8072; 
-    border-collapse: collapse; 
-    width: 100%;
-}
+
 strong {
     margin-left: 17%;
     color: white;

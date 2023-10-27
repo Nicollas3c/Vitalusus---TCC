@@ -71,7 +71,7 @@
     <a class="botao-a"><button class="botao" id="Botaoconfig">Idioma</button><br/></a>
     <a th:href="@{/Vitalusus-2h/Clientes/Sobre-nos}" class="botao-a"><button class="botao" id="Botaoconfig">Sobre Nós</button><br/></a>
     <a th:href="@{/Vitalusus-2h/Clientes/user}" class="botao-a"><button class="botao" id="Botaoconfig">Conta</button><br/></a>
-    <a class="botao-a"><button class="botao" id="Botaoconfig">Deletar a Sua Conta</button></a>
+    <a th:href="@{/deletar{id}(id=${cliente.id})}" class="botao-a"><button class="botao" id="Botaoconfig">Deletar a Sua Conta</button></a>
   </form>
 </div>
   <footer>.</footer>

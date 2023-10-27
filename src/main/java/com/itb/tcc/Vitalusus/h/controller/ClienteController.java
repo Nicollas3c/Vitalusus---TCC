@@ -8,12 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itb.tcc.Vitalusus.h.repository.*;
-
+import com.itb.tcc.Services.ClienteService;
 import com.itb.tcc.Vitalusus.h.model.Cliente;
 
 // http://localhost:8080/Vitalusus-2h/Clientes/listaClientes
@@ -23,7 +24,7 @@ import com.itb.tcc.Vitalusus.h.model.Cliente;
 public class ClienteController {
 	List<Cliente> listaDeClientes = new ArrayList<Cliente>(); // Variável Array
 	private ClienteRepository clienteRepository;
-	
+	private ClienteService clienteService;
 	public ClienteController(ClienteRepository clienteRepository) {
 		this.clienteRepository = clienteRepository;
 	}
@@ -90,6 +91,15 @@ public class ClienteController {
 		
 		return page;
 	}
+	@GetMapping("/edit/{id}")
+	public String editar(@PathVariable("id") Long id, Model model) {
+		String page = "redirect:/vitalusus-2h/Clientes/cadastrar";
+		List<Cliente> listaDeClientes = this.listaDeClientes;
+		Cliente cliente = this.clienteService.findById(id);
+		model.addAttribute("cliente", cliente);
+		
+		return page;
+	}
 	
 	@GetMapping("/esqueceuSenha")
 	public String esqueceuSenha(Cliente cliente, Model model) {
@@ -104,7 +114,7 @@ public class ClienteController {
 		return "Vitalusus-2h/perfil";
 	}
 	@GetMapping("/configT")
-	public String configuracoes() {
+	public String configuracoes(Cliente cliente) {
 		
 		return "configT";
 	}
@@ -143,5 +153,10 @@ public class ClienteController {
 	public String bibliotecaVideos() {
 		
 		return "bibliotecaVideos";
+	}
+	@GetMapping("/deletar{id}")
+	public String deletar(@PathVariable("id") Long id) {
+		this.clienteService.deletar(id);
+		return  "redirect:/Vitalusus-2h/Clientes/cadastrar";
 	}
 }
