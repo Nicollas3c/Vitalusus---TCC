@@ -150,9 +150,8 @@ public class ClienteController {
 	public void editar(@RequestBody Cliente cliente) {
 		if(cliente.getId()>0) clienteRepository.save(cliente);
 	}
-	@GetMapping("/deletar")
 	
-	@DeleteMapping("/deletar")
+	@DeleteMapping
 	public String deletar(@RequestBody Cliente cliente) {
 		clienteRepository.delete(cliente);
 		
