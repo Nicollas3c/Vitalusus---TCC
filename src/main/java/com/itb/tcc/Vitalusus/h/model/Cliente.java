@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import java.sql.Date;
 import java.time.LocalDate;
 
-@Entity(name="clientes")
-@Table(name="clientes")
+@Entity(name="cliente")
+@Table(name="cliente")
 public class Cliente {
 	@Id // Chave Primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
