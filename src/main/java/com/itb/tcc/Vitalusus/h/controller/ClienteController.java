@@ -154,9 +154,4 @@ public class ClienteController {
 		
 		return "bibliotecaVideos";
 	}
-	@GetMapping("/deletar{id}")
-	public String deletar(@PathVariable("id") Long id) {
-		this.clienteService.deletar(id);
-		return  "redirect:/Vitalusus-2h/Clientes/cadastrar";
-	}
 }
