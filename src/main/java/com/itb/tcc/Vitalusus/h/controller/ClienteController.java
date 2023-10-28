@@ -1,21 +1,21 @@
 package com.itb.tcc.Vitalusus.h.controller;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.itb.tcc.Vitalusus.h.repository.*;
 import com.itb.tcc.Services.ClienteService;
 import com.itb.tcc.Vitalusus.h.model.Cliente;
+import com.itb.tcc.Vitalusus.h.repository.ClienteRepository;
 
 // http://localhost:8080/Vitalusus-2h/Clientes/listaClientes
 
@@ -91,15 +91,7 @@ public class ClienteController {
 		
 		return page;
 	}
-	@GetMapping("/edit/{id}")
-	public String editar(@PathVariable("id") Long id, Model model) {
-		String page = "redirect:/vitalusus-2h/Clientes/cadastrar";
-		List<Cliente> listaDeClientes = this.listaDeClientes;
-		Cliente cliente = this.clienteService.findById(id);
-		model.addAttribute("cliente", cliente);
-		
-		return page;
-	}
+
 	
 	@GetMapping("/esqueceuSenha")
 	public String esqueceuSenha(Cliente cliente, Model model) {
@@ -153,5 +145,17 @@ public class ClienteController {
 	public String bibliotecaVideos() {
 		
 		return "bibliotecaVideos";
+	}
+	@PutMapping
+	public void editar(@RequestBody Cliente cliente) {
+		if(cliente.getId()>0) clienteRepository.save(cliente);
+	}
+	@GetMapping("/deletar")
+	
+	@DeleteMapping("/deletar")
+	public String deletar(@RequestBody Cliente cliente) {
+		clienteRepository.delete(cliente);
+		
+		return "redirect:/Vitalusus-2h/Clientes/index";
 	}
 }
