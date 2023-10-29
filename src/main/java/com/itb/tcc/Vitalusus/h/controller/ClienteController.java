@@ -147,9 +147,18 @@ public class ClienteController {
 		
 		return "bibliotecaVideos";
 	}
-	@PutMapping("/editarConta")
+	@GetMapping("/editarSuaConta")
+	public String editarConta(Cliente cliente, Model model) {
+		model.addAttribute("cliente", cliente);
+		return "editarSuaConta";
+	}
+	@GetMapping("/cliejtesucessoEditar")
+	public String putEditar(Cliente cliente, Model model) {
+		return "clientesucessoEditar";
+	}
+	@PutMapping("/clientesucessoEditar")
 	public String editar(@ModelAttribute Cliente cliente) {
-		if(cliente.getId()>0) listaDeClientes.add(cliente);
+		if(cliente.getId()>0) clienteRepository.save(cliente);
 		return "redirect:/Vitalusus-2h/Clientes/user";
 	}
 	
