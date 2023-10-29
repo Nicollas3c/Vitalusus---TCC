@@ -2,6 +2,7 @@ package com.itb.tcc.Vitalusus.h.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -146,15 +147,16 @@ public class ClienteController {
 		
 		return "bibliotecaVideos";
 	}
-	@PutMapping
-	public void editar(@RequestBody Cliente cliente) {
-		if(cliente.getId()>0) clienteRepository.save(cliente);
+	@PutMapping("/editarConta")
+	public String editar(@ModelAttribute Cliente cliente) {
+		if(cliente.getId()>0) listaDeClientes.add(cliente);
+		return "redirect:/Vitalusus-2h/Clientes/user";
 	}
 	
-	@DeleteMapping
-	public String deletar(@RequestBody Cliente cliente) {
-		clienteRepository.delete(cliente);
-		
+	@DeleteMapping("/configT")
+	public String deletar(@ModelAttribute Cliente cliente) {
+		Cliente clienteDb = clienteRepository.findByLogin(cliente.getEmail(),cliente.getSenha());
+		clienteRepository.deleteById(clienteDb.getId());
 		return "redirect:/Vitalusus-2h/Clientes/index";
 	}
 }
