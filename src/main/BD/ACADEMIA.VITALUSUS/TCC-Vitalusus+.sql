@@ -34,7 +34,7 @@ use master if exists(
 		email,
 	    nome,
 	    genero,
-		cpf,
+	
 		tipoPessoa,
 		statusCli,
 		dataNasc
@@ -46,7 +46,7 @@ use master if exists(
 		984398402190-21,
 		'Cliente',
 		'Ativo',
-		12012006
+		'2006/12/10'
 	)
 
 	create table Treinador(
@@ -77,7 +77,7 @@ use master if exists(
 	'masculino'
 	)
 
-	create table Admin(
+	create table Administrador(
 	id				int						identity,
 	nome			varchar(50)			    not null, 
 	email			varchar(100)	        not null,
@@ -85,7 +85,7 @@ use master if exists(
 	codigoAcesso	varchar(15)				not null,
 	)
 
-	insert Admin (
+	insert Administrador (
 	 nome,
 	 email,
 	 senha,
@@ -162,16 +162,10 @@ use master if exists(
 	Foreign Key (idCliente) references Cliente(id)
 	)
 
-	select * from Admin
+	select * from Administrador
 	select * from Cliente
 	select * from Categoria
 	select * from Evolução
 	select * from Treinador
 	select * from Video
 
---	SELECT	ITEM_PEDIDO.ID, 
---		PRODUTO.ID, PRODUTO.NOME, PRODUTO.PRECO,
---		ITEM_PEDIDO.QTD_PROD, ITEM_PEDIDO.SUBTOTAL 
---	FROM 
---	PRODUTO INNER JOIN ITEM_PEDIDO
---	ON PRODUTO.ID = ITEM_PEDIDO.PRODUTO_ID
