@@ -152,7 +152,7 @@ public class ClienteController {
 		model.addAttribute("cliente", cliente);
 		return "editarSuaConta";
 	}
-	@GetMapping("/cliejtesucessoEditar")
+	@GetMapping("/clientesucessoEditar")
 	public String putEditar(Cliente cliente, Model model) {
 		return "clientesucessoEditar";
 	}
