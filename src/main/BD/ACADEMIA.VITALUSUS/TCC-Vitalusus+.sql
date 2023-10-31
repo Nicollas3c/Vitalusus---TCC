@@ -1,5 +1,3 @@
-
-
 use master if exists(
 	select * from SYS.databases where name = 'bd_vitalusus2h')
 	drop database bd_vitalusus2h
@@ -18,87 +16,32 @@ use master if exists(
 	create table Cliente
 	(
 	id			int				identity,
-	nome		varchar(100)	not null,
-	email		varchar(100)	not null,
-	senha		varchar(50)		not null,
-	genero		varchar(9)		not null, -- Masculino ou Feminino
-	dataNasc	date			not null,
-	tipoPessoa	varchar(9)		not null, -- Admin, Treinador e Aluno
 	statusCli	varchar(7)		not null, -- Ativo ou Inativo.		
-
+	
 	primary key(id)
 	)
-
-	insert Cliente (
-	    senha, 
-		email,
-	    nome,
-	    genero,
-		tipoPessoa,
-		statusCli,
-		dataNasc
-		)
-	    values (
-		'12344343',
-		'ottafidela@gmail.com',
-		'Otta',
-		'feminnino',
-		'Cliente',
-		'Ativo',
-		'12-01-2006'
-	)
+	insert Cliente (statusCli)
+	values ('Ativo')
 
 	create table Treinador(
 	 id					int				identity,		
-	 cref				char(11)		not null,
-	 nome				varchar(100)	not null,
-	 genero				varchar(9)		not null, -- Masculino ou Feminino
-	 email				varchar(100)	not null,
-	 senha				varchar(50)		not null,
 	 statusTrei			varchar(7)		not null, -- Ativo ou Inativo.	
 
 	 primary key(id),
 	)
-
-	insert Treinador (
-	 cref,
-	 senha,
-	 email,
-	 nome, 
-	 genero,
-	 statusTrei
-	) 
-
+	insert Treinador (statusTrei) 
 	values(
-	'Cref123456G',
-	'$0uF0rt3',
-	'marombinha1234@hotmail.com',
-	'João',
-	'masculino',
-	'Ativo'
-	)
+'Ativo')
 
-	create table Admin(
+	create table Administrador(
 	id				int						identity,
-	nome			varchar(50)			    not null, 
-	email			varchar(100)	        not null,
-	senha			varchar(100)	        not null,
 	codigoAcesso	varchar(15)				not null,
-	)
+	statusAdm		varchar(7)				not null,
 
-	insert Admin (
-	 nome,
-	 email,
-	 senha,
-	 codigoAcesso
-	) 
-	 
-	values(
-	'Mônica',
-	'monique@gmail.com',
-	'd12e2121',
-	'D5%DW@#!d5JF22M'
+	primary key(id)
 	)
+	insert Administrador (codigoAcesso, statusAdm)
+	values('D5%DW@#!d5JF22M', 'ativo')
 
 	create table Categoria(
 	id			int				identity,
@@ -107,16 +50,8 @@ use master if exists(
 
 	primary key(id)
 	)
-
-	insert Categoria (
-	 nome,
-	 descricao
-	) 
-
-	values(
-	'Musculação',
-	'Exercício que trabalha os músculos.'
-	)
+	insert Categoria (nome,descricao) 
+	values('Musculação','Exercício que trabalha os músculos.')
 
 	create table Video(
 	id				int				identity,
@@ -133,20 +68,9 @@ use master if exists(
 	foreign key(categoria_id) references Categoria(id)
 
 	)
-	insert Video(
-	urlVideo,
-	nome,
-	descricao,
-	tempo,
-	statusExerc
-	)
-	values(
-	'https://www.youtube.com/embed/QVAmbJrlyvk?si=3cBiub-NjKpgBDUc',
-	'Musculação',
-	'10 exercícios essenciais na musculação',
-	20.00,
-	'Ativo'
-	)
+	insert Video(urlVideo,nome,descricao,tempo,statusExerc)
+	values('https://www.youtube.com/embed/QVAmbJrlyvk?si=3cBiub-NjKpgBDUc','Musculação','10 exercícios essenciais na musculação',
+	20.00,'Ativo')
 
 	create table Evolução(
 	id				int					identity,
@@ -163,16 +87,31 @@ use master if exists(
 	Foreign Key (idCliente) references Cliente(id)
 	)
 
-	select * from Admin
+	create table Usuario
+	(
+	id					int				identity,
+	nome				varchar(100)	not null,
+	email				varchar(100)	not null,
+	senha				varchar(50)		not null,
+	cref				char(11)		not null,
+	genero				varchar(9)		not null, -- Masculino ou Feminino
+	dataNasc			date			not null,
+	tipoPessoa			varchar(9)		not null, -- Admin, Treinador e Aluno
+	statusUsu			varchar(7)		not null, -- Ativo ou Inativo.		
+	id_treinador		int				not null,
+	id_administrador	int				not null,
+	id_cliente			int				not null, 
+	
+	primary key(id),
+	foreign key(id_treinador) references Treinador(id),
+	foreign key(id_administrador) references Administrador(id),
+	foreign key(id_cliente) references Cliente(id)
+	)
+
+	select * from Administrador
 	select * from Cliente
 	select * from Categoria
 	select * from Evolução
 	select * from Treinador
 	select * from Video
-
---	SELECT	ITEM_PEDIDO.ID, 
---		PRODUTO.ID, PRODUTO.NOME, PRODUTO.PRECO,
---		ITEM_PEDIDO.QTD_PROD, ITEM_PEDIDO.SUBTOTAL 
---	FROM 
---	PRODUTO INNER JOIN ITEM_PEDIDO
---	ON PRODUTO.ID = ITEM_PEDIDO.PRODUTO_ID
+	select * from Usuario
