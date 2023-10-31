@@ -64,6 +64,11 @@ footer {
 .listaH2{
     margin-top: 30px
 }
+.botao-form{
+    align-self: center;
+    margin-left:50%;
+    transform: translate(-50%);
+}
 .formContainer{
     min-height:100%;
     display: flex;

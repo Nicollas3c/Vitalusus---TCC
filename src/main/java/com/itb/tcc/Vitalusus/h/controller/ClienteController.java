@@ -156,16 +156,15 @@ public class ClienteController {
 	public String putEditar(Cliente cliente, Model model) {
 		return "clientesucessoEditar";
 	}
-	@PutMapping("/clientesucessoEditar")
+	@PostMapping("/clientesucessoEditar")
 	public String editar(@ModelAttribute Cliente cliente) {
 		if(cliente.getId()>0) clienteRepository.save(cliente);
 		return "redirect:/Vitalusus-2h/Clientes/user";
 	}
 	
-	@DeleteMapping("/configT")
+	@PostMapping("/configT")
 	public String deletar(@ModelAttribute Cliente cliente) {
-		Cliente clienteDb = clienteRepository.findByLogin(cliente.getEmail(),cliente.getSenha());
-		clienteRepository.deleteById(clienteDb.getId());
+		clienteRepository.delete(cliente);
 		return "redirect:/Vitalusus-2h/Clientes/index";
 	}
 }
