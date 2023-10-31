@@ -34,7 +34,6 @@ use master if exists(
 		email,
 	    nome,
 	    genero,
-		cpf,
 		tipoPessoa,
 		statusCli,
 		dataNasc
@@ -42,11 +41,11 @@ use master if exists(
 	    values (
 		'12344343',
 		'ottafidela@gmail.com',
+		'Otta',
 		'feminnino',
-		984398402190-21,
 		'Cliente',
 		'Ativo',
-		12012006
+		'12-01-2006'
 	)
 
 	create table Treinador(
@@ -56,7 +55,7 @@ use master if exists(
 	 genero				varchar(9)		not null, -- Masculino ou Feminino
 	 email				varchar(100)	not null,
 	 senha				varchar(50)		not null,
-	 statusCli			varchar(7)		not null, -- Ativo ou Inativo.	
+	 statusTrei			varchar(7)		not null, -- Ativo ou Inativo.	
 
 	 primary key(id),
 	)
@@ -66,7 +65,8 @@ use master if exists(
 	 senha,
 	 email,
 	 nome, 
-	 genero
+	 genero,
+	 statusTrei
 	) 
 
 	values(
@@ -74,7 +74,8 @@ use master if exists(
 	'$0uF0rt3',
 	'marombinha1234@hotmail.com',
 	'João',
-	'masculino'
+	'masculino',
+	'Ativo'
 	)
 
 	create table Admin(
@@ -91,7 +92,7 @@ use master if exists(
 	 senha,
 	 codigoAcesso
 	) 
-
+	 
 	values(
 	'Mônica',
 	'monique@gmail.com',
