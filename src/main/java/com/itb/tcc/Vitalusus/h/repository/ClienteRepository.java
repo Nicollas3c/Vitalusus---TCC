@@ -9,7 +9,7 @@ import com.itb.tcc.Vitalusus.h.model.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
-	@Query(value="SELECT * FROM Cliente c WHERE c.email=? AND c.senha=?", nativeQuery = true)
+	@Query(value="SELECT * FROM Clientes c WHERE c.email=? AND c.senha=?", nativeQuery = true)
 	Cliente findByLogin(String email, String senha);
 
 }

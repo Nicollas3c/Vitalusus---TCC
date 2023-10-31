@@ -12,6 +12,7 @@ use master if exists(
 	-- drop table Evolução
 	-- drop table Categoria
 	-- drop table Video
+	-- drop table Usuario
 
 	create table Cliente
 	(
