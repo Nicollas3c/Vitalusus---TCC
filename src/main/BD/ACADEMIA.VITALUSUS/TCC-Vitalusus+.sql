@@ -21,10 +21,11 @@ use master if exists(
 	nome		varchar(100)	not null,
 	email		varchar(100)	not null,
 	senha		varchar(50)		not null,
-	genero		varchar(9)		not null, -- Masculino ou Feminino
-	dataNasc	date			not null,
-	tipoPessoa	varchar(9)		not null, -- Admin, Treinador e Aluno
-	statusCli	varchar(7)		not null, -- Ativo ou Inativo.		
+	telefone	VARCHAR(13)		not null,
+	data_de_nascimento	date	not null,
+	tipo_pessoa	varchar(9)		not null, -- Admin, Treinador e Aluno
+	cod_status	bit		        not null, -- Ativo ou Inativo.		
+	cpf			varchar(11)		not null
 
 	primary key(id)
 	)
@@ -39,7 +40,7 @@ use master if exists(
 =======
 >>>>>>> ed40a64b7d31f9bb5072788ee5eede34ca540229
 		tipoPessoa,
-		statusCli,
+		cod_status,
 		dataNasc
 		)
 	    values (
@@ -48,7 +49,7 @@ use master if exists(
 		'Otta',
 		'feminnino',
 		'Cliente',
-		'Ativo',
+		1,
 <<<<<<< HEAD
 		'2006/12/10'
 =======
@@ -83,7 +84,7 @@ use master if exists(
 	'marombinha1234@hotmail.com',
 	'João',
 	'masculino',
-	'Ativo'
+	1
 	)
 
 	create table Administrador(
@@ -153,7 +154,7 @@ use master if exists(
 	'Musculação',
 	'10 exercícios essenciais na musculação',
 	20.00,
-	'Ativo'
+	1
 	)
 
 	create table Evolução(
