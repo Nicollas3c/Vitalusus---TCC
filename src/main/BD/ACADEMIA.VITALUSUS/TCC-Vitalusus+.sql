@@ -5,15 +5,14 @@ use master if exists(
 	create database bd_vitalusus2h
 	go
 	use bd_vitalusus2h
-
-	-- drop table Admin
-	-- drop table Cliente
-	-- drop table Treinador
-	-- drop table Evolução
-	-- drop table Categoria
-	-- drop table Video
-	-- drop table Usuario
-
+	drop table Administrador
+	drop table cliente
+	drop table Treinador
+	drop table Evolução
+	drop table Categoria
+	drop table Video
+	drop table Usuario
+	drop table Clientes
 	create table Cliente
 	(
 	id			int				identity,
@@ -26,7 +25,8 @@ use master if exists(
 
 	create table Treinador(
 	 id					int				identity,		
-	 statusTrei			varchar(7)		not null, -- Ativo ou Inativo.	
+	 statusTrei			varchar(7)		not null, -- Ativo ou Inativo.
+	 cref				char(11)		not null
 
 	 primary key(id),
 	)
@@ -47,9 +47,10 @@ use master if exists(
 	create table Categoria(
 	id			int				identity,
 	nome		varchar(100)	not null,
-	descricao	varchar(100)	not null,		
+	descricao	varchar(100)	not null,	
 
 	primary key(id)
+
 	)
 	insert Categoria (nome,descricao) 
 	values('Musculação','Exercício que trabalha os músculos.')
@@ -82,10 +83,10 @@ use master if exists(
 	imc				decimal(5,3)		not null,
 	alturaInicial	decimal(4,2)		not null,
 	alturaAtual		decimal(4,2)		not null,
-	idCliente		int					not null,
+	id_Cliente		int					not null,
 
 	Primary Key(id),
-	Foreign Key (idCliente) references Cliente(id)
+	Foreign Key (id_Cliente) references Cliente(id)
 	)
 
 	create table Usuario
