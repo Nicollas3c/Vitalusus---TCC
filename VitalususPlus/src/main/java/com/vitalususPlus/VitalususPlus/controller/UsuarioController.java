@@ -48,8 +48,9 @@ public class UsuarioController {
     @PostMapping("/cadastrar")
     public String enviarCadastro(Usuario usuario, Treinador treinador, Admin admin){
         usuario.setStatusUsuario("ativo");
+        String page = "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
         usuarioRepository.save(usuario);
-        return "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
+        return page;
     }
 
     //código que cria a localiação da página clienteSucesso

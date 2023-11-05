@@ -50,49 +50,55 @@
   </header>
 <div class="formContainer">
  
-  <form  method="post" onsubmit="return Validar()" class="form">
+  <form  method="post" onsubmit="return Validar()" class="form" >
+    <input type="hidden" th:field="${usuario.id}"/>
     <a th:href="@{/Vitalusus-2h/Clientes/login}" class="linkseta"  target="_self"><i class='bx bx-left-arrow-circle'
       id="seta"></i></a>
       <div class="sombra"></div>
     <div class="txtcad">
-      <h1 class="textaocad">Cadastre-se</h1>
+      <h1 class="textaocad">INSIRA O SEU CREF PARA CONTINUAR</h1>
     </div>
     <div class="alignCad">
       <label for="nome"></label>
-      <strong>NOME COMPLETO:</strong><input type="text"  class="input" name="nome"
+      <strong>NOME COMPLETO:</strong><input type="text" readonly="readonly" class="input" name="nome" th:field="${usuario.nome}"
         required="required" id="nome">
       <br />
       <strong>GÊNERO:</strong>
-      <select  class="input" required="required" name="genero">
+      <select  class="input" required="required" name="genero" readonly="readonly" th:field="${usuario.genero}"> 
         <option value="masculino" id="opttre">Masculino</option>
         <option value="Feminino" id="opttre">Feminino</option>
         <option value="outro/prefiro não dizer" id="opttre">Outro/prefiro não dizer</option>
       </select><br/>
       <label for="email"></label>
-      <strong>EMAIL</strong> <input type="email"  class="input" name="email"
+      <strong>EMAIL</strong> <input type="email"  class="input" name="email" readonly="readonly" th:field="${usuario.email}"
         required="required" id="email">
       <br />
       <label for="data"></label>
-      <strong>DATA DE NASCIMENTO:</strong> <input type="date"  class="input"
+      <strong>DATA DE NASCIMENTO:</strong> <input type="date"  class="input" readonly="readonly" th:field="${usuario.dataNasc}"
         name="dataNasc" min="" maxlength="" required="required" id="data">
       <br />
       <label for="telefone"></label>
-      <strong>TELEFONE:</strong> <input type="tel"  class="input" name="telefone" min=""
+      <strong>TELEFONE:</strong> <input type="tel"  class="input" readonly="readonly" name="telefone" min="" th:field="${usuario.telefone}"
         maxlength="" required="required" id="telefone">
       <br />
 
       <label for="txtsen"></label>
-      <strong>SENHA:</strong> <input type="password" class="input"  name="senha" min="8"
+      <strong>SENHA:</strong> <input type="password" class="input" readonly="readonly" name="senha" min="8" th:field="${usuario.senha}"
         maxlength="8" required="required" id="txtsen" checked="checked">
       <br />
 
       <label for="txtconsen"></label>
-      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input"name="senha-confirm" min="" maxlength=""
+      <strong>CONFIRMAR SENHA:</strong> <input type="password" readonly="readonly" class="input"name="senha-confirm" min="" maxlength="" 
         required="required" id="txtconsen">
       <br />
 
+      <label for="txtcref"></label>
+      <strong>CREF:</strong> <input type="text" class="input" name="cref" min="" maxlength="" th:field="${treinador.cref}"
+        required="required" id="txtcref">
+      <br />
+
       <strong>TIPO DE PESSOA:</strong>
-      <select  class="input" required="required" name="tipoPessoa">
+      <select  class="input" required="required" name="tipoPessoa" th:field="${usuario.tipoPessoa}" readonly="readonly"> 
         <option value="Treinador(a)" id="opttre">Treinador(a)</option>
       </select>
       <br />
