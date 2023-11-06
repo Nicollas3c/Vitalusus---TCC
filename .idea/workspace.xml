@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a637ee9-f0a6-42ad-b95a-a74502089a41" name="Changes" comment="Otto -- tentei por um negócio, mas quase deu ruim">
+    <list default="true" id="5a637ee9-f0a6-42ad-b95a-a74502089a41" name="Changes" comment="Otto -- a ligação entre tabelas tá funcionando melhor agora">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/model/Treinador.java" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/model/Treinador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/repository/TreinadorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/repository/TreinadorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/CADASTRAR.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/CADASTRAR.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/editarSuaConta.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/editarSuaConta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/inserirCref.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/inserirCref.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +101,7 @@
       <workItem from="1698882319317" duration="13128000" />
       <workItem from="1698924863947" duration="30067000" />
       <workItem from="1699135703987" duration="5660000" />
-      <workItem from="1699221737216" duration="12118000" />
+      <workItem from="1699221737216" duration="13151000" />
     </task>
     <task id="LOCAL-00001" summary="Otto -- Criando repositório git do novo vitalusus">
       <created>1698942223601</created>
@@ -173,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699225290200</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Otto -- a ligação entre tabelas tá funcionando melhor agora">
+      <created>1699305771019</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699305771019</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +188,7 @@
     <MESSAGE value="Otto -- Agora o crud funciona" />
     <MESSAGE value="Otto -- frufruzei o código, porque eu sou um perficcionista maníaco, às vezes" />
     <MESSAGE value="Otto -- tentei por um negócio, mas quase deu ruim" />
-    <option name="LAST_COMMIT_MESSAGE" value="Otto -- tentei por um negócio, mas quase deu ruim" />
+    <MESSAGE value="Otto -- a ligação entre tabelas tá funcionando melhor agora" />
+    <option name="LAST_COMMIT_MESSAGE" value="Otto -- a ligação entre tabelas tá funcionando melhor agora" />
   </component>
 </project>

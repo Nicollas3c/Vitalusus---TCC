@@ -120,7 +120,14 @@ public class UsuarioController {
 
     //código que deleta o usuario pela página listaClientes
     @GetMapping("/deletar{id}")
-    public String deletarNormal(@ModelAttribute Usuario usuario){
+    public String deletarNormal(@ModelAttribute Usuario usuario, Treinador treinador){
+        usuario = usuarioRepository.findById(usuario.getId());
+        treinador = treinadorRepository.findById(usuario.getId()-1);
+        usuario.setTreinador(null);
+        treinador.setUsuario(null);
+        treinadorRepository.save(treinador);
+        treinadorRepository.delete(treinador);
+        usuarioRepository.save(usuario);
         usuarioRepository.delete(usuario);
         return "redirect:/Vitalusus-2h/Clientes/listaClientes";
     }
@@ -130,8 +137,14 @@ public class UsuarioController {
     public String deletar(@ModelAttribute Usuario usuario){
         String page = "redirect:/Vitalusus-2h/Clientes/confirmarDeletar";
         Usuario usuarioDb = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
+        Treinador treinador = treinadorRepository.findById(usuarioDb.getId()-1);
         if (usuarioDb !=null && usuario.getSenha().equals(usuarioDb.getSenha())&&usuario.getEmail().equals(usuario.getEmail())){
             page = "redirect:/Vitalusus-2h/Clientes/index";
+            usuarioDb.setTreinador(null);
+            treinador.setUsuario(null);
+            treinadorRepository.save(treinador);
+            treinadorRepository.delete(treinador);
+            usuarioRepository.save(usuarioDb);
             usuarioRepository.delete(usuarioDb);
         }
         return page;
