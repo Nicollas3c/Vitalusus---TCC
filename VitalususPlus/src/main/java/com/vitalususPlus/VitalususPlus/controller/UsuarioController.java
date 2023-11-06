@@ -49,6 +49,11 @@ public class UsuarioController {
     public String enviarCadastro(Usuario usuario, Treinador treinador, Admin admin){
         usuario.setStatusUsuario("ativo");
         String page = "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
+        if (usuario.getTipoPessoa().equals("Treinador(a)")){
+            treinadorRepository.save(treinador);
+            treinador.setUsuario(usuario);
+            usuario.setTreinador(treinador);
+        }
         usuarioRepository.save(usuario);
         return page;
     }
@@ -142,7 +147,9 @@ public class UsuarioController {
     public ModelAndView entrarEditar(@PathVariable("id") Long id){
         ModelAndView mv = new ModelAndView("editarSuaConta");
         Usuario usuario = usuarioRepository.findById(id);
+        Treinador treinador = treinadorRepository.findById(usuario.getId()-1);
         mv.addObject("usuario",usuario);
+        mv.addObject("treinador",treinador);
         return mv;
     }
 
@@ -151,6 +158,7 @@ public class UsuarioController {
     public ModelAndView editar(@PathVariable("id") Long id){
         ModelAndView mv = new ModelAndView("clienteSucesso");
         Usuario usuario = usuarioRepository.findById(id);
+
         return mv;
     }
 
@@ -158,6 +166,8 @@ public class UsuarioController {
     @PostMapping("/editar{id}")
     public ModelAndView editar(Usuario usuario){
         ModelAndView mv = new ModelAndView();
+        Treinador treinador = treinadorRepository.findById(usuario.getId()-1);
+        usuario.setTreinador(treinador);
         usuario.setStatusUsuario("ativo");
         usuarioRepository.save(usuario);
         mv.setViewName("redirect:/Vitalusus-2h/Clientes/login");
@@ -185,6 +195,7 @@ public class UsuarioController {
         ModelAndView mv = new ModelAndView("user");
         Usuario usuario = usuarioRepository.findById(id);
         mv.addObject("usuario",usuario);
+        mv.addObject("treinador",usuario.getTreinador());
         return mv;
     }
 
