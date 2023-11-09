@@ -30,7 +30,10 @@
       var conSen = document.getElementById("txtconsen").value
 
       if (sen != conSen) {
-        window.alert("Senhas Diferentes!")
+        var popup = document.getElementById("myPopup");
+  		popup.classList.toggle("show");
+  		var conSen = document.getElementById("txtconsen").focus
+  		var conSen = document.getElementById("txtconsen").value = ""
         return false
       }
       else {
@@ -89,6 +92,9 @@
       <br />
 
       <label for="txtconsen"></label>
+      <div class="popup">
+  			<span class="popuptext" id="myPopup">As Senhas não estão Iguais!</span>
+	  </div>
       <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input"name="senha-confirm"  maxlength="50"
         required="required" id="txtconsen">
       <br />
