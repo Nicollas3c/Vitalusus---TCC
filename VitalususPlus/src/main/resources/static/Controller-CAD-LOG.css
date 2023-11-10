@@ -105,6 +105,10 @@ footer {
     font-size: 35px;
     color:white
 }
+.linkseta  button{
+	opacity:0;
+}
+
 .button{
     text-align: center;
     width: 150px;
