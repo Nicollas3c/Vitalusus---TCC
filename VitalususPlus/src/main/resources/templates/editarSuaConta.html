@@ -86,7 +86,7 @@
   <form form method="post" th:action="@{/Vitalusus-2h/Clientes/editar{id}(id=${usuario.id})}"  onsubmit="return Validar()" class="form" >
 
     <input type="hidden" th:field="${usuario.id}"/>
-    <a th:href="@{/Vitalusus-2h/Clientes/user/{id}(id=${usuario.id})}" class="linkseta"  target="_self"><i class='bx bx-left-arrow-circle'
+    <a class="linkseta" onclick="history.back(-1)" target="_self"><i class='bx bx-left-arrow-circle'
       id="seta"></i></a>
     <div class="txtcad">
       <h1 class="textaocad">Editar sua conta</h1>
