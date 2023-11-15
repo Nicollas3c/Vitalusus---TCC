@@ -54,12 +54,12 @@ public class UsuarioController {
         	page = "redirect:/Vitalusus-2h/Clientes/cadastrar";
         }
         else{
-        usuarioRepository.save(usuario);
         if (usuario.getTipoPessoa().equals("Treinador(a)")){
             treinadorRepository.save(treinador);
             treinador.setUsuario(usuario);
             usuario.setTreinador(treinador);
         }
+        usuarioRepository.save(usuario);
         }
         return page;
     }
