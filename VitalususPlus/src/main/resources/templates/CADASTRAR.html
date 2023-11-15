@@ -63,7 +63,7 @@
     <div class="alignCad">
       <label for="nome"></label>
       <strong>NOME COMPLETO:</strong><input type="text"  class="input" name="nome"
-        required="required" id="nome">
+        required="required" id="nome" maxlength="100">
       <br />
       <strong>GÊNERO:</strong>
       <select  class="input" required="required" name="genero">
@@ -73,7 +73,7 @@
       </select><br/>
       <label for="email"></label>
       <strong>EMAIL</strong> <input type="email"  class="input" name="email"
-        required="required" id="email">
+        required="required" id="email" maxlength="100">
       <br />
       <label for="data"></label>
       <strong>DATA DE NASCIMENTO:</strong> <input type="date"  class="input"
@@ -81,13 +81,13 @@
       <br />
       <label for="telefone"></label>
       <strong>TELEFONE:</strong> <input type="tel"  class="input" name="telefone" min=""
-        maxlength="" required="required" id="telefone">
+        maxlength="14" required="required" id="telefone">
       <br />
       <strong>CREF:</strong><input type="text"  class="input" name="cref" 
         required="required" id="nome" maxlength="6" >
       <br />
       <label for="txtsen"></label>
-      <strong>SENHA:</strong> <input type="password" class="input"  name="senha" min="8"
+      <strong>SENHA:</strong> <input type="password" class="input"  name="senha" minlength="8"
         maxlength="50" required="required" id="txtsen" checked="checked">
       <br />
 

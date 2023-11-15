@@ -49,12 +49,18 @@ public class UsuarioController {
     public String enviarCadastro(Usuario usuario, Treinador treinador, Admin admin){
         usuario.setStatusUsuario("ativo");
         String page = "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
+        Usuario usuarioDb = usuarioRepository.findByEmail(usuario.getEmail());
+        if (usuarioDb !=  null){
+        	page = "redirect:/Vitalusus-2h/Clientes/cadastrar";
+        }
+        else{
+        usuarioRepository.save(usuario);
         if (usuario.getTipoPessoa().equals("Treinador(a)")){
             treinadorRepository.save(treinador);
             treinador.setUsuario(usuario);
             usuario.setTreinador(treinador);
         }
-        usuarioRepository.save(usuario);
+        }
         return page;
     }
 
@@ -125,6 +131,7 @@ public class UsuarioController {
         treinador = treinadorRepository.findById(usuario.getId()-1);
         usuario.setTreinador(null);
         treinador.setUsuario(null);
+        usuario.setStatusUsuario("inativo");
         treinadorRepository.save(treinador);
         treinadorRepository.delete(treinador);
         usuarioRepository.save(usuario);
@@ -142,6 +149,7 @@ public class UsuarioController {
             page = "redirect:/Vitalusus-2h/Clientes/index";
             usuarioDb.setTreinador(null);
             treinador.setUsuario(null);
+            usuarioDb.setStatusUsuario("inativo");
             treinadorRepository.save(treinador);
             treinadorRepository.delete(treinador);
             usuarioRepository.save(usuarioDb);

@@ -9,13 +9,29 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    
+    @Column(name="nome", length=100, unique=false, nullable=false, updatable=false)
     private String nome;
+    
+    @Column(name="email", length=100, unique=true, nullable=false)
     private String email;
+    
+    @Column(name="senha", length=50, unique=false, nullable=false)
     private String senha;
+    
+    @Column(name="genero", unique=false, length=10, nullable=false)
     private String genero;
+    
+    @Column(name="telefone", unique=false, length=16,nullable=false)
     private String telefone;
+    
+    @Column(name="dataNasc", unique=false,length=10, nullable=false, updatable=false)
     private String dataNasc;
+    
+    @Column(name="statusUsu", unique=false, length=7, nullable=false )
     private String statusUsuario;
+    
+    @Column(name="tipoPessoa", length=12, unique=false, nullable=false)
     private String tipoPessoa;
 
     @OneToOne
