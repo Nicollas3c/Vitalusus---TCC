@@ -59,7 +59,8 @@
     </div>
   </header>
   <div class="TrenH1" th:each="usuario: ${usuario}">
-    <h1 class="bomdia">Bom dia, Treinador(a) <span th:text="${usuario.nome}"></span>!</h1> 
+    <h1 class="bomdia">Bom dia, Treinador(a) <span th:text="${usuario.nome}"></span>!</h1>
+    <h1 class="bomdia">O que você deseja fazer?</h1>
   </div>
   <div class="homeTreina" >
  
@@ -88,7 +89,7 @@
     <a th:href="@{/Vitalusus-2h/Clientes/Estatisticas/{id}(id=${usuario.id})}"><button class="home-txt">Suas Estatísticas </button></a>
   </div>
 </div>
-<footer class="homefooter">.</footer>
+
 
   </div>
 </body>

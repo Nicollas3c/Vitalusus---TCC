@@ -21,7 +21,7 @@ header {
     position: fixed;
     top:0;
     background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgb(206, 5, 5) 100%);
     padding: 5px;
     width:100%;
     min-width:100%;
@@ -128,7 +128,7 @@ footer {
     border-radius: 10px;
 }
 h1 {
-    margin: 30px;
+    margin: 4.5%;
     font-family: 'Work Sans', sans-serif;
     text-align: center;
     color: white;
@@ -617,11 +617,16 @@ color:black;
 /*HomeTreinador.html*/
 /*h1*/
 .TrenH1{
+    top: 10%;
+    bottom:5%;
+    text-align: left;
+    display: block;
     position: absolute;
-    top:150px;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: 60px;
+}
+.bomdia{
+    text-align: left;
+    font-size: 200%;
+    width: 100%;
 }
 /*botoes homeTreinador*/
 
@@ -631,31 +636,30 @@ color:black;
     border:none;
     background-color: #ff000000;
     color:#fff;  
-    font-size: 15px;
-    width: 300px;
-    height: 100px;
-    transition: all ease .5s;
+    font-size: 90%;
+    width: 100%;
+    height: 100%;
+    transition: all ease .2s;
+    cursor: pointer;
+    padding: 0%;
+}
+.AtributBotton a{
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    padding: 0%;
 }
 .AtributBotton button:hover{
     border:none;
     background-color: #ff000000;
     color:#fff;  
     transition: 0.5s;
-    font-size: 17px;
-    width: 320px;
-    height: 120px;
+    font-size: 92%;
+    width: 100%;
+    height: 100%;
+    padding: 0%;
 }
 
-.AtributBotton button{
-    border:none;
-    background-color: #ff000000;
-    color:#fff;  
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    cursor: pointer;
-}
 
 .AtributBotton{
    text-align: center;
@@ -665,40 +669,43 @@ color:black;
 /*Fim de /*/
 /*ATRIBUTO DOS ICONES*/
 .alignIconMovie > .material-symbols-outlined{
-    font-size: 60px;
+    font-size: 400%;
 }
 .alignIconPublicar > .material-symbols-outlined{
-    font-size: 60px;
+    font-size: 400%;
 }
 .alignIconEstatisticas > .material-symbols-outlined{
-    font-size: 60px;
+    font-size: 400%;
 }
 /*align icones*/
 .alignIconMovie{
     color: #fff;
     position: absolute;
-    top: 300px;
-    left:15%;
-    transform: translate(-85%);
+    top: 45%;
+    left:10.5%;
+    bottom: 1%;
 }
 .alignIconPublicar{
     color: #fff;
     position: absolute;
-    top: 300px;
-    left:50%;
-    transform: translate(-50%);
+    top: 45%;
+    left:48%;
+    bottom: 1%;
 }
 .alignIconEstatisticas{
     color: #fff;
     position: absolute;
-    top: 300px;
+    top: 45%;
+    bottom: 1%;
     left:85%;
-    transform: translate(-15%);
 }
 .alignSeusVideos,.alingCriarVideo,.alignEstatisticas{
-    margin-top: 150px;
-    height:100px;
-    width: 300px; 
+    margin-top: 11%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height:15%;
+    width: 22%; 
     background-color:rgba(216, 8, 8, 0.8);;
     border-radius: 10px;
     border: solid 1px black;
@@ -706,9 +713,9 @@ color:black;
     transition: all ease .5s;
 }
 .alignSeusVideos:hover,.alingCriarVideo:hover,.alignEstatisticas:hover{
-    margin-top: 150px;
-    height:120px;
-    width: 320px; 
+    margin-top: 11%;
+    height:15%;
+    width: 22.5%; 
     background-color: #920202da;
     border-radius: 10px;
     border: solid 1px black;
@@ -716,6 +723,7 @@ color:black;
 }
 .homeTreina{
    min-height:100%;
+   max-height: 100%;
    display: flex;
    align-items: end;
 }
@@ -723,20 +731,20 @@ color:black;
 /*alinhar as divs dos botoes*/
 .alignSeusVideos{
     position: absolute;
-    top: 230px;
+    top: 35%;
     left:19%;
     transform: translate(-81%);
 }
 .alingCriarVideo{
     position: absolute;
-    top: 230px;
+    top: 35%;
     left:50%;
     transform: translate(-50%)
 
 }
 .alignEstatisticas{
     position: absolute;
-    top: 230px;
+    top: 35%;
     left:80%;
     transform: translate(-20%)
 }
