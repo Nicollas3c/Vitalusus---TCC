@@ -50,7 +50,8 @@ public class UsuarioController {
         usuario.setStatusUsuario("ativo");
         String page = "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
         Usuario usuarioDb = usuarioRepository.findByEmail(usuario.getEmail());
-        if (usuarioDb !=  null){
+        Treinador treinadorDb = treinadorRepository.findByCref(treinador.getCref());
+        if (usuarioDb !=  null || treinadorDb !=null){
         	page = "redirect:/Vitalusus-2h/Clientes/cadastrar";
         }
         else{

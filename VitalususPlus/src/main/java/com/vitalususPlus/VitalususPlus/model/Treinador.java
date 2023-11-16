@@ -10,7 +10,7 @@ public class Treinador{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(name="cref", length=6, unique=false, nullable=false)
+    @Column(name="cref", length=6, unique=true, nullable=false)
     private String cref;
 
     @OneToOne
