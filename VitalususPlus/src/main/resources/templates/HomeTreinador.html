@@ -49,9 +49,7 @@
           </li>
       </ul>
     </nav>
-  <div class="imgLogo">
-      <img src="/Logo.png">
-    </div>
+      <img src="/Logo.png" class="imgLogo">
     <div class="perfil">
       <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self" id="iperfil">
         <i class='bx bx-user'></i>
@@ -65,7 +63,7 @@
   <div class="homeTreina" >
  
 
-  
+  <div class="icon-container">
   <div class="alignIconMovie">
     <span class="material-symbols-outlined">movie</span>
   </div>
@@ -77,17 +75,18 @@
       trending_up
       </span>
   </div>
+  </div>
 
   <div class="AtributBotton">
-    <div class="alignSeusVideos">
-      <a th:href="@{/Vitalusus-2h/Clientes/bibliotecaVideos/{id}(id=${usuario.id})}"><button class="home-txt"> Seus videos</button></a>
-    </div>
-    <div class="alingCriarVideo">
-      <a th:href="@{/Vitalusus-2h/Clientes/publicar/{id}(id=${usuario.id})}"><button class="home-txt"> Criar vídeo aula</button></a>
-    </div>
-    <div class="alignEstatisticas">
-    <a th:href="@{/Vitalusus-2h/Clientes/Estatisticas/{id}(id=${usuario.id})}"><button class="home-txt">Suas Estatísticas </button></a>
-  </div>
+    <a th:href="@{/Vitalusus-2h/Clientes/bibliotecaVideos/{id}(id=${usuario.id})}">
+    <button  class="alignEstatisticas">Seus vídeos</button>
+  </a>
+  <a th:href="@{/Vitalusus-2h/Clientes/publicar/{id}(id=${usuario.id})}">
+    <button  class="alignEstatisticas">Criar vídeo aula</button>
+  </a>
+  <a th:href="@{/Vitalusus-2h/Clientes/Estatisticas/{id}(id=${usuario.id})}">
+    <button  class="alignEstatisticas">Suas estatísticas</button>
+  </a>
 </div>
 
 
