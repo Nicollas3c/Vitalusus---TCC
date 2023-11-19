@@ -8,7 +8,8 @@ public class VitalususPlusApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VitalususPlusApplication.class, args);
-		System.out.println("RODANDO!");
+		String pessoa = System.getProperty("user.name");
+		System.out.println("TRABALHA, " + pessoa + "!");
 	}
 
 }
