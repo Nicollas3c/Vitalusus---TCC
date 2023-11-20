@@ -44,13 +44,17 @@
   <title>Vitalusus+</title>
 </head>
 
-<body>
+<body onload="loading()">
+  <div class="carrega">
+    <div class="pre"></div>
+</div>
   <header>
   <div class="imgLogo">
       <img src="/Logo.png">
     </div>
     </div>
   </header>
+  <div class="site">
 <div class="formContainer">
  
   <form  method="post" onsubmit="return Validar()" class="form">
@@ -118,6 +122,12 @@
  
 </div>
 <footer>.</footer>
+  </div>
 </body>
-
+<script>
+  function loading(){
+    document.getElementsByClassName("carrega")[0].style.display="none";
+    document.getElementsByClassName("site")[0].style.display="block";
+  }
+</script>
 </html>

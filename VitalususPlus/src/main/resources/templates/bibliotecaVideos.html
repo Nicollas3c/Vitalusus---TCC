@@ -16,7 +16,10 @@
   <title>Vitalusus+ | Bibliotecca de Vídeos Treinador</title>
 </head>
 
-<body>
+<body onload="loading()">
+  <div class="carrega">
+    <div class="pre"></div>
+</div>
   <header>
     <nav class="menuMenu">
       <input type="checkbox" class="input-fake"/>
@@ -56,6 +59,7 @@
       </a>
     </div>
   </header>
+  <div class="site">
   <div class="formContainer">
   <div class="videosCont">
     <a class="linkseta" onclick="history.back(-1)" target="_self"><i class='bx bx-left-arrow-circle'
@@ -155,6 +159,12 @@
   <footer>
     Footer
   </footer>
+  </div>
 </body>
-
+<script>
+  function loading(){
+    document.getElementsByClassName("carrega")[0].style.display="none";
+    document.getElementsByClassName("site")[0].style.display="block";
+  }
+</script>
 </html>

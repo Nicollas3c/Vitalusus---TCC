@@ -41,7 +41,10 @@
   <title>Vitalusus+</title>
 </head>
 
-<body>
+<body onload="loading()">
+  <div class="carrega">
+    <div class="pre"></div>
+</div>
     <header>
         <nav class="menuMenu">
           <input type="checkbox" class="input-fake"/>
@@ -81,6 +84,7 @@
           </a>
         </div>
       </header>
+      <div class="site">
 <div class="formContainer">
  
   <form form method="post" th:action="@{/Vitalusus-2h/Clientes/editar{id}(id=${usuario.id})}"  onsubmit="return Validar()" class="form" >
@@ -144,6 +148,12 @@
  
 </div>
 <footer>.</footer>
+      </div>
 </body>
-
+<script>
+  function loading(){
+    document.getElementsByClassName("carrega")[0].style.display="none";
+    document.getElementsByClassName("site")[0].style.display="block";
+  }
+</script>
 </html>
