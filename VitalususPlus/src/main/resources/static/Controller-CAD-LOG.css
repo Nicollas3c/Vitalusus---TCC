@@ -668,15 +668,15 @@ color:black;
 
 /*h1*/
 .TrenH1 h1{
-    font-size: 220%;
+    font-size: 250%;
     font-family: 'Bebas Neue', sans-serif;
     margin: 1%;
     margin-left: 0%;
 }
 .subh1{
     position: absolute;
-    top: 27%;
-    left: 5.2%;
+    top: 30%;
+    left: 28%;
 }
 #h1cor1{
     margin-top: 28%;
@@ -690,7 +690,9 @@ color:black;
     background: url("splashPreto.png");
     background-repeat: no-repeat;
     background-size: 70%;
-    top: -35%;
+    background-position: center;
+    top: -40%;
+    right: 30%;
     width: 90%;
     height: 130%;
     display: block;
