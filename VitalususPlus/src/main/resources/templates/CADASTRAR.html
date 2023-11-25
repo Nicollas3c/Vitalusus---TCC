@@ -30,7 +30,10 @@
       var conSen = document.getElementById("txtconsen").value
 
       if (sen != conSen) {
-        window.alert("Senhas Diferentes!")
+        var popup = document.getElementById("myPopup");
+  		popup.classList.toggle("show");
+  		var conSen = document.getElementById("txtconsen").focus
+  		var conSen = document.getElementById("txtconsen").value = ""
         return false
       }
       else {
@@ -41,17 +44,21 @@
   <title>Vitalusus+</title>
 </head>
 
-<body>
+<body onload="loading()">
+  <div class="carrega">
+    <div class="pre"></div>
+</div>
   <header>
   <div class="imgLogo">
       <img src="/Logo.png">
     </div>
     </div>
   </header>
+  <div class="site">
 <div class="formContainer">
  
   <form  method="post" onsubmit="return Validar()" class="form">
-    <a th:href="@{/Vitalusus-2h/Clientes/login}" class="linkseta"  target="_self"><i class='bx bx-left-arrow-circle'
+    <a class="linkseta" onclick="history.back(-1)" target="_self"><i class='bx bx-left-arrow-circle'
       id="seta"></i></a>
       <div class="sombra"></div>
     <div class="txtcad">
@@ -60,7 +67,7 @@
     <div class="alignCad">
       <label for="nome"></label>
       <strong>NOME COMPLETO:</strong><input type="text"  class="input" name="nome"
-        required="required" id="nome">
+        required="required" id="nome" maxlength="100">
       <br />
       <strong>GÊNERO:</strong>
       <select  class="input" required="required" name="genero">
@@ -70,7 +77,7 @@
       </select><br/>
       <label for="email"></label>
       <strong>EMAIL</strong> <input type="email"  class="input" name="email"
-        required="required" id="email">
+        required="required" id="email" maxlength="100">
       <br />
       <label for="data"></label>
       <strong>DATA DE NASCIMENTO:</strong> <input type="date"  class="input"
@@ -78,16 +85,21 @@
       <br />
       <label for="telefone"></label>
       <strong>TELEFONE:</strong> <input type="tel"  class="input" name="telefone" min=""
-        maxlength="" required="required" id="telefone">
+        maxlength="14" required="required" id="telefone">
       <br />
-
+      <strong>CREF:</strong><input type="text"  class="input" name="cref" 
+        required="required" id="nome" maxlength="6" >
+      <br />
       <label for="txtsen"></label>
-      <strong>SENHA:</strong> <input type="password" class="input"  name="senha" min="8"
-        maxlength="8" required="required" id="txtsen" checked="checked">
+      <strong>SENHA:</strong> <input type="password" class="input"  name="senha" minlength="8"
+        maxlength="50" required="required" id="txtsen" checked="checked">
       <br />
 
-      <label for="txt-consen"></label>
-      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input"name="senha-confirm" min="" maxlength=""
+      <label for="txtconsen"></label>
+      <div class="popup">
+  			<span class="popuptext" id="myPopup">As Senhas não estão Iguais!</span>
+	  </div>
+      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input"name="senha-confirm"  maxlength="50"
         required="required" id="txtconsen">
       <br />
 
@@ -110,6 +122,12 @@
  
 </div>
 <footer>.</footer>
+  </div>
 </body>
-
+<script>
+  function loading(){
+    document.getElementsByClassName("carrega")[0].style.display="none";
+    document.getElementsByClassName("site")[0].style.display="block";
+  }
+</script>
 </html>

@@ -8,8 +8,9 @@ public class Treinador{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column(name="cref", length=6, unique=true, nullable=false)
     private String cref;
 
     @OneToOne

@@ -41,7 +41,10 @@
   <title>Vitalusus+</title>
 </head>
 
-<body>
+<body onload="loading()">
+  <div class="carrega">
+    <div class="pre"></div>
+</div>
     <header>
         <nav class="menuMenu">
           <input type="checkbox" class="input-fake"/>
@@ -81,12 +84,13 @@
           </a>
         </div>
       </header>
+      <div class="site">
 <div class="formContainer">
  
-  <form form method="post" th:action="@{/Vitalusus-2h/Clientes/editar{id}(id=${usuario.id})}"  onsubmit="return Validar()" class="form" th:object="${usuario}">
+  <form form method="post" th:action="@{/Vitalusus-2h/Clientes/editar{id}(id=${usuario.id})}"  onsubmit="return Validar()" class="form" >
 
-    <input type="hidden" th:field="*{id}"/>
-    <a th:href="@{/Vitalusus-2h/Clientes/user/{id}(id=${usuario.id})}" class="linkseta"  target="_self"><i class='bx bx-left-arrow-circle'
+    <input type="hidden" th:field="${usuario.id}"/>
+    <a class="linkseta" onclick="history.back(-1)" target="_self"><i class='bx bx-left-arrow-circle'
       id="seta"></i></a>
     <div class="txtcad">
       <h1 class="textaocad">Editar sua conta</h1>
@@ -94,27 +98,29 @@
     <div class="alignCad">
       <label for="nome"></label>
       <strong>NOME COMPLETO:</strong><input type="text" readonly="readonly" class="input" name="nome"
-        required="required" id="nome" th:field="*{nome}">
+        required="required" id="nome" th:field="${usuario.nome}">
       <br />
       <strong>GÊNERO:</strong>
-      <select  class="input" readonly="readonly" required="required" name="genero" th:field="*{genero}">
+      <select  class="input" readonly="readonly" required="required" name="genero" th:field="${usuario.genero}">
         <option value="masculino" id="opttre">Masculino</option>
         <option value="Feminino" id="opttre">Feminino</option>
         <option value="outro/prefiro não dizer" id="opttre">Outro/prefiro não dizer</option>
       </select><br/>
       <label for="email"></label>
-      <strong>EMAIL</strong> <input type="email"  class="input" name="email" th:field="*{email}"
+      <strong>EMAIL</strong> <input type="email"  class="input" name="email" th:field="${usuario.email}"
         required="required" id="email">
       <br />
       <label for="data"></label>
-      <strong>DATA DE NASCIMENTO:</strong> <input type="date" readonly="readonly" class="input" th:field="*{dataNasc}"
+      <strong>DATA DE NASCIMENTO:</strong> <input type="date" readonly="readonly" class="input" th:field="${usuario.dataNasc}"
         name="dataNasc" min="" maxlength="" required="required" id="data">
       <br />
       <label for="telefone"></label>
-      <strong>TELEFONE:</strong> <input type="tel" class="input" name="telefone" min="" th:field="*{telefone}"
+      <strong>TELEFONE:</strong> <input type="tel" class="input" name="telefone" min="" th:field="${usuario.telefone}"
         maxlength="" required="required" id="telefone">
       <br />
-
+      <strong>CREF:</strong><input type="text"  class="input" name="cref" 
+      required="required" id="nome">
+    <br />
       <label for="txtsen"></label>
       <strong>NOVA SENHA:</strong> <input type="password" class="input"  name="senha" min="8"
         maxlength="8" required="required" id="txtsen" checked="checked">
@@ -126,7 +132,7 @@
       <br />
 
       <strong>TIPO DE PESSOA:</strong>
-      <select  class="input" required="required" readonly="readonly" name="tipoPessoa" th:field="*{tipoPessoa}"> 
+      <select  class="input" required="required" readonly="readonly" name="tipoPessoa" th:field="${usuario.tipoPessoa}"> 
         <option value="Treinador(a)" id="opttre">Treinador(a)</option>
       </select>
       <br />
@@ -142,6 +148,12 @@
  
 </div>
 <footer>.</footer>
+      </div>
 </body>
-
+<script>
+  function loading(){
+    document.getElementsByClassName("carrega")[0].style.display="none";
+    document.getElementsByClassName("site")[0].style.display="block";
+  }
+</script>
 </html>

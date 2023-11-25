@@ -48,12 +48,16 @@
         }
     </style>
 </head>
-<body>
+<body onload="loading()">
+    <div class="carrega">
+        <div class="pre"></div>
+    </div>
     <header class="listaHeader">
         <br/>
-        <a class="botao" target="_self" th:href="@{/Vitalusus-2h/Clientes/index}"><i></i>Voltar</a>
+        <a class="botao" target="_self"  onclick="history.back(-1)"><i></i>Voltar</a>
         <a class="botao" target="_self" th:href="@{/Vitalusus-2h/Clientes/cadastrar}"><i></i>Novo Cliente</a>
     </header>
+    <div class="site">
             <h2 class="listaH2">Usuários</h2>
            
             <table class="table table-striped">
@@ -87,5 +91,12 @@
                     </tr>
                 </tbody>
             </table>
+    </div>
 </body>
+<script>
+    function loading(){
+      document.getElementsByClassName("carrega")[0].style.display="none";
+      document.getElementsByClassName("site")[0].style.display="block";
+    }
+  </script>
 </html>

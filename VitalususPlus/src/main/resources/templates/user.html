@@ -10,7 +10,10 @@
     <link rel="stylesheet" type="text/css" href="/Controller-CAD-LOG.css">
 </head>
 
-<body>
+<body onload="loading()">
+    <div class="carrega">
+        <div class="pre"></div>
+    </div>
     <header>
         <nav class="menuMenu">
           <input type="checkbox" class="input-fake"/>
@@ -41,15 +44,14 @@
               </li>
           </ul>
         </nav>
-      <div class="imgLogo">
-          <img src="/Logo.png">
-        </div>
+          <img src="/Logo.png" class="imgLogo">
         <div class="perfil">
           <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self" id="iperfil">
             <i class='bx bx-user'></i>
           </a>
         </div>
       </header>
+      <div class="site">
 </div>
 <div class="formContainer">
     <div class="student">
@@ -62,8 +64,8 @@
         <div class="container">
             <h4>Email</h4>
             <p th:text="${usuario.email}"></p>
-            <h4>Status</h4>
-            <p th:text="${usuario.statusUsuario}"></p>
+            <h4>CREF</h4>
+            <p th:text="${treinador.cref}"></p>
             <h4>Gênero</h4>
             <p th:text="${usuario.genero}"></p>
             <h4>telefone</h4>
@@ -84,4 +86,11 @@
 </div>
     <footer class="footeruser">.</footer>
 </body>
+</body>
+<script>
+    function loading(){
+      document.getElementsByClassName("carrega")[0].style.display="none";
+      document.getElementsByClassName("site")[0].style.display="block";
+    }
+  </script>
 </html>

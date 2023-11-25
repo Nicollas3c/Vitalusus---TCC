@@ -48,8 +48,19 @@ public class UsuarioController {
     @PostMapping("/cadastrar")
     public String enviarCadastro(Usuario usuario, Treinador treinador, Admin admin){
         usuario.setStatusUsuario("ativo");
+        String page = "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
+        Usuario usuarioDb = usuarioRepository.findByEmail(usuario.getEmail());
+        Treinador treinadorDb = treinadorRepository.findByCref(treinador.getCref());
+        if (usuarioDb !=  null || treinadorDb !=null) page = "redirect:/Vitalusus-2h/Clientes/cadastrar";
+        else{
+        if (usuario.getTipoPessoa().equals("Treinador(a)")){
+            treinadorRepository.save(treinador);
+            treinador.setUsuario(usuario);
+            usuario.setTreinador(treinador);
+        }
         usuarioRepository.save(usuario);
-        return "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
+        }
+        return page;
     }
 
     //código que cria a localiação da página clienteSucesso
@@ -78,12 +89,8 @@ public class UsuarioController {
     public ModelAndView efetuarLogin(@ModelAttribute Usuario usuario){
         ModelAndView page = new ModelAndView();
         usuario = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
-        if (usuario ==null) {
-            page.setViewName("LOGIN");
-        }
-        else{
-            page.setViewName("HomeTreinador");
-        }
+        if (usuario ==null) page.setViewName("LOGIN");
+        else page.setViewName("HomeTreinador"); 
         page.addObject("usuario",usuario);
         return page;
     }
@@ -114,7 +121,15 @@ public class UsuarioController {
 
     //código que deleta o usuario pela página listaClientes
     @GetMapping("/deletar{id}")
-    public String deletarNormal(@ModelAttribute Usuario usuario){
+    public String deletarNormal(@ModelAttribute Usuario usuario, Treinador treinador){
+        usuario = usuarioRepository.findById(usuario.getId());
+        treinador = treinadorRepository.findById(usuario.getId()-1);
+        usuario.setTreinador(null);
+        treinador.setUsuario(null);
+        usuario.setStatusUsuario("inativo");
+        treinadorRepository.save(treinador);
+        treinadorRepository.delete(treinador);
+        usuarioRepository.save(usuario);
         usuarioRepository.delete(usuario);
         return "redirect:/Vitalusus-2h/Clientes/listaClientes";
     }
@@ -124,8 +139,15 @@ public class UsuarioController {
     public String deletar(@ModelAttribute Usuario usuario){
         String page = "redirect:/Vitalusus-2h/Clientes/confirmarDeletar";
         Usuario usuarioDb = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
+        Treinador treinador = treinadorRepository.findById(usuarioDb.getId()-1);
         if (usuarioDb !=null && usuario.getSenha().equals(usuarioDb.getSenha())&&usuario.getEmail().equals(usuario.getEmail())){
             page = "redirect:/Vitalusus-2h/Clientes/index";
+            usuarioDb.setTreinador(null);
+            treinador.setUsuario(null);
+            usuarioDb.setStatusUsuario("inativo");
+            treinadorRepository.save(treinador);
+            treinadorRepository.delete(treinador);
+            usuarioRepository.save(usuarioDb);
             usuarioRepository.delete(usuarioDb);
         }
         return page;
@@ -141,7 +163,9 @@ public class UsuarioController {
     public ModelAndView entrarEditar(@PathVariable("id") Long id){
         ModelAndView mv = new ModelAndView("editarSuaConta");
         Usuario usuario = usuarioRepository.findById(id);
+        Treinador treinador = treinadorRepository.findById(usuario.getId()-1);
         mv.addObject("usuario",usuario);
+        mv.addObject("treinador",treinador);
         return mv;
     }
 
@@ -150,6 +174,7 @@ public class UsuarioController {
     public ModelAndView editar(@PathVariable("id") Long id){
         ModelAndView mv = new ModelAndView("clienteSucesso");
         Usuario usuario = usuarioRepository.findById(id);
+
         return mv;
     }
 
@@ -157,6 +182,8 @@ public class UsuarioController {
     @PostMapping("/editar{id}")
     public ModelAndView editar(Usuario usuario){
         ModelAndView mv = new ModelAndView();
+        Treinador treinador = treinadorRepository.findById(usuario.getId()-1);
+        usuario.setTreinador(treinador);
         usuario.setStatusUsuario("ativo");
         usuarioRepository.save(usuario);
         mv.setViewName("redirect:/Vitalusus-2h/Clientes/login");
@@ -168,12 +195,8 @@ public class UsuarioController {
     public ModelAndView entrarNoEditar(@ModelAttribute Usuario usuario){
         ModelAndView page = new ModelAndView();
         usuario = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
-        if (usuario ==null) {
-            page.setViewName("confirmarEditar");
-        }
-        else{
-            page.setViewName("EditarSuaConta");
-        }
+        if (usuario ==null)  page.setViewName("confirmarEditar");
+        else page.setViewName("EditarSuaConta");
         page.addObject("usuario",usuario);
         return page;
     }
@@ -184,6 +207,7 @@ public class UsuarioController {
         ModelAndView mv = new ModelAndView("user");
         Usuario usuario = usuarioRepository.findById(id);
         mv.addObject("usuario",usuario);
+        mv.addObject("treinador",usuario.getTreinador());
         return mv;
     }
 

@@ -13,23 +13,20 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Home Treinador</title>
 
-
-    <script>
-
-    </script>
-
+ 
 </head>
 
-<body>
-   
+<body onload="loading()">
+    <div class="carrega2">
+        <div class="pre"></div>
+    </div>
   <header>
     <div class="imgLogo">
         <img src="/Logo.png">
       </div>
       </div>
     </header>
-    </div>
-
+    <div class="site">
     <main class="main">
      
 
@@ -48,7 +45,9 @@
 
                 <div class="slide s1">
 
-                    <img src="/atividade física.jpg" alt="">
+                    <video alt="" loop id="auto" autoplay muted>
+                        <source src="/Run.mp4" type="video/mp4">
+                    </video>
 
                     <div class="p1">
 
@@ -64,7 +63,9 @@
 
                 <div class="slide">
 
-                    <img src="/medico.jpg" alt="">
+                    <video alt="" loop id="auto" autoplay muted>
+                        <source src="/Medical.mp4" type="video/mp4">
+                    </video>
 
                     <div class="p1">
 
@@ -80,11 +81,13 @@
 
                 <div class="slide">
 
-                    <img src="/corrida.jpg" alt="">
+                    <video alt="" loop id="auto" autoplay muted >
+                        <source src="/Maratona.mp4" type="video/mp4">
+                    </video>
 
                     <div class="p1">
 
-                        <p>As atividaes físicas reduzem a</p>
+                        <p>As atividades físicas reduzem a</p>
 
                         <p>mortalidade por todas as causas</p>
 
@@ -96,7 +99,9 @@
 
                 <div class="slide">
 
-                    <img src="/abdominal3.jpg" alt="">
+                    <video alt="" loop id="auto" autoplay muted >
+                        <source src="/Treinador.mp4" type="video/mp4">
+                    </video>
 
                     <div class="p1">
 
@@ -108,14 +113,12 @@
 
                     </div>
 
-                </div>
+               
 
                 
                 </div>
-
-
-
             </div>
+</div>
 
             <div class="navigation">
 
@@ -127,13 +130,14 @@
 
                 <label class="bar4" for="roll4"></label>
 
-
-            </div>
-
-        </div>
+            </div><!--fecha navigation-->
+            <!--fecha slide-->
+           
+         <!--fecha container-->
+        
     </main>
 
-    <div class="SobreO">
+    <div class="escondido" id="SobreO">
         <div class="p2">
             <p class="p3">
                 Uma Rede para os <br />
@@ -144,17 +148,16 @@
 
 
         <div class="LogoAjust">
-        <img src="/Logo2.jpeg" alt="">
+        <img src="/Logo.png" alt="">
     </div>
 
         <div class="Vitalusus">
         <h2 class="a1">Vita</h2>
-        <h2 class="a2">Lusus</h2>
+        <h2 class="a2">Lusus+</h2>
     </div>
 
     </div>
-
-    <div class="comecar">
+    <div class="comecar" >
 <div class="ajustH1">
         
     </div>
@@ -190,9 +193,28 @@
             </p>
         </div>
     </div>
-
-    </div>
-   
+</div>
 </body>
+<script>
+    const SobreO = document.querySelectorAll('.escondido')
 
+    const observer = new IntersectionObserver((entradas) =>{
+
+        entradas.forEach( (entrada) =>{
+            if (entrada.isIntersecting){
+                entrada.target.classList.add('mostrando')
+            }
+    
+        })
+    })
+
+    SobreO.forEach((element)=> observer.observe(element) )
+
+</script>
+<script>
+    function loading(){
+      document.getElementsByClassName("carrega2")[0].style.display="none";
+      document.getElementsByClassName("site")[0].style.display="block";
+    }
+  </script>
 </html>

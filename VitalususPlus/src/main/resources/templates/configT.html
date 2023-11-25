@@ -18,7 +18,10 @@
   <title>Vitalusus+ | Configurações</title>
 </head>
 
-<body>
+<body onload="loading()">
+  <div class="carrega">
+    <div class="pre"></div>
+</div>
   <header>
     <nav class="menuMenu">
       <input type="checkbox" class="input-fake"/>
@@ -58,6 +61,7 @@
       </a>
     </div>
   </header>
+  <div class="site">
     <!-- <i> ícone configurações </i> -->
     <div class="formContainer">
     <h1 class="txtconfig"><div class="configurations"><i class='bx bxs-cog'></i></div>Configurações</h1>
@@ -75,5 +79,12 @@
   </form>
 </div>
   <footer>.</footer>
+  </div>
 </body>
+<script>
+  function loading(){
+    document.getElementsByClassName("carrega")[0].style.display="none";
+    document.getElementsByClassName("site")[0].style.display="block";
+  }
+</script>
 </html>
