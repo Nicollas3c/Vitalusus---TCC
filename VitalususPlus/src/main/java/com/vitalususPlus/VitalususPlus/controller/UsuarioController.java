@@ -51,9 +51,7 @@ public class UsuarioController {
         String page = "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
         Usuario usuarioDb = usuarioRepository.findByEmail(usuario.getEmail());
         Treinador treinadorDb = treinadorRepository.findByCref(treinador.getCref());
-        if (usuarioDb !=  null || treinadorDb !=null){
-        	page = "redirect:/Vitalusus-2h/Clientes/cadastrar";
-        }
+        if (usuarioDb !=  null || treinadorDb !=null) page = "redirect:/Vitalusus-2h/Clientes/cadastrar";
         else{
         if (usuario.getTipoPessoa().equals("Treinador(a)")){
             treinadorRepository.save(treinador);
@@ -91,12 +89,8 @@ public class UsuarioController {
     public ModelAndView efetuarLogin(@ModelAttribute Usuario usuario){
         ModelAndView page = new ModelAndView();
         usuario = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
-        if (usuario ==null) {
-            page.setViewName("LOGIN");
-        }
-        else{
-            page.setViewName("HomeTreinador");
-        }
+        if (usuario ==null) page.setViewName("LOGIN");
+        else page.setViewName("HomeTreinador"); 
         page.addObject("usuario",usuario);
         return page;
     }
@@ -201,12 +195,8 @@ public class UsuarioController {
     public ModelAndView entrarNoEditar(@ModelAttribute Usuario usuario){
         ModelAndView page = new ModelAndView();
         usuario = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
-        if (usuario ==null) {
-            page.setViewName("confirmarEditar");
-        }
-        else{
-            page.setViewName("EditarSuaConta");
-        }
+        if (usuario ==null)  page.setViewName("confirmarEditar");
+        else page.setViewName("EditarSuaConta");
         page.addObject("usuario",usuario);
         return page;
     }
