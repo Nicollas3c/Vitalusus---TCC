@@ -118,12 +118,12 @@
       <strong>TELEFONE:</strong> <input type="tel" class="input" name="telefone" min="" th:field="${usuario.telefone}"
         maxlength="" required="required" id="telefone">
       <br />
-      <strong>CREF:</strong><input type="text"  class="input" name="cref" 
-      required="required" id="nome">
+      <strong>CREF:</strong><input type="text"  class="input" name="cref"  readonly="readonly"
+      required="required" id="nome" th:field="${treinador.cref}">
     <br />
       <label for="txtsen"></label>
       <strong>NOVA SENHA:</strong> <input type="password" class="input"  name="senha" min="8"
-        maxlength="8" required="required" id="txtsen" checked="checked">
+        maxlength="8" required="required" id="txtsen" checked="checked" autocomplete="off">
       <br />
 
       <label for="txt-consen"></label>

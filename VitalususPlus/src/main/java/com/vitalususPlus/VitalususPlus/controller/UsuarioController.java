@@ -174,7 +174,7 @@ public class UsuarioController {
     public ModelAndView editar(@PathVariable("id") Long id){
         ModelAndView mv = new ModelAndView("clienteSucesso");
         Usuario usuario = usuarioRepository.findById(id);
-
+        Treinador treinador = treinadorRepository.findById(id-1);
         return mv;
     }
 
@@ -212,7 +212,7 @@ public class UsuarioController {
     }
 
     //código que cria a localização da página esqueceuSenha
-    @GetMapping("/esqueceuSenha)")
+    @GetMapping("/esqueceuSenha")
     public String esqueceuSenha(){
         return "esqueceuSenha";
     }

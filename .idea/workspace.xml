@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a637ee9-f0a6-42ad-b95a-a74502089a41" name="Changes" comment="Otto -- a ligação entre tabelas tá funcionando melhor ainda agora e o crud completo também (quando eu coloquei a ligação das tabelas não tava funcionando o update e o delete, mas isso está no passado agora)" />
+    <list default="true" id="5a637ee9-f0a6-42ad-b95a-a74502089a41" name="Changes" comment="Otto -- a ligação entre tabelas tá funcionando melhor ainda agora e o crud completo também (quando eu coloquei a ligação das tabelas não tava funcionando o update e o delete, mas isso está no passado agora)">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/java/com/vitalususPlus/VitalususPlus/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/static/Controller-CAD-LOG.css" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/static/Controller-CAD-LOG.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/CADASTRAR.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/CADASTRAR.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/HomeTreinador.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/HomeTreinador.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/LOGIN.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/LOGIN.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/editarSuaConta.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/editarSuaConta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/esqueceuSenha.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/esqueceuSenha.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/VitalususPlus/src/main/resources/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,36 +49,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "frontend",
-    "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "Z:/Vitalusus-2h",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "c539e073e117e6ab19d7ce74b9205690",
-    "two.files.diff.last.used.folder": "C:/Users/yuser/OneDrive/Área de Trabalho/Diretórios/VitalususPlus/VitalususPlus",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;frontend&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-20&quot;,
+    &quot;last_opened_file_path&quot;: &quot;Z:/Vitalusus-2h&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;c539e073e117e6ab19d7ce74b9205690&quot;,
+    &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/yuser/OneDrive/Área de Trabalho/Diretórios/VitalususPlus/VitalususPlus&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="VitalususPlusApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="VitalususPlus" />
@@ -91,6 +102,7 @@
       <workItem from="1699135703987" duration="5660000" />
       <workItem from="1699221737216" duration="19057000" />
       <workItem from="1699956635995" duration="136000" />
+      <workItem from="1701264403579" duration="13513000" />
     </task>
     <task id="LOCAL-00001" summary="Otto -- Criando repositório git do novo vitalusus">
       <created>1698942223601</created>
