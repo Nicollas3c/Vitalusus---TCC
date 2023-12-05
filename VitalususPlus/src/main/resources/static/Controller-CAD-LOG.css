@@ -672,7 +672,7 @@ color:black;
 
 /*h1*/
 .TrenH1 h1{
-    font-size: 220%;
+    font-size: clamp(2em, 2em + 2vw, 2.5em);
     font-family: 'Bebas Neue', sans-serif;
     margin: 1%;
     margin-left: 0%;
@@ -727,7 +727,7 @@ color:black;
 /*alinhar as divs dos botoes*/
 .alignEstatisticas{
     font-family: 'Archivo Black', sans-serif;
-    font-size: 110%;
+    font-size: clamp(1em, 1em + 1vw, 1.5em);
     cursor: pointer;
     color: #e6e1e1;
     text-align: center;
@@ -741,7 +741,7 @@ color:black;
 }
 .alignEstatisticas:hover{
     background-color:rgba(151, 5, 5, 0.863);
-    font-size: 120%;
+    font-size: clamp(1.3em, 1.3em + 1.3vw, 1.5em);
 }
 .home-txt{
     width: 100%;

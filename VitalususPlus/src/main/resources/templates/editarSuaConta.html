@@ -122,8 +122,8 @@
       required="required" id="nome" th:field="${treinador.cref}">
     <br />
       <label for="txtsen"></label>
-      <strong>NOVA SENHA:</strong> <input type="password" class="input"  name="senha" min="8"
-        maxlength="8" required="required" id="txtsen" checked="checked" autocomplete="off">
+      <strong>NOVA SENHA:</strong> <input type="password" class="input"  name="senha" min="8" th:field="${usuario.senha}"
+        required="required" id="txtsen" checked="checked" autocomplete="off">
       <br />
 
       <label for="txt-consen"></label>

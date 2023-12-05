@@ -1,11 +1,11 @@
-package com.vitalususPlus.VitalususPlus.controller;
+package com.vitalusus.vitalususplus.controller;
 
-import com.vitalususPlus.VitalususPlus.model.Admin;
-import com.vitalususPlus.VitalususPlus.model.Treinador;
-import com.vitalususPlus.VitalususPlus.model.Usuario;
-import com.vitalususPlus.VitalususPlus.repository.AdminRepository;
-import com.vitalususPlus.VitalususPlus.repository.TreinadorRepository;
-import com.vitalususPlus.VitalususPlus.repository.UsuarioRepository;
+import com.vitalusus.vitalususplus.model.Admin;
+import com.vitalusus.vitalususplus.model.Treinador;
+import com.vitalusus.vitalususplus.model.Usuario;
+import com.vitalusus.vitalususplus.repository.AdminRepository;
+import com.vitalusus.vitalususplus.repository.TreinadorRepository;
+import com.vitalusus.vitalususplus.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -136,10 +136,10 @@ public class UsuarioController {
 
     //código que deleta o uusário
     @PostMapping("/confirmarDeletar")
-    public String deletar(@ModelAttribute Usuario usuario){
+    public String deletar(@ModelAttribute Usuario usuario, Treinador treinador){
         String page = "redirect:/Vitalusus-2h/Clientes/confirmarDeletar";
         Usuario usuarioDb = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
-        Treinador treinador = treinadorRepository.findById(usuarioDb.getId()-1);
+        treinador =  treinadorRepository.findById(usuario.getId()-1);
         if (usuarioDb !=null && usuario.getSenha().equals(usuarioDb.getSenha())&&usuario.getEmail().equals(usuario.getEmail())){
             page = "redirect:/Vitalusus-2h/Clientes/index";
             usuarioDb.setTreinador(null);
@@ -163,7 +163,7 @@ public class UsuarioController {
     public ModelAndView entrarEditar(@PathVariable("id") Long id){
         ModelAndView mv = new ModelAndView("editarSuaConta");
         Usuario usuario = usuarioRepository.findById(id);
-        Treinador treinador = treinadorRepository.findById(usuario.getId()-1);
+        Treinador treinador = treinadorRepository.findById(id-1);
         mv.addObject("usuario",usuario);
         mv.addObject("treinador",treinador);
         return mv;
@@ -174,15 +174,15 @@ public class UsuarioController {
     public ModelAndView editar(@PathVariable("id") Long id){
         ModelAndView mv = new ModelAndView("clienteSucesso");
         Usuario usuario = usuarioRepository.findById(id);
-        Treinador treinador = treinadorRepository.findById(id-1);
+        Treinador treinador = treinadorRepository.findById(usuario.getId()-1);
         return mv;
     }
 
     //código que edita o usuário e seta ele de novo como ativo, porque se não fizer isso, o statusUsuario fica nulo e ninguém quer que ele fique nulo
     @PostMapping("/editar{id}")
-    public ModelAndView editar(Usuario usuario){
+    public ModelAndView editar(Usuario usuario, Treinador treinador){
         ModelAndView mv = new ModelAndView();
-        Treinador treinador = treinadorRepository.findById(usuario.getId()-1);
+        treinador = treinadorRepository.findById(usuario.getId()-1);
         usuario.setTreinador(treinador);
         usuario.setStatusUsuario("ativo");
         usuarioRepository.save(usuario);
@@ -192,12 +192,14 @@ public class UsuarioController {
 
     //Código que verifica se o email e senha estão certos na página confirmarEditar, funciona igual o login, basicamente
     @PostMapping("/confirmarEditar")
-    public ModelAndView entrarNoEditar(@ModelAttribute Usuario usuario){
+    public ModelAndView entrarNoEditar(@ModelAttribute Usuario usuario, Treinador treinador){
         ModelAndView page = new ModelAndView();
         usuario = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
+        treinador = treinadorRepository.findById(usuario.getId()-1);
         if (usuario ==null)  page.setViewName("confirmarEditar");
         else page.setViewName("EditarSuaConta");
         page.addObject("usuario",usuario);
+        page.addObject("treinador",treinador);
         return page;
     }
 

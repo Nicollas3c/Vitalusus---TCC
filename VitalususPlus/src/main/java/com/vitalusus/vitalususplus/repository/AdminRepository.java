@@ -1,7 +1,8 @@
-package com.vitalususPlus.VitalususPlus.repository;
+package com.vitalusus.vitalususplus.repository;
 
-import com.vitalususPlus.VitalususPlus.model.Admin;
 import org.springframework.data.repository.CrudRepository;
+
+import com.vitalusus.vitalususplus.model.Admin;
 
 public interface AdminRepository extends CrudRepository<Admin,String> {
 }
