@@ -96,33 +96,28 @@
       <h1 class="textaocad">Editar sua conta</h1>
     </div>
     <div class="alignCad">
-      <label for="nome"></label>
-      <strong>NOME COMPLETO:</strong><input type="text" readonly="readonly" class="input" name="nome"
+      <input type="hidden" class="input" name="nome"
         required="required" id="nome" th:field="${usuario.nome}">
-      <br />
-      <strong>GÊNERO:</strong>
-      <select  class="input" readonly="readonly" required="required" name="genero" th:field="${usuario.genero}">
-        <option value="masculino" id="opttre">Masculino</option>
-        <option value="Feminino" id="opttre">Feminino</option>
-        <option value="outro/prefiro não dizer" id="opttre">Outro/prefiro não dizer</option>
-      </select><br/>
       <label for="email"></label>
       <strong>EMAIL</strong> <input type="email"  class="input" name="email" th:field="${usuario.email}"
         required="required" id="email">
       <br />
-      <label for="data"></label>
-      <strong>DATA DE NASCIMENTO:</strong> <input type="date" readonly="readonly" class="input" th:field="${usuario.dataNasc}"
+      <strong>GÊNERO:</strong>
+      <select  class="input" required="required" name="genero" th:field="${usuario.genero}">
+        <option value="masculino" id="opttre">Masculino</option>
+        <option value="Feminino" id="opttre">Feminino</option>
+        <option value="outro/prefiro não dizer" id="opttre">Outro/prefiro não dizer</option>
+      </select><br/>
+      <input type="hidden"  class="input" th:field="${usuario.dataNasc}"
         name="dataNasc" min="" maxlength="" required="required" id="data">
-      <br />
       <label for="telefone"></label>
       <strong>TELEFONE:</strong> <input type="tel" class="input" name="telefone" min="" th:field="${usuario.telefone}"
         maxlength="" required="required" id="telefone">
       <br />
-      <strong>CREF:</strong><input type="text"  class="input" name="cref"  readonly="readonly"
+      <input type="hidden"   class="input" name="cref"
       required="required" id="nome" th:field="${treinador.cref}">
-    <br />
       <label for="txtsen"></label>
-      <strong>NOVA SENHA:</strong> <input type="password" class="input"  name="senha" min="8" th:field="${usuario.senha}"
+      <strong>NOVA SENHA:</strong> <input type="password" class="input"  name="senha" min="8" 
         required="required" id="txtsen" checked="checked" autocomplete="off">
       <br />
 
@@ -130,12 +125,7 @@
       <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input"name="senha-confirm" min="" maxlength=""
         required="required" id="txtconsen">
       <br />
-
-      <strong>TIPO DE PESSOA:</strong>
-      <select  class="input" required="required" readonly="readonly" name="tipoPessoa" th:field="${usuario.tipoPessoa}"> 
-        <option value="Treinador(a)" id="opttre">Treinador(a)</option>
-      </select>
-      <br />
+      <input type="hidden" class="input" required="required" readonly="readonly" name="tipoPessoa" th:field="${usuario.tipoPessoa}">
       <br />
     </div>
 
