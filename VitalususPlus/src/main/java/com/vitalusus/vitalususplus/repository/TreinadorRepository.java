@@ -1,9 +1,10 @@
-package com.vitalususPlus.VitalususPlus.repository;
+package com.vitalusus.vitalususplus.repository;
 
-import com.vitalususPlus.VitalususPlus.model.Treinador;
-import com.vitalususPlus.VitalususPlus.model.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+
+import com.vitalusus.vitalususplus.model.Treinador;
+import com.vitalusus.vitalususplus.model.Usuario;
 
 public interface TreinadorRepository extends CrudRepository<Treinador,String> {
     @Query(value="SELECT * FROM treinador c WHERE c.id=?", nativeQuery = true)

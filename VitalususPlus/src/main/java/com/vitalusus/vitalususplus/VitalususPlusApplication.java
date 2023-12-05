@@ -1,4 +1,4 @@
-package com.vitalususPlus.VitalususPlus;
+package com.vitalusus.vitalususplus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

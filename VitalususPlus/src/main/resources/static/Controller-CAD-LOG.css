@@ -1,5 +1,6 @@
-/*Cadastro*/
+/*FONTES*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@800&display=swap');
 
 /*CODIGOS PRINCIPAIS*/
 html,body{
@@ -69,6 +70,7 @@ footer {
 }
 .carrega{
     position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: rgb(12,12,12);
@@ -80,6 +82,7 @@ footer {
 .carrega2{
     top: 0%;
     position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: rgb(12,12,12);
@@ -92,6 +95,7 @@ footer {
     to{transform: rotate(360deg)}
 }
 .pre{
+    position: fixed;
     width: 13%;
     height: 13%;
     background-image:url("loading.png");
@@ -668,15 +672,14 @@ color:black;
 
 /*h1*/
 .TrenH1 h1{
-    font-size: 250%;
+    font-size: clamp(2em, 2em + 2vw, 2.5em);
     font-family: 'Bebas Neue', sans-serif;
     margin: 1%;
     margin-left: 0%;
 }
 .subh1{
-    position: absolute;
-    top: 30%;
-    left: 28%;
+    margin-top: -10%;
+    margin-left: 35%;
 }
 #h1cor1{
     margin-top: 28%;
@@ -688,13 +691,14 @@ color:black;
 }
 .TrenH1{
     background: url("splashPreto.png");
+    background-position-y: -30vh;
     background-repeat: no-repeat;
-    background-size: 70%;
-    background-position: center;
-    top: -40%;
+    background-size: 50%;
+    background-position-x: center;
+    top: 0%;
     right: 30%;
-    width: 90%;
-    height: 130%;
+    width: 100%;
+    height: 70%;
     display: block;
     position: absolute;
 }
@@ -723,7 +727,7 @@ color:black;
 /*alinhar as divs dos botoes*/
 .alignEstatisticas{
     font-family: 'Archivo Black', sans-serif;
-    font-size: 110%;
+    font-size: clamp(1em, 1em + 1vw, 1.5em);
     cursor: pointer;
     color: #e6e1e1;
     text-align: center;
@@ -737,7 +741,7 @@ color:black;
 }
 .alignEstatisticas:hover{
     background-color:rgba(151, 5, 5, 0.863);
-    font-size: 120%;
+    font-size: clamp(1.3em, 1.3em + 1.3vw, 1.5em);
 }
 .home-txt{
     width: 100%;
@@ -1480,7 +1484,7 @@ color:black;
   border-color: #555 transparent transparent transparent;
 }
 
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
+/* POPUP DO MAL */
 .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
@@ -1497,4 +1501,119 @@ color:black;
   from {opacity: 0;}
   to {opacity:1 ;}
 }
-    
+
+/*|INDEX NOVO*/
+
+/*||Otto -- Tamanho do html e body*/
+.inicioBody{
+    width: 100%;
+    height:100%;
+    background: #030303;
+}
+.inicioHtml{
+    width: 100%;
+    height:624.86%;
+}
+/*||Otto -- Fim do tamanho do html e body*/
+
+/*||Otto -- Tudo envolvendo aquele retângulo que tem a muié contraindo os biceps*/
+.mulherDosBicepsContainer{
+    background: rgba(217,0,0,0.88);
+    overflow: hidden;
+    position: relative;
+    position: absolute;
+    top: 116.53%;
+    width: 100%;
+    height: 54.16%;
+}
+/*Otto -- container do retângulo da "mulher dos biceps" com a parte do texto*/
+.mulherDosBicepsContainer img{
+    width: 100%;
+    height: 115.38%;
+    position: absolute;
+    top: -15.38%;
+    opacity: 0.29;
+}
+.mulherDosBicepsContainer .fundoTexto{
+    position: absolute;
+    right: 58.12%;
+    height: 100%;
+    width: 41.87%;
+    background-color: #000;
+    opacity:0.48;
+}
+/*Otto -- container e imagem da "mulher dos biceps" de fato*/
+.mulherDosBiceps{
+    position: relative;
+    position: absolute;
+    top: 116.53%;
+    width: 100%;
+    height: 54.16%;
+}
+.mulherDosBiceps img{
+    position: absolute;
+    left: 68.22%;
+    top: -41.34%;
+    width: 31.77%;
+    height: 141.34%;
+    z-index: 2;
+}
+/*||Otto -- Fim da parte da "mulher dos biecps"*/
+
+/*||Otto -- Div do "maluco do BORA TREINAR"*/
+.finalIndex{
+    position: relative;
+    position: absolute;
+    top: 539.45%;
+    width: 100%;
+    height:85.41%;
+}
+.finalIndex img{
+    position: absolute;
+    width: 79.06%;
+    height: 100%;
+    right: 20.93%;
+}
+.finalIndex .fundoTexto{
+    position: absolute;
+    height: 100%;
+    width: 21.88%;
+    left: 78.11%;
+    background-color: rgb(10,10,10);
+}
+/*Otto -- Botões de cadastrar e fazer login, o <a> que fica envolta deles e a div em que tudo isso fica*/
+.finalIndexBotao{
+    position: absolute;
+    top: 598%;
+    bottom:15%;
+    left: 2.41%;
+    right: 60.46%;
+    width: 37.11%;
+    height:8%;
+    gap: 25%;
+    display: flex;
+    align-items: center;
+}
+.finalIndexBotao a{
+    padding: 0%;
+}
+.finalIndexBotao a:hover{
+    text-decoration: none;
+}
+.finalIndexBotao button{
+    width: 180%;
+    height: 100%;
+    padding: 0%;
+    padding-top: 3.5%;
+    padding-bottom: 3.5%;
+    transition: all ease .3s;
+    box-shadow: none;
+    font-family: 'Alumni Sans', sans-serif;
+    font-size: 160%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+/*||Otto -- Fim da parte do "carinha do BORA TREINAR"*/
+
+/*|Otto -- FIM DO INDEX NOVO*/

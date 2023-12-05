@@ -1,4 +1,4 @@
-package com.vitalususPlus.VitalususPlus.model;
+package com.vitalusus.vitalususplus.model;
 
 import javax.persistence.*;
 
