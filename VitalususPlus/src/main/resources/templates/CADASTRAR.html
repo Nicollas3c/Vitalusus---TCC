@@ -44,13 +44,17 @@
   <title>Vitalusus+</title>
 </head>
 
-<body>
+<body onload="loading()">
+  <div class="carrega">
+    <div class="pre"></div>
+</div>
   <header>
   <div class="imgLogo">
       <img src="/Logo.png">
     </div>
     </div>
   </header>
+  <div class="site">
 <div class="formContainer">
  
   <form  method="post" onsubmit="return Validar()" class="form">
@@ -62,7 +66,7 @@
     </div>
     <div class="alignCad">
       <label for="nome"></label>
-      <strong>NOME COMPLETO:</strong><input type="text"  class="input" name="nome"
+      <strong>NOME COMPLETO:</strong><input type="text" autocomplete="off" class="input" name="nome"
         required="required" id="nome" maxlength="100">
       <br />
       <strong>GÊNERO:</strong>
@@ -72,7 +76,7 @@
         <option value="outro/prefiro não dizer" id="opttre">Outro/prefiro não dizer</option>
       </select><br/>
       <label for="email"></label>
-      <strong>EMAIL</strong> <input type="email"  class="input" name="email"
+      <strong>EMAIL</strong> <input type="email"  class="input" autocomplete="off" name="email"
         required="required" id="email" maxlength="100">
       <br />
       <label for="data"></label>
@@ -80,14 +84,14 @@
         name="dataNasc" min="" maxlength="" required="required" id="data">
       <br />
       <label for="telefone"></label>
-      <strong>TELEFONE:</strong> <input type="tel"  class="input" name="telefone" min=""
+      <strong>TELEFONE:</strong> <input type="tel"  class="input" autocomplete="off" name="telefone" min=""
         maxlength="14" required="required" id="telefone">
       <br />
-      <strong>CREF:</strong><input type="text"  class="input" name="cref" 
+      <strong>CREF:</strong><input type="text" autocomplete="off"  class="input" name="cref" 
         required="required" id="nome" maxlength="6" >
       <br />
       <label for="txtsen"></label>
-      <strong>SENHA:</strong> <input type="password" class="input"  name="senha" minlength="8"
+      <strong>SENHA:</strong> <input type="password" class="input"  name="senha" minlength="8" autocomplete="off"
         maxlength="50" required="required" id="txtsen" checked="checked">
       <br />
 
@@ -95,7 +99,7 @@
       <div class="popup">
   			<span class="popuptext" id="myPopup">As Senhas não estão Iguais!</span>
 	  </div>
-      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input"name="senha-confirm"  maxlength="50"
+      <strong>CONFIRMAR SENHA:</strong> <input type="password" class="input"name="senha-confirm" autocomplete="off"  maxlength="50"
         required="required" id="txtconsen">
       <br />
 
@@ -118,6 +122,12 @@
  
 </div>
 <footer>.</footer>
+  </div>
 </body>
-
+<script>
+  function loading(){
+    document.getElementsByClassName("carrega")[0].style.display="none";
+    document.getElementsByClassName("site")[0].style.display="block";
+  }
+</script>
 </html>

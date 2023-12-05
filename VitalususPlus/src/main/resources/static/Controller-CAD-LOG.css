@@ -1,5 +1,6 @@
-/*Cadastro*/
+/*FONTES*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@800&display=swap');
 
 /*CODIGOS PRINCIPAIS*/
 html,body{
@@ -10,7 +11,8 @@ html,body{
     box-sizing: border-box;
 }
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),url("backgroundVitalusus.jpg");
+    background: rgb(0,0,0);
+    background: linear-gradient(324deg,rgba(0, 0, 0, 0.938) 20%, rgba(0, 0, 0, 0.377) 96%),url("backgroundVitalusus.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
@@ -20,19 +22,24 @@ body {
 header {
     position: fixed;
     top:0;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 0, 0, 1) 100%);
+    background: rgba(0, 0, 0, 0.616);
+    background: linear-gradient(90deg, rgba(0, 0, 0,0.4) 0%, rgba(48, 2, 2, 0.4) 100%);
     padding: 5px;
+    margin-bottom: 10%;
     width:100%;
     min-width:100%;
     box-shadow: 0 0 4px black;
     border-radius: 4px;
     z-index: 2;
-    height:8%
+    height:8%;
+    text-align: center;
 }
 .listaHeader{
     left: 0px;
     height: 70px;
+}
+.material-symbols-outlined{
+    cursor: default;
 }
 .bxs-message-alt-edit, .bxs-message-alt-x{
     font-size: 30px;
@@ -61,6 +68,45 @@ footer {
 .footeruser{
     margin-top: 26.041666666667%;
 }
+.carrega{
+    position: absolute;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(12,12,12);
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carrega2{
+    top: 0%;
+    position: absolute;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(12,12,12);
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes carregando{
+    to{transform: rotate(360deg)}
+}
+.pre{
+    position: fixed;
+    width: 13%;
+    height: 13%;
+    background-image:url("loading.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: carregando 2s infinite linear;
+}
+.site{
+    display: none;
+}
 /*FIM D CODIGOS PRINCIPAIS*/
 .listaH2{
     margin-top: 30px
@@ -71,7 +117,8 @@ footer {
     transform: translate(-50%);
 }
 .formContainer{
-    min-height:100%;
+    height:100%;
+    width: 100%;
     display: flex;
     align-items: end;
     flex-direction: column;
@@ -116,6 +163,10 @@ footer {
     width: 150px;
     align-self: center;
 }
+.poster1{
+    width: 100%;
+    height: 50%;
+}
 .configp{
     color: white;
     text-align: center;
@@ -128,7 +179,7 @@ footer {
     border-radius: 10px;
 }
 h1 {
-    margin: 30px;
+    margin: 4.5%;
     font-family: 'Work Sans', sans-serif;
     text-align: center;
     color: white;
@@ -139,11 +190,9 @@ img {
 }
 
 .imgLogo {
-    text-align: center;
-}
-.imgLogo img{
-	width:4.5%;
-	height:4.5%;
+    align-self: center;
+    width: 70px;
+    height: 140%;
 }
 .imgLogologin {
     text-align: center;
@@ -291,7 +340,7 @@ a:hover {
 .perfil{
     position: fixed;
     right:0;
-    top:20px;
+    top:3%;
 }
 .sucesso{
 	text-align:center;
@@ -328,8 +377,8 @@ nav a{
     height:400px;
     font-size: 20px;
     padding: 0;
-    margin-top: 2%;
-    background-color: rgb(66, 11, 16);
+    margin-top: 0%;
+    background-color: rgb(24, 1, 1);
     color: #fff;
     text-align: center;
     margin-left: -200px;
@@ -339,6 +388,7 @@ nav a{
 .menu-options li {
     padding: 10px 0;
     margin-bottom: 10px;
+    cursor: default;
 }
 
 .menu-options a {
@@ -381,8 +431,6 @@ nav li a .bx-x{
     top:0%;
     left:0%;
 }
-
-
 
 .element {
     width: 100px;
@@ -514,7 +562,6 @@ nav li a .bx-x{
 
 .alignBack .material-symbols-outlined{
         font-size: 30px;
-       
 }
 .student{
     top: 100px;
@@ -615,145 +662,162 @@ color:black;
     display: block;
 }
 /*HomeTreinador.html*/
+.homeTreina{
+    min-height:100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
 /*h1*/
+.TrenH1 h1{
+    font-size: clamp(2em, 2em + 2vw, 2.5em);
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 1%;
+    margin-left: 0%;
+}
+.subh1{
+    margin-top: -10%;
+    margin-left: 35%;
+}
+#h1cor1{
+    margin-top: 28%;
+    color: #e01212;
+}
+
+#h1cor2{
+    
+}
 .TrenH1{
+    background: url("splashPreto.png");
+    background-position-y: -30vh;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position-x: center;
+    top: 0%;
+    right: 30%;
+    width: 100%;
+    height: 70%;
+    display: block;
     position: absolute;
-    top:150px;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: 60px;
+}
+.bomdia{
+    text-align: left;
+    font-size: 200%;
+    width: 100%;
+    padding: 0%;
+    margin: 3%;
 }
 /*botoes homeTreinador*/
 
 /*mexa aqui se quiser deixar os botões bonitinhos*/
-
-.AtributBotton button{
-    border:none;
-    background-color: #ff000000;
-    color:#fff;  
-    font-size: 15px;
-    width: 300px;
-    height: 100px;
+.AtributBotton a{
+    text-align: center;
+    cursor: pointer;
+    height: 60%;
+    width: 25%;
+    padding: 0%;
+}
+.AtributBotton a:hover{
+    height: 70%;
+    width: 30%;
+    padding: 0%;
+}
+/*alinhar as divs dos botoes*/
+.alignEstatisticas{
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1em, 1em + 1vw, 1.5em);
+    cursor: pointer;
+    color: #e6e1e1;
+    text-align: center;
+    padding-top: 4%;
+    height:140%;
+    width: 100%; 
+    background-color:rgba(255, 2, 2, 0.699);
+    border-radius: 10px;
+    border: solid 1px black;
     transition: all ease .5s;
 }
-.AtributBotton button:hover{
-    border:none;
-    background-color: #ff000000;
-    color:#fff;  
-    transition: 0.5s;
-    font-size: 17px;
-    width: 320px;
-    height: 120px;
+.alignEstatisticas:hover{
+    background-color:rgba(151, 5, 5, 0.863);
+    font-size: clamp(1.3em, 1.3em + 1.3vw, 1.5em);
 }
-
-.AtributBotton button{
-    border:none;
-    background-color: #ff000000;
-    color:#fff;  
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    cursor: pointer;
+.home-txt{
+    width: 100%;
+    height: 100%;
 }
 
 .AtributBotton{
+    align-self: center;
    text-align: center;
-   margin-top: 300px;
-  
+   display: flex;
+   margin-top: 20%;
+   width: 94%;
+   height: 16%;
+   justify-content: center;
+   position: absolute;
+   bottom: 25%;
+   gap: 10%;
+}
+.splashPreto{
+    width: 40%;
+    height: 40%;
+    image-orientation: flip;
+    transform: scaleX(-1);
+    position: absolute;
+    left: 60%;
+    bottom: 0%;
+    z-index: -1;
 }
 /*Fim de /*/
 /*ATRIBUTO DOS ICONES*/
-.alignIconMovie > .material-symbols-outlined{
-    font-size: 60px;
-}
-.alignIconPublicar > .material-symbols-outlined{
-    font-size: 60px;
-}
-.alignIconEstatisticas > .material-symbols-outlined{
-    font-size: 60px;
-}
-/*align icones*/
-.alignIconMovie{
-    color: #fff;
+.icon-container{
+    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 16%;
+    justify-content: center;
     position: absolute;
-    top: 300px;
-    left:15%;
-    transform: translate(-85%);
+    bottom: 40%;
+    gap: 6.5%;
 }
-.alignIconPublicar{
+.icon-container div{
     color: #fff;
-    position: absolute;
-    top: 300px;
-    left:50%;
-    transform: translate(-50%);
+    height: 100%;
+    width: 26.5%; 
 }
-.alignIconEstatisticas{
-    color: #fff;
-    position: absolute;
-    top: 300px;
-    left:85%;
-    transform: translate(-15%);
-}
-.alignSeusVideos,.alingCriarVideo,.alignEstatisticas{
-    margin-top: 150px;
-    height:100px;
-    width: 300px; 
-    background-color:rgba(216, 8, 8, 0.8);;
-    border-radius: 10px;
-    border: solid 1px black;
-    cursor: pointer;
-    transition: all ease .5s;
-}
-.alignSeusVideos:hover,.alingCriarVideo:hover,.alignEstatisticas:hover{
-    margin-top: 150px;
-    height:120px;
-    width: 320px; 
-    background-color: #920202da;
-    border-radius: 10px;
-    border: solid 1px black;
-    cursor: pointer;
-}
-.homeTreina{
-   min-height:100%;
-   display: flex;
-   align-items: end;
+.icon-container span{
+    cursor:default;
+    font-size: 400%;
+    width: 100%;
+    height: 200%;
 }
 
-/*alinhar as divs dos botoes*/
-.alignSeusVideos{
-    position: absolute;
-    top: 230px;
-    left:19%;
-    transform: translate(-81%);
-}
-.alingCriarVideo{
-    position: absolute;
-    top: 230px;
-    left:50%;
-    transform: translate(-50%)
 
-}
-.alignEstatisticas{
-    position: absolute;
-    top: 230px;
-    left:80%;
-    transform: translate(-20%)
-}
+
 /*Fim de / */
 /*Publicar.html*/
 .alignTitle{
     position: absolute;
-    left:140px;
+    width: 40%;
+    height: 50%;
     }
-
+.alignTitle .input{
+    width: 100%;
+}
     .alignTreiner{
+        width: 25%;
+        height: 50%;
         position: absolute;
-        right:300px;
+        right:10%;
+    }
+    .alignTreiner strong{
+        margin: 0%;
     }
     .inputTreb{
-        width:200px;
-        height: 30px;
+        width:100%;
+        height: 8%;
         background-color: white;
         border-radius:5px;
         border: none;
@@ -762,49 +826,66 @@ color:black;
     }
     .formPublicar {
         background-color: #af0000d3;
-        width: 100%;
-        margin-top: 150px;
-        max-width: 1000px;
+        width: 80%;
+        top: 16%;
+        left: 50%;
+        transform: translate(-50%);
+        max-width: 90%;
         border-radius: 8px;
         padding-top: 5px;
         padding-right: 5px;
         padding-left: 5px;
-        height:80vh;
+        height:70vh;
         align-self: center;
-        margin-bottom: 300px;
+        position: relative;
+        position: absolute;
+    }
+    .formPublicar h1{
+        width: 100%;
+        margin: 0%;
+    }
+    .formPublicar .txtcad{
+        margin-top: 3%;
+        margin-bottom: 4%;
+    }
+    #textarea{
+        height: 70%;
     }
     .btPublicar {
+        align-self: center;
+        position: relative;
+    }
+    .btPublicar input{
         position: absolute;
-        left: 67%;
-        top: 80%;
-        
-        
+        left: 50%;
+        transform: translate(-50%);
     }
     /*Inicio*/
     .main {
         /*DE OLHO AQUI*/
-        
-    
-        height: 350px;
-    
+        height: 50%;
         width: 100%;
+    
         /*
         width:1365px;
         */
+        display: flex;
+        align-items: center;
         background-color:rgba(165, 11, 11, 0.74);
-        transform: translate(0%, 200px);
+        position: absolute;
+        top:10%;
         border-top: 2px solid black;
         border-bottom: 2px solid black;
     
     }
     
     .content {
-        height: 260px;
+        height: 100%;
         /*
         width:1350px;
     */
         /*DE OLHO AQUI*/
-        width: 87%;
+        width: 80%;
     
         border-radius: 5px;
     
@@ -812,8 +893,8 @@ color:black;
     
         position: absolute;
     
-        top: 20px;
-        left: 50px;
+        top: 8%;
+        left: 3%;
     
     
     }
@@ -825,18 +906,14 @@ color:black;
     
     .navigation {
     
-        position: absolute;
-    
-        bottom: 50px;
-    
-        left: 0%;
-    
-        transform: translate(80%);
-    
+        margin-top:25%;
+        margin-left: 13%;
+        margin-bottom: 5%;
         display: flex;
     
     }
     .p1{
+        margin-top: 5%;
         margin-left: 50px;
         color: white;
         font-family:'Arial Narrow Bold', sans-serif
@@ -969,9 +1046,10 @@ color:black;
     }
     
     .slide {
-    
+        height: 70%;
+        
         padding-right: 0%;
-    
+        
         display: flex;
     
         transition: .4s;
@@ -983,6 +1061,7 @@ color:black;
         height: 100%;
     
         width: 25%;
+
     }
     
     .s1 video {
@@ -1023,7 +1102,7 @@ color:black;
     .s1 {
     
         display: flex;
-    
+
         height: 98%;
     
         width: 25%;
@@ -1047,27 +1126,28 @@ color:black;
         height:100%;
     }
     #SobreO {
-        margin-top: 36.603221083455%;
-        height: 300px;
+        margin-top: 55%;
+        height: 50%;
         align-self: center;
-        width: 600px;
+        width: 40%;
         background-color: #f7f7f7;
+        position: relative;
     }
     
     .p2 {
-        padding-top: 50px;
-        margin-left: 40px;
+        padding-top: 5%;
+        margin-left: 4%;
+        height: 100%;
         font-size: larger;
         text-align: justify;
         font-family: 'Open Sans', sans-serif;
     }
     
     .Vitalusus {
-        position: absolute;
         display: flex;
         color: #ff0000;
-        top: 130px;
-        margin-left: 410px;
+        margin-top: -10%;
+        margin-left: 63%;
         font-size: larger;
     }
     
@@ -1081,25 +1161,23 @@ color:black;
     }
     
     .LogoAjust img {
-        height: 170px;
-        width: 180px;
+        height: 80%;
+        width: 80%;
     }
     
     .LogoAjust {
-        top: 35px;
-        left: 75%;
-        transform: translate(-30%);
-        position: absolute;
+        margin-top: -30%;
+        margin-left: 65%;
     }
     /*Fim da DIV DE BAIXO*/
     
     
     /*COMEÇAR (TELA DE BAIXO DA LOGO)*/
     .comecar {
-        height: 360px;
+        height: 50%;
         position: absolute;
         left: 50%;
-        top: 1500px;
+        top: 200%;
         transform: translate(-50%);
         width: 100%;
         background-color: #f7f7f7;
@@ -1118,7 +1196,7 @@ color:black;
     
     .p3 {
         margin-top: 10%;
-        padding-left: 10px;
+        padding-left: 1%;
         font-size: larger;
     }
     
@@ -1370,84 +1448,7 @@ color:black;
     .clipVD,.clipVD2,.clipVD3,.clipVD4{
         text-align: center;
     }
-    /*Configurações para a tela de celular*/
-    @media(max-width:800px){
-        body{
-            background-size: 340%;
-        }
-        .AtributBotton .alignSeusVideos,.alingCriarVideo,.alignEstatisticas{
-          width: 80px;
-          height:60px;
-        }
-        .AtributBotton .alignSeusVideos:hover,.alingCriarVideo:hover,.alignEstatisticas:hover{
-          width: 80px; 
-          height: 65px; 
-        }
-        .AtributBotton button{
-            font-size: 10px;
-            width:80px;
-            height:60px;
-        }
-        .AtributBotton button:hover{
-            font-size: 14px;
-            width:80px;
-            height:65px;
-        }
-        .imgLogo img{
-            width: 12%;
-            height: 12%;
-            align-self: center;
-        }
-        .alignTitle .input{
-            width:150px;
-            margin-left: 100px;
-        }
-        .alignTitle strong{
-            margin-left: 200px;
-        }
-        .bomdia{
-           justify-content: center;
-            margin-left: 5%;
-            width: 100%;
-        }
-        .alignTreiner .inputTreb{
-            margin-left: 25px;
-            width: 75px;
-        }
-        .alignTreiner strong{
-            margin-left: 25px;
-        }
-        .alignTreiner{
-            margin-left: 30px;
-            position:relative;
-        }
-        .btPublicar{
-            margin-left: 40px;
-        }
-        
-        .homefooter{
-            display: none;
-        }
-        footer{
-            display: none;
-        }
-        .TrenH1{
-            position: absolute;
-            top: 15%;
-            margin-bottom: 100px;
-        }
-        header{
-            max-width: 400px;
-        }
-        .cor-sobre-nos{
-            width: 300px;
-        }
-        html, body{
-            max-width: 400px;
-            
-        }
-    }
-    
+   
     /* Popup container */
 .popup {
   position: relative;
@@ -1483,7 +1484,7 @@ color:black;
   border-color: #555 transparent transparent transparent;
 }
 
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
+/* POPUP DO MAL */
 .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
@@ -1500,4 +1501,119 @@ color:black;
   from {opacity: 0;}
   to {opacity:1 ;}
 }
-    
+
+/*|INDEX NOVO*/
+
+/*||Otto -- Tamanho do html e body*/
+.inicioBody{
+    width: 100%;
+    height:100%;
+    background: #030303;
+}
+.inicioHtml{
+    width: 100%;
+    height:624.86%;
+}
+/*||Otto -- Fim do tamanho do html e body*/
+
+/*||Otto -- Tudo envolvendo aquele retângulo que tem a muié contraindo os biceps*/
+.mulherDosBicepsContainer{
+    background: rgba(217,0,0,0.88);
+    overflow: hidden;
+    position: relative;
+    position: absolute;
+    top: 116.53%;
+    width: 100%;
+    height: 54.16%;
+}
+/*Otto -- container do retângulo da "mulher dos biceps" com a parte do texto*/
+.mulherDosBicepsContainer img{
+    width: 100%;
+    height: 115.38%;
+    position: absolute;
+    top: -15.38%;
+    opacity: 0.29;
+}
+.mulherDosBicepsContainer .fundoTexto{
+    position: absolute;
+    right: 58.12%;
+    height: 100%;
+    width: 41.87%;
+    background-color: #000;
+    opacity:0.48;
+}
+/*Otto -- container e imagem da "mulher dos biceps" de fato*/
+.mulherDosBiceps{
+    position: relative;
+    position: absolute;
+    top: 116.53%;
+    width: 100%;
+    height: 54.16%;
+}
+.mulherDosBiceps img{
+    position: absolute;
+    left: 68.22%;
+    top: -41.34%;
+    width: 31.77%;
+    height: 141.34%;
+    z-index: 2;
+}
+/*||Otto -- Fim da parte da "mulher dos biecps"*/
+
+/*||Otto -- Div do "maluco do BORA TREINAR"*/
+.finalIndex{
+    position: relative;
+    position: absolute;
+    top: 539.45%;
+    width: 100%;
+    height:85.41%;
+}
+.finalIndex img{
+    position: absolute;
+    width: 79.06%;
+    height: 100%;
+    right: 20.93%;
+}
+.finalIndex .fundoTexto{
+    position: absolute;
+    height: 100%;
+    width: 21.88%;
+    left: 78.11%;
+    background-color: rgb(10,10,10);
+}
+/*Otto -- Botões de cadastrar e fazer login, o <a> que fica envolta deles e a div em que tudo isso fica*/
+.finalIndexBotao{
+    position: absolute;
+    top: 598%;
+    bottom:15%;
+    left: 2.41%;
+    right: 60.46%;
+    width: 37.11%;
+    height:8%;
+    gap: 25%;
+    display: flex;
+    align-items: center;
+}
+.finalIndexBotao a{
+    padding: 0%;
+}
+.finalIndexBotao a:hover{
+    text-decoration: none;
+}
+.finalIndexBotao button{
+    width: 180%;
+    height: 100%;
+    padding: 0%;
+    padding-top: 3.5%;
+    padding-bottom: 3.5%;
+    transition: all ease .3s;
+    box-shadow: none;
+    font-family: 'Alumni Sans', sans-serif;
+    font-size: 160%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+/*||Otto -- Fim da parte do "carinha do BORA TREINAR"*/
+
+/*|Otto -- FIM DO INDEX NOVO*/
