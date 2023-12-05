@@ -51,7 +51,9 @@ public class UsuarioController {
         String page = "redirect:/Vitalusus-2h/Clientes/clienteSucesso";
         Usuario usuarioDb = usuarioRepository.findByEmail(usuario.getEmail());
         Treinador treinadorDb = treinadorRepository.findByCref(treinador.getCref());
-        if (usuarioDb !=  null || treinadorDb !=null) page = "redirect:/Vitalusus-2h/Clientes/cadastrar";
+        if (usuarioDb !=  null ) page = "CADASTRARTEMEMAIL";
+        else if(treinadorDb !=null) page = "CADASTRARTEMCREF";
+        else if (treinadorDb !=null && usuarioDb !=null) page = "CADASTRARTEMEMAILCREF";
         else{
         if (usuario.getTipoPessoa().equals("Treinador(a)")){
             treinadorRepository.save(treinador);
