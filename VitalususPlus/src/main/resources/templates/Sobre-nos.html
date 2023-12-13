@@ -50,11 +50,11 @@
               </li>
           </ul>
         </nav>
-      <div class="imgLogo">
-          <img src="/Logo.png">
-        </div>
+        <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self">
+          <img src="/Logo.png" class="imgLogo">
+      </a>
         <div class="perfil">
-          <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self" id="iperfil">
+          <a th:href="@{/Vitalusus-2h/Clientes/user/{id}(id=${usuario.id})}" target="_self" id="iperfil">
             <i class='bx bx-user'></i>
           </a>
         </div>

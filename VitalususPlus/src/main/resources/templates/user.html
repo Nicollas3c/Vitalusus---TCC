@@ -5,7 +5,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Perfil Treinador</title>
+    <title th:text="${usuario.nome}"></title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/Controller-CAD-LOG.css">
 </head>
@@ -44,12 +44,14 @@
               </li>
           </ul>
         </nav>
-          <img src="/Logo.png" class="imgLogo">
-        <div class="perfil">
-          <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self" id="iperfil">
-            <i class='bx bx-user'></i>
-          </a>
-        </div>
+        <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self">
+            <img src="/Logo.png" class="imgLogo">
+        </a>
+          <div class="perfil">
+            <a th:href="@{/Vitalusus-2h/Clientes/user/{id}(id=${usuario.id})}" target="_self" id="iperfil">
+              <i class='bx bx-user'></i>
+            </a>
+          </div>
       </header>
       <div class="site">
 </div>

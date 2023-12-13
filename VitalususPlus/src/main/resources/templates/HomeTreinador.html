@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-  <title th:text="${usuario.nome}"> </title>
+  <title>Vitalusus+ | Home </title>
 </head>
 
 <body onload="loading()">
@@ -57,9 +57,11 @@
         </li>
     </ul>
   </nav>
+  <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self">
     <img src="/Logo.png" class="imgLogo">
+</a>
   <div class="perfil">
-    <a th:href="@{/Vitalusus-2h/Clientes/HomeTreinador/{id}(id=${usuario.id})}" target="_self" id="iperfil">
+    <a th:href="@{/Vitalusus-2h/Clientes/user/{id}(id=${usuario.id})}" target="_self" id="iperfil">
       <i class='bx bx-user'></i>
     </a>
   </div>
