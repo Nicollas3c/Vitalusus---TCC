@@ -1,6 +1,11 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
-public class Admin extends Usuario {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Admin {
+	@Id
 	private long codigo;
 
 	public long getCodigo() {
