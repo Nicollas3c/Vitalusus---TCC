@@ -1,13 +1,28 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Videoaula")
 public class Videoaula {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	private String link;
-	private Treinador treinador;
+
 	private String descricao;
 	private String titulo;
 	private long like;
 	private long deslike;
 	private long visualizacoes;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getLink() {
 		return link;
@@ -15,14 +30,6 @@ public class Videoaula {
 
 	public void setLink(String link) {
 		this.link = link;
-	}
-
-	public Treinador getTreinador() {
-		return treinador;
-	}
-
-	public void setTreinador(Treinador treinador) {
-		this.treinador = treinador;
 	}
 
 	public String getDescricao() {

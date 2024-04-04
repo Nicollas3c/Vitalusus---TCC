@@ -1,17 +1,25 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
-public class Canal extends Treinador {
-	private long codigo;
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "Canal")
+public class Canal{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	private long visualizacoes;
-	private long seguidores;
+
 	private String nome;
 
-	public long getCodigo() {
-		return codigo;
+	public long getId() {
+		return id;
 	}
 
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public long getVisualizacoes() {
@@ -20,14 +28,6 @@ public class Canal extends Treinador {
 
 	public void setVisualizacoes(long visualizacoes) {
 		this.visualizacoes = visualizacoes;
-	}
-
-	public long getSeguidores() {
-		return seguidores;
-	}
-
-	public void setSeguidores(long seguidores) {
-		this.seguidores = seguidores;
 	}
 
 	public String getNome() {

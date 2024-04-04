@@ -1,18 +1,36 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Evolucao")
 public class Evolucao{
-	private long codigo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	private float imc;
 	private float metBasal;
 	private float pesoAtual;
 	private float alturaAtual;
 
-	public long getCodigo() {
-		return codigo;
+	@OneToOne
+	@JoinColumn(name = "aluno_id",nullable=false)
+	private Aluno aluno;
+
+	public Aluno getAluno() {
+		return aluno;
 	}
 
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public float getImc() {

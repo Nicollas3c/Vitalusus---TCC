@@ -1,4 +1,4 @@
-USE master IF EXISTS(select * from sys.databases where name='vitalusus') 
+USE master IF EXISTS(select * from sys.databases where name='bd_vitalusus') 
 DROP DATABASE bd_vitalusus2h
 GO 
 -- CRIAR UM BANCO DE DADOS
@@ -8,6 +8,7 @@ GO
 USE bd_vitalusus2h
 GO
 
+-- Tabela Usuario
 CREATE TABLE Usuario
 ( 
    id            INT			IDENTITY,
@@ -18,90 +19,62 @@ CREATE TABLE Usuario
    foto			 VARBINARY(MAX) NULL,
    dataCadastro	 SMALLDATETIME	NOT NULL,
    statusUsuario VARCHAR(20)    NOT NULL, -- ATIVO ou INATIVO ou TROCAR_SENHA
-
    PRIMARY KEY (id)
 )
 GO
 INSERT Usuario (nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario)
 VALUES ('Fulano da Silva', 'fulano@email.com.br', 'MTIzNDU2Nzg=', 'ADMIN', NULL, GETDATE(), 'ATIVO')
-INSERT Usuario (nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario)
-VALUES ('Beltrana de Sá', 'beltrana@email.com.br', 'MTIzNDU2Nzg=', 'USER', NULL, GETDATE(), 'ATIVO')
-INSERT Usuario (nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario)
-VALUES ('Sicrana de Oliveira', 'sicrana@email.com.br', 'MTIzNDU2Nzg=', 'USER', NULL, GETDATE(), 'INATIVO')
-INSERT Usuario (nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario)
-VALUES ('Ordnael Zurc', 'ordnael@email.com.br', 'MTIzNDU2Nzg=', 'USER', NULL, GETDATE(), 'TROCAR_SENHA')
 GO
 
-CREATE TABLE Categoria
+-- Tabela Aluno
+CREATE TABLE Aluno
 (
-	id	 INT		  IDENTITY,
-	nome VARCHAR(100) NOT NULL,  -- QUEIJO, FRANGO, CARNES & FRIOS, LEGUMES, DOCES, ESPECIAS, PEIXE
+	id			INT				IDENTITY,
+	dataNasc	SMALLDATETIME	NOT NULL,
+	altura		DECIMAL			NOT NULL,
+	peso		DECIMAL			NOT NULL,
+	usuario_id	INT				NOT NULL,
 
+	FOREIGN KEY(usuario_id) REFERENCES Usuario (id),
 	PRIMARY KEY(id)
 )
 GO
-INSERT Categoria (nome) VALUES ('CARNES & FRIOS')
-INSERT Categoria (nome) VALUES ('DOCES')
-INSERT Categoria (nome) VALUES ('ESPECIAS')
-INSERT Categoria (nome) VALUES ('FRANGO')
-INSERT Categoria (nome) VALUES ('LEGUME')
-INSERT Categoria (nome) VALUES ('PEIXE')
-INSERT Categoria (nome) VALUES ('QUEIJO')
-INSERT Categoria (nome) VALUES ('SUCO')
-INSERT Categoria (nome) VALUES ('REFRIGERANTE')
+INSERT Aluno (altura) VALUES (1.32)
 GO
 
-CREATE TABLE Produto
+-- Tabela administrador
+CREATE TABLE Administrador
 (
 	id			 INT		    IDENTITY,
-	nome	     VARCHAR(100)	NOT NULL,
-	descricao	 VARCHAR(400)	NOT NULL,
-	codigoBarras VARCHAR(100)	NULL,
-	foto		 VARBINARY(max) NULL,
-	urlFoto		 VARCHAR(max)	NULL,
-	preco		 DECIMAL(8,2)	NOT NULL,
-	categoria_id INT			NOT NULL,
-	statusProd	 VARCHAR(10)	NOT NULL, -- ATIVO ou INATIVO
+	usuario_id	 INT			NOT NULL,
 
 	PRIMARY KEY (id),
-	FOREIGN KEY (categoria_id) REFERENCES Categoria (id)
+	FOREIGN KEY (usuario_id) REFERENCES Usuario (id)
 )
 GO
-INSERT Produto (nome, descricao, codigoBarras, foto, urlFoto, preco, categoria_id, statusProd) 
-VALUES ('Muçarela', 'Base de molho de tomate com cobertura de muçarela, orégano e tomate', '0001', NULL, 'D:/Imagens/Imagens para Testes/pizza.png', 29.98, 7, 'ATIVO')
-INSERT Produto (nome, descricao, codigoBarras, foto, urlFoto, preco, categoria_id, statusProd) 
-VALUES ('Calabresa', 'Base de molho de tomate e queijo com cobertura de calabresa', '0002', NULL, NULL, 29.98, 1, 'ATIVO')
-INSERT Produto (nome, descricao, codigoBarras, foto, urlFoto, preco, categoria_id, statusProd) 
-VALUES ('Frango com Catupiry', 'Base de molho de tomate com cobertura de frango desfiado com catupiry', '0003', NULL, NULL, 37.98, 4, 'ATIVO')
-INSERT Produto (nome, descricao, codigoBarras, foto, urlFoto, preco, categoria_id, statusProd) 
-VALUES ('Marguerita', 'Base de molho de tomate com cobertura de muçarela, manjericão, orégano e tomate', '0004', NULL, NULL, 31.98, 7, 'ATIVO')
-INSERT Produto (nome, descricao, codigoBarras, foto, urlFoto, preco, categoria_id, statusProd) 
-VALUES ('Banana com Canela e Leite Condensado', 'Banana picada coberta com Canela em pó em uma base de Leite Condensado', '0005', NULL, NULL, 35.99, 2, 'ATIVO')
-GO
+INSERT Administrador (usuario_id) VALUES(1)
 
-CREATE TABLE Mensagem
+CREATE TABLE Treinador
 (
 	id	            INT			  IDENTITY,
-	dataMensagem    SMALLDATETIME NOT NULL,
-	emissorMensagem VARCHAR(100)  NOT NULL,
-	email 	        VARCHAR(100)  NOT NULL,
-	telefone	    VARCHAR(20)       NULL,
-	texto 	        VARCHAR(400)  NOT NULL,
-	statusMensagem  VARCHAR(10)   NOT NULL, -- ATIVO ou INATIVO
+	cref			INT			  NOT NULL,
+	dataNasc		SMALLDATETIME NOT NULL,
+	usuario_id		INT			  NOT NULL,
+	videoaula_id	INT			  NOT NULL,
+	canal_id		INT			  NOT NULL,
+	banco_id		INT           NOT NULL,
 
 	PRIMARY KEY (id)
 )
 GO
-INSERT Mensagem (dataMensagem, emissorMensagem, email, telefone, texto, statusMensagem) 
-VALUES (GETDATE(), 'Ordnael Zurc', 'ordnael@email.com', '(11) 98765-4123', 'Mensagem de teste', 'ATIVO')
-INSERT Mensagem (dataMensagem, emissorMensagem, email, telefone, texto, statusMensagem) 
-VALUES (GETDATE(), 'Maria Onete', 'maria@email.com', null, 'Segunda mensagem de teste', 'ATIVO')
+INSERT Treinador(cref, dataNasc, usuario_id, videoaula_id, canal_id, banco_id) 
+VALUES (132432, GETDATE(), 2, 2, 2, 2)
 GO
 
 SELECT * FROM Usuario
-SELECT * FROM Mensagem
-SELECT * FROM Categoria
-SELECT * FROM Produto
+SELECT * FROM Aluno
+SELECT * FROM Administrador
+SELECT * FROM Treinador
 
 
 

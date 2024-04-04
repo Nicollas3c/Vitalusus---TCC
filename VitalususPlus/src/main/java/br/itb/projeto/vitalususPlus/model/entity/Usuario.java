@@ -12,7 +12,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(nullable = false, length=100, name="nome")
 	private String nome;
 	
@@ -31,10 +31,11 @@ public class Usuario {
 	
 	@Column(nullable=false, name="dataCadastro")
 	private LocalDateTime dataCadastro;
-	
+
+
 	@Column(nullable=false, name="statusUsuario", length=20)
 	private String statusUsuario;
-	
+
 	public long getId() {
 		return id;
 	}

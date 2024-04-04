@@ -1,28 +1,52 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
 
-public class Aluno extends Usuario {
-	private long codigo;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Entity
+@Table(name = "Aluno")
+public class Aluno{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	private LocalDateTime dataNasc;
 	private float altura;
 	private float peso;
-	private Evolucao evolucao;
 
-	public Evolucao getEvolucao() {
-		return evolucao;
+	@ManyToMany
+	@JoinTable(name="aluno_segue_canal", joinColumns=
+			{@JoinColumn(name="seguidor_id")}, inverseJoinColumns=
+			{@JoinColumn(name="canal_id")})
+	private List<Canal> canais;
+
+	@OneToOne
+	@JoinColumn(name = "usuario_id",nullable=false)
+	private Usuario usuario;
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setEvolucao(Evolucao evolucao) {
-		this.evolucao = evolucao;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public long getCodigo() {
-		return codigo;
+	public List<Canal> getCanais() {
+		return canais;
 	}
 
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
+	public void setCanais(List<Canal> canais) {
+		this.canais=canais;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public LocalDateTime getDataNasc() {
