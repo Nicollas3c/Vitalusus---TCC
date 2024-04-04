@@ -24,7 +24,8 @@ public class Usuario {
 	
 	@Column(nullable = true, length=10, name="nivelAcesso")
 	private String nivelAcesso;
-	
+
+	@Lob
 	@Column(nullable=true, name="foto")
 	private byte[] foto;
 	
