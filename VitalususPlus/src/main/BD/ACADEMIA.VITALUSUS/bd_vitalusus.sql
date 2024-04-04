@@ -1,11 +1,11 @@
-USE master IF EXISTS(select * from sys.databases where name='bd_pizzaria_itb') 
-DROP DATABASE bd_pizzaria_itb
+USE master IF EXISTS(select * from sys.databases where name='vitalusus') 
+DROP DATABASE bd_vitalusus2h
 GO 
 -- CRIAR UM BANCO DE DADOS
-CREATE DATABASE bd_pizzaria_itb
+CREATE DATABASE bd_vitalusus2h
 GO
 -- ACESSAR O BANCO DE DADOS
-USE bd_pizzaria_itb
+USE bd_vitalusus2h
 GO
 
 CREATE TABLE Usuario
