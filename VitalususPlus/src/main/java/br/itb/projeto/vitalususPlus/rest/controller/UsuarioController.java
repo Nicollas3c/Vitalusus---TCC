@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.itb.projeto.vitalususPlus.service.UsuarioService;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/Vitalusus/usuario")
 public class UsuarioController {
 	private UsuarioService usuarioService;
 
