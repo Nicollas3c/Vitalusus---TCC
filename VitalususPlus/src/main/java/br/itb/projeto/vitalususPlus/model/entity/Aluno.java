@@ -16,7 +16,7 @@ public class Aluno{
 	private float peso;
 
 	@ManyToMany
-	@JoinTable(name="aluno_segue_canal", joinColumns=
+	@JoinTable(name="Aluno_segue_canal", joinColumns=
 			{@JoinColumn(name="seguidor_id")}, inverseJoinColumns=
 			{@JoinColumn(name="canal_id")})
 	private List<Canal> canais;

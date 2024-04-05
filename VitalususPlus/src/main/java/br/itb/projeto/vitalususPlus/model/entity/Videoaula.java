@@ -12,8 +12,8 @@ public class Videoaula {
 
 	private String descricao;
 	private String titulo;
-	private long like;
-	private long deslike;
+	private long likes;
+	private long deslikes;
 	private long visualizacoes;
 
 	public long getId() {
@@ -48,20 +48,20 @@ public class Videoaula {
 		this.titulo = titulo;
 	}
 
-	public long getLike() {
-		return like;
+	public long getLikes() {
+		return likes;
 	}
 
-	public void setLike(long like) {
-		this.like = like;
+	public void setLikes(long likes) {
+		this.likes = likes;
 	}
 
-	public long getDeslike() {
-		return deslike;
+	public long getDeslikes() {
+		return deslikes;
 	}
 
-	public void setDeslike(long deslike) {
-		this.deslike = deslike;
+	public void setDeslikes(long deslikes) {
+		this.deslikes = deslikes;
 	}
 
 	public long getVisualizacoes() {

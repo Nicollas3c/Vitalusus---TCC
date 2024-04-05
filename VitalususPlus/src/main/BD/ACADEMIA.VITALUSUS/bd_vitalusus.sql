@@ -22,24 +22,46 @@ CREATE TABLE Usuario
    PRIMARY KEY (id)
 )
 GO
-INSERT Usuario (nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario)
-VALUES ('Fulano da Silva', 'fulano@email.com.br', 'MTIzNDU2Nzg=', 'ADMIN', NULL, GETDATE(), 'ATIVO')
-GO
+-- Tabela Canal
+CREATE TABLE Canal(
+	id				INT				IDENTITY,
+	visualizacoes	INT				NOT NULL,
+	nome			VARCHAR(100)	NOT NULL,
 
+	PRIMARY KEY (id)
+)
+GO
+-- Tabela Videoaula
+CREATE TABLE Videoaula(
+	id				INT				IDENTITY,
+	link			VARCHAR(2048)	NOT NULL,
+	descricao		VARCHAR(255)	NOT NULL,
+	titulo			VARCHAR(100)	NOT NULL,
+	likes			INT				NOT NULL,
+	deslikes		INT				NOT NULL,
+	
+	PRIMARY KEY(id)
+)
+GO
+-- Tabela Banco 
+CREATE TABLE Banco(
+	id				INT				IDENTITY,
+
+	PRIMARY KEY(id)
+)
+GO
 -- Tabela Aluno
 CREATE TABLE Aluno
 (
-	id			INT				IDENTITY,
-	dataNasc	SMALLDATETIME	NOT NULL,
-	altura		DECIMAL			NOT NULL,
-	peso		DECIMAL			NOT NULL,
-	usuario_id	INT				NOT NULL,
+	id			INT					IDENTITY,
+	dataNasc	SMALLDATETIME		NOT NULL,
+	altura		DECIMAL				NOT NULL,
+	peso		DECIMAL				NOT NULL,
+	usuario_id	INT					NOT NULL,
 
 	FOREIGN KEY(usuario_id) REFERENCES Usuario (id),
 	PRIMARY KEY(id)
 )
-GO
-INSERT Aluno (altura) VALUES (1.32)
 GO
 
 -- Tabela administrador
@@ -52,8 +74,8 @@ CREATE TABLE Administrador
 	FOREIGN KEY (usuario_id) REFERENCES Usuario (id)
 )
 GO
-INSERT Administrador (usuario_id) VALUES(1)
 
+-- Tabela Treinador
 CREATE TABLE Treinador
 (
 	id	            INT			  IDENTITY,
@@ -64,18 +86,42 @@ CREATE TABLE Treinador
 	canal_id		INT			  NOT NULL,
 	banco_id		INT           NOT NULL,
 
+	FOREIGN KEY (canal_id) REFERENCES Canal(id),
 	PRIMARY KEY (id)
 )
 GO
-INSERT Treinador(cref, dataNasc, usuario_id, videoaula_id, canal_id, banco_id) 
-VALUES (132432, GETDATE(), 2, 2, 2, 2)
+
+-- Tabela Evolucao
+CREATE TABLE Evolucao(
+	id				INT				IDENTITY,
+	imc				DECIMAL			NOT NULL,
+	met_basal		DECIMAL			NOT NULL,
+	peso_atual		DECIMAL			NOT NULL,
+	altura_atual	DECIMAL			NOT NULL,
+	aluno_id		INT				NOT NULL,
+
+	PRIMARY KEY(id),
+	FOREIGN KEY(aluno_id) REFERENCES Aluno(id)
+)
 GO
+-- Tabela Aluno_segue_canal
+CREATE TABLE Aluno_segue_canal(
+	seguidor_id		INT				NOT NULL,
+	canal_id		INT				NOT NULL,
+
+	FOREIGN KEY(seguidor_id) REFERENCES Aluno(id),
+	FOREIGN KEY(canal_id) REFERENCES Canal(id)
+)
 
 SELECT * FROM Usuario
+SELECT * FROM Canal
+SELECT * FROM Videoaula
 SELECT * FROM Aluno
 SELECT * FROM Administrador
 SELECT * FROM Treinador
-
+SELECT * FROM Evolucao
+SELECT * FROM Aluno_segue_canal
+ 
 
 
 
