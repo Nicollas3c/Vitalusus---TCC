@@ -11,7 +11,11 @@ public class Treinador{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+	@Column(name="cref")
 	private int cref;
+
+	@Column(name="dataNasc")
 	private LocalDateTime dataNasc;
 
 	@ManyToOne

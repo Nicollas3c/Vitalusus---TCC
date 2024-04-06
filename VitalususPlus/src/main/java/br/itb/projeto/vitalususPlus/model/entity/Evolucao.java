@@ -8,13 +8,21 @@ public class Evolucao{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+	@Column(name="imc")
 	private float imc;
+
+	@Column(name = "met_basal")
 	private float metBasal;
+
+	@Column(name = "peso_atual")
 	private float pesoAtual;
+
+	@Column(name= "altura_atual")
 	private float alturaAtual;
 
 	@OneToOne
-	@JoinColumn(name = "aluno_id",nullable=false)
+	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
 
 	public Aluno getAluno() {

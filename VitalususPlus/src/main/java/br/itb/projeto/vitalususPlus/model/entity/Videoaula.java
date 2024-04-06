@@ -2,6 +2,8 @@ package br.itb.projeto.vitalususPlus.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Videoaula")
 public class Videoaula {
@@ -15,6 +17,20 @@ public class Videoaula {
 	private long likes;
 	private long deslikes;
 	private long visualizacoes;
+
+	@ManyToMany
+	@JoinTable(name="Aluno_videoaula", joinColumns=
+			{@JoinColumn(name="videoaula_id")}, inverseJoinColumns=
+			{@JoinColumn(name="aluno_id")})
+	private List<Aluno> alunos;
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
 
 	public long getId() {
 		return id;

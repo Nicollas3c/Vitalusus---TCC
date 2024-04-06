@@ -10,9 +10,26 @@ public class Canal{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+	@Column(name = "visualizacoes")
 	private long visualizacoes;
 
+	@Column(name = "nome")
 	private String nome;
+
+	@ManyToMany
+	@JoinTable(name="Aluno_segue_canal", joinColumns=
+			{@JoinColumn(name="canal_id")}, inverseJoinColumns=
+			{@JoinColumn(name="seguidor_id")})
+	private List<Aluno> seguidores;
+
+	public List<Aluno> getSeguidores() {
+		return seguidores;
+	}
+
+	public void setSeguidores(List<Aluno> seguidores) {
+		this.seguidores = seguidores;
+	}
 
 	public long getId() {
 		return id;

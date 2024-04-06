@@ -13,20 +13,20 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false, length=100, name="nome")
+	@Column(nullable = false, name="nome")
 	private String nome;
 	
-	@Column(nullable = false, length=100, name="email")
+	@Column(nullable = false,name="email")
 	private String email;
 	
-	@Column(nullable = false, length=100, name="senha")
+	@Column(nullable = false, name="senha")
 	private String senha;
 	
-	@Column(nullable = true, length=10, name="nivelAcesso")
+	@Column(name="nivelAcesso")
 	private String nivelAcesso;
 
 	@Lob
-	@Column(nullable=true, name="foto")
+	@Column(name="foto")
 	private byte[] foto;
 	
 	@Column(nullable=false, name="dataCadastro")

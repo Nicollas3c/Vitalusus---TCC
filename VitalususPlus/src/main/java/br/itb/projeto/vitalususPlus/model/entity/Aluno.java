@@ -11,18 +11,18 @@ public class Aluno{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+	@Column(name = "dataNasc")
 	private LocalDateTime dataNasc;
+
+	@Column(name="altura")
 	private float altura;
+
+	@Column(name = "peso")
 	private float peso;
 
-	@ManyToMany
-	@JoinTable(name="Aluno_segue_canal", joinColumns=
-			{@JoinColumn(name="seguidor_id")}, inverseJoinColumns=
-			{@JoinColumn(name="canal_id")})
-	private List<Canal> canais;
-
 	@OneToOne
-	@JoinColumn(name = "usuario_id",nullable=false)
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
 	public Usuario getUsuario() {
@@ -31,14 +31,6 @@ public class Aluno{
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public List<Canal> getCanais() {
-		return canais;
-	}
-
-	public void setCanais(List<Canal> canais) {
-		this.canais=canais;
 	}
 
 	public long getId() {
