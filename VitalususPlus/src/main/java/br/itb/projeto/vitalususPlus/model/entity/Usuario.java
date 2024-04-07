@@ -11,15 +11,15 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
-	@Column(nullable = false, name="nome")
+	@Column(name="nome")
 	private String nome;
 	
-	@Column(nullable = false,name="email")
+	@Column(name="email")
 	private String email;
 	
-	@Column(nullable = false, name="senha")
+	@Column(name="senha")
 	private String senha;
 	
 	@Column(name="nivelAcesso")
@@ -29,17 +29,27 @@ public class Usuario {
 	@Column(name="foto")
 	private byte[] foto;
 	
-	@Column(nullable=false, name="dataCadastro")
+	@Column(name="dataCadastro")
 	private LocalDateTime dataCadastro;
 
-
-	@Column(nullable=false, name="statusUsuario", length=20)
+	@Column(name="statusUsuario")
 	private String statusUsuario;
 
-	public long getId() {
+	@Column(name="tipoUsuario")
+	private String tipoUsuario;
+
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {

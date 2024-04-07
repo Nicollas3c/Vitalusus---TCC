@@ -9,7 +9,7 @@ import java.util.List;
 public class Administrador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@OneToOne
 	@JoinColumn(name = "usuario_id")
@@ -51,7 +51,7 @@ public class Administrador {
 		this.usuario = usuario;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

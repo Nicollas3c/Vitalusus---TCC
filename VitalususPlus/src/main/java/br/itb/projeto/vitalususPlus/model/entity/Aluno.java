@@ -11,7 +11,7 @@ import java.util.List;
 public class Aluno{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(name = "dataNasc")
 	private Date dataNasc;
@@ -34,11 +34,11 @@ public class Aluno{
 		this.usuario = usuario;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

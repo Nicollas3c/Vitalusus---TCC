@@ -18,11 +18,12 @@ CREATE TABLE Usuario
    nivelAcesso   VARCHAR(10)    NULL, -- ADMIN ou USER
    foto			 VARBINARY(MAX) NULL,
    dataCadastro	 SMALLDATETIME	NOT NULL,
-   statusUsuario VARCHAR(20)    NOT NULL, -- ATIVO ou INATIVO ou TROCAR_SENHA
+   statusUsuario VARCHAR(20)    NOT NULL, -- ATIVO ou INATIVO ou TROCAR_SENHA	
+   tipoUsuario	 VARCHAR(15)	NOT NULL, -- ADMINISTRADOR OU ALUNO OU TREINADOR	
    PRIMARY KEY (id)
 )
 GO
-INSERT Usuario(nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario) 
+INSERT Usuario(nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario,tipoUsuario) 
 VALUES(
 	'Fulano fulanoide',
 	'fulano@gmail.com',
@@ -30,10 +31,11 @@ VALUES(
 	'USER',
 	null,
 	GETDATE(),
-	'ATIVO'
+	'ATIVO',
+	'ALUNO'
 )
 GO
-INSERT Usuario(nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario) 
+INSERT Usuario(nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario,tipoUsuario) 
 VALUES(
 	'Seranilda de Assis',
 	'nildassis@gmail.com',
@@ -41,10 +43,11 @@ VALUES(
 	'USER',
 	null,
 	GETDATE(),
-	'ATIVO'
+	'ATIVO',
+	'TREINADOR'
 )
 GO
-INSERT Usuario(nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario) 
+INSERT Usuario(nome, email, senha, nivelAcesso, foto, dataCadastro, statusUsuario,tipoUsuario) 
 VALUES(
 	'Don Corleone',
 	'corleonedon@gmail.com',
@@ -52,7 +55,8 @@ VALUES(
 	'ADMIN',
 	null,
 	GETDATE(),
-	'ATIVO'
+	'ATIVO',
+	'ADMINISTRADOR'
 )
 GO
 -- Tabela Canal
@@ -277,6 +281,7 @@ SELECT * FROM Usuario
 SELECT * FROM Canal
 SELECT * FROM Videoaula
 SELECT * FROM Aluno
+SELECT * FROM Banco
 SELECT * FROM Administrador
 SELECT * FROM Treinador
 SELECT * FROM Evolucao
