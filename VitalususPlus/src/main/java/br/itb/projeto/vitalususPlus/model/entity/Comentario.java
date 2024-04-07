@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name="texto")
     private String texto;
@@ -20,11 +20,11 @@ public class Comentario {
     @JoinColumn(name="videoaula_id")
     private Videoaula videoaula;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

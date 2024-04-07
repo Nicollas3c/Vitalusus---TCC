@@ -3,6 +3,7 @@ package br.itb.projeto.vitalususPlus.model.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class Aluno{
 	private long id;
 
 	@Column(name = "dataNasc")
-	private LocalDateTime dataNasc;
+	private Date dataNasc;
 
 	@Column(name="altura")
 	private float altura;
@@ -41,11 +42,11 @@ public class Aluno{
 		this.id = id;
 	}
 
-	public LocalDateTime getDataNasc() {
+	public Date getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setDataNasc(LocalDateTime dataNasc) {
+	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 

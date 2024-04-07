@@ -3,6 +3,7 @@ package br.itb.projeto.vitalususPlus.model.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,7 @@ public class Treinador{
 	private int cref;
 
 	@Column(name="dataNasc")
-	private LocalDateTime dataNasc;
+	private Date dataNasc;
 
 	@ManyToOne
 	@JoinColumn(name = "banco_id",nullable=false)
@@ -74,11 +75,11 @@ public class Treinador{
 		this.cref = cref;
 	}
 
-	public LocalDateTime getDataNasc() {
+	public Date getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setDataNasc(LocalDateTime dataNasc) {
+	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 
