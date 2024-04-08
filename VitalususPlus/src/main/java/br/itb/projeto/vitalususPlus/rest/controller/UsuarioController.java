@@ -3,10 +3,7 @@ package br.itb.projeto.vitalususPlus.rest.controller;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.itb.projeto.vitalususPlus.service.UsuarioService;
 
@@ -30,5 +27,19 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> findById(@PathVariable long id){
 		Usuario usuario = this.usuarioService.findById(id);
 		return  new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+	}
+	@PostMapping("post")
+	public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){
+		Usuario usuarioSalvo = this.usuarioService.save(usuario);
+		return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
+	}
+	@DeleteMapping("delete")
+	public void deletarUsuario(@RequestBody Usuario usuario){
+		this.usuarioService.delete(usuario);
+	}
+	@PutMapping("update")
+	public ResponseEntity<Usuario> updateUsuario(@RequestBody Usuario usuario){
+		Usuario usuarioUpdatado = this.usuarioService.update(usuario);
+		return new ResponseEntity<Usuario>(usuarioUpdatado, HttpStatus.OK);
 	}
 }
