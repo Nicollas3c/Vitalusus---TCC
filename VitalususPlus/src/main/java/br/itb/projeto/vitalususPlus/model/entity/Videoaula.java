@@ -18,6 +18,17 @@ public class Videoaula {
 	private long deslikes;
 	private long visualizacoes;
 
+	@OneToOne
+	@JoinColumn(name = "canal_id")
+	private Canal canal;
+
+	public Canal getCanal() {
+		return canal;
+	}
+
+	public void setCanal(Canal canal) {
+		this.canal = canal;
+	}
 	@ManyToMany
 	@JoinTable(name="Aluno_videoaula", joinColumns=
 			{@JoinColumn(name="videoaula_id")}, inverseJoinColumns=

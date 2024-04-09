@@ -16,31 +16,17 @@ public class Administrador {
 	private Usuario usuario;
 
 	@ManyToMany
-	@JoinTable(name="Admin_aluno", joinColumns=
+	@JoinTable(name="Admin_usuario", joinColumns=
 			{@JoinColumn(name="administrador_id")}, inverseJoinColumns=
-			{@JoinColumn(name="aluno_id")})
-	private List<Aluno> alunos;
+			{@JoinColumn(name="usuario_id")})
+	private List<Usuario> usuarios;
 
-	@ManyToMany
-	@JoinTable(name="Admin_treinador", joinColumns=
-			{@JoinColumn(name="administrador_id")}, inverseJoinColumns=
-			{@JoinColumn(name="treinador_id")})
-	private List<Treinador> treinadores;
-
-	public List<Aluno> getAlunos() {
-		return alunos;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
-	}
-
-	public List<Treinador> getTreinadores() {
-		return treinadores;
-	}
-
-	public void setTreinadores(List<Treinador> treinadores) {
-		this.treinadores = treinadores;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	public Usuario getUsuario() {

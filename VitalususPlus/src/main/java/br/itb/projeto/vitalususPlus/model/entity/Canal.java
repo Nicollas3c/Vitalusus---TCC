@@ -22,6 +22,17 @@ public class Canal{
 			{@JoinColumn(name="canal_id")}, inverseJoinColumns=
 			{@JoinColumn(name="seguidor_id")})
 	private List<Aluno> seguidores;
+	@OneToOne
+	@JoinColumn(name = "treinador_id")
+	private Treinador treinador;
+
+	public Treinador getTreinador() {
+		return treinador;
+	}
+
+	public void setTreinador(Treinador treinador) {
+		this.treinador = treinador;
+	}
 
 	public List<Aluno> getSeguidores() {
 		return seguidores;

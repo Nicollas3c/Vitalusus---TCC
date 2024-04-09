@@ -11,6 +11,18 @@ public class Banco {
     @Column(name="numeroCartao")
     private Long numeroCartao;
 
+    @OneToOne
+    @JoinColumn(name="treinador_id")
+    private Treinador treinaodor;
+
+    public Treinador getTreinaodor() {
+        return treinaodor;
+    }
+
+    public void setTreinaodor(Treinador treinaodor) {
+        this.treinaodor = treinaodor;
+    }
+
     public Long getNumeroCartao() {
         return numeroCartao;
     }

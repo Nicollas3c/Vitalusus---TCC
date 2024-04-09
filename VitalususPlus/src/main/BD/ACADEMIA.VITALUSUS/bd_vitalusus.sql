@@ -59,32 +59,7 @@ VALUES(
 	'ADMINISTRADOR'
 )
 GO
--- Tabela Canal
-CREATE TABLE Canal(
-	id				INT				IDENTITY,
-	visualizacoes	INT				NULL,
-	nome			VARCHAR(100)	NOT NULL,
 
-	PRIMARY KEY (id)
-)
-GO
-INSERT Canal(visualizacoes, nome) 
-VALUES(
-	3243254,
-	'Paradas Musculatórias'
-)
-GO
--- Tabela Banco 
-CREATE TABLE Banco(
-	id				INT				IDENTITY,
-	numeroCartao	BIGINT			NOT NULL,
-
-	PRIMARY KEY(id)
-)
-GO
-INSERT Banco(numeroCartao)
-VALUES(12323345)
-GO
 -- Tabela administrador
 CREATE TABLE Administrador
 (
@@ -118,6 +93,56 @@ VALUES(
 	1
 )
 GO
+
+-- Tabela Treinador
+CREATE TABLE Treinador
+(
+	id	            INT			  IDENTITY,
+	cref			INT			  UNIQUE NOT NULL,
+	dataNasc		DATE		  NOT NULL,
+	usuario_id		INT			  NOT NULL,
+
+	FOREIGN KEY (usuario_id) REFERENCES Usuario(id),
+	PRIMARY KEY (id)
+)
+GO
+INSERT Treinador(cref, dataNasc, usuario_id)
+VALUES(
+	324321,
+	'1998-02-27',
+	2
+)
+GO
+-- Tabela Banco 
+CREATE TABLE Banco(
+	id				INT				IDENTITY,
+	numeroCartao	BIGINT			NOT NULL,
+	treinador_id	INT				NOT NULL,
+
+	FOREIGN KEY (treinador_id) REFERENCES Treinador(id),
+	PRIMARY KEY(id)
+)
+GO
+INSERT Banco(numeroCartao, treinador_id)
+VALUES(12323345, 1)
+GO
+
+-- Tabela Canal
+CREATE TABLE Canal(
+	id				INT				IDENTITY,
+	visualizacoes	INT				NULL,
+	nome			VARCHAR(100)	NOT NULL,
+	treinador_id	INT				NOT NULL,
+
+	FOREIGN KEY (treinador_id) REFERENCES Treinador(id),
+	PRIMARY KEY (id)
+)
+GO
+INSERT Canal(visualizacoes, nome, treinador_id) 
+VALUES(
+	3243254,
+	'Paradas Musculatórias', 1
+)
 -- Tabela Videoaula
 CREATE TABLE Videoaula(
 	id				INT				IDENTITY,
@@ -142,33 +167,6 @@ VALUES(
 	1
 )
 GO
--- Tabela Treinador
-CREATE TABLE Treinador
-(
-	id	            INT			  IDENTITY,
-	cref			INT			  UNIQUE NOT NULL,
-	dataNasc		DATE		  NOT NULL,
-	usuario_id		INT			  NOT NULL,
-	videoaula_id	INT			  NULL,
-	canal_id		INT			  NOT NULL,
-	banco_id		INT           NULL,
-
-	FOREIGN KEY (usuario_id) REFERENCES Usuario(id),
-	FOREIGN KEY (videoaula_id) REFERENCES Videoaula(id),
-	FOREIGN KEY (banco_id) REFERENCES Banco(id),
-	FOREIGN KEY (canal_id) REFERENCES Canal(id),
-	PRIMARY KEY (id)
-)
-GO
-INSERT Treinador(cref, dataNasc, usuario_id, videoaula_id, banco_id, canal_id)
-VALUES(
-	324321,
-	'1998-02-27',
-	2,
-	1,
-	1,
-	1
-)
 
 GO
 -- Tabela Evolucao
@@ -215,9 +213,11 @@ VALUES(
 GO
 -- Tabela Aluno_segue_canal
 CREATE TABLE Aluno_segue_canal(
+	id				INT				IDENTITY,
 	seguidor_id		INT				NOT NULL,
 	canal_id		INT				NOT NULL,
 
+	PRIMARY KEY(id),
 	FOREIGN KEY(seguidor_id) REFERENCES Aluno(id),
 	FOREIGN KEY(canal_id) REFERENCES Canal(id)
 )
@@ -229,32 +229,18 @@ VALUES(
 )
 GO
 -- Tabela Admin_aluno
-CREATE TABLE Admin_aluno(
+CREATE TABLE Admin_usuario(
+	id						INT				IDENTITY,
 	administrador_id		INT				NOT NULL,
-	aluno_id				INT				NOT NULL,
+	usuario_id				INT				NOT NULL,
 
+	PRIMARY KEY(id),
 	FOREIGN KEY(administrador_id) REFERENCES Administrador(id),
-	FOREIGN KEY(aluno_id) REFERENCES Aluno(id)
+	FOREIGN KEY(usuario_id) REFERENCES Usuario(id)
 )
 GO
 
-INSERT Admin_aluno(administrador_id, aluno_id)
-VALUES(
-	1,
-	1
-)
-GO
--- Tabela Admin_treinador
-CREATE TABLE Admin_treinador(
-	administrador_id		INT				NOT NULL,
-	treinador_id		INT				NOT NULL,
-
-	FOREIGN KEY(administrador_id) REFERENCES Administrador(id),
-	FOREIGN KEY(treinador_id) REFERENCES Treinador(id)
-)
-GO
-
-INSERT Admin_treinador(administrador_id, treinador_id)
+INSERT Admin_usuario(administrador_id, usuario_id)
 VALUES(
 	1,
 	1
@@ -262,9 +248,11 @@ VALUES(
 GO
 -- Tabela Aluno_videoaula
 CREATE TABLE Aluno_videoaula(
-	aluno_id		INT				NOT NULL,
+	id					INT				IDENTITY,
+	aluno_id			INT				NOT NULL,
 	videoaula_id		INT				NOT NULL,
 
+	PRIMARY KEY (id),
 	FOREIGN KEY(aluno_id) REFERENCES Aluno(id),
 	FOREIGN KEY(videoaula_id) REFERENCES Videoaula(id)
 )
@@ -287,8 +275,7 @@ SELECT * FROM Treinador
 SELECT * FROM Evolucao
 SELECT * FROM Comentario
 SELECT * FROM Aluno_segue_canal
-SELECT * FROM Admin_aluno
-SELECT * FROM Admin_treinador
+SELECT * FROM Admin_usuario
 SELECT * FROM Aluno_videoaula
  
 
