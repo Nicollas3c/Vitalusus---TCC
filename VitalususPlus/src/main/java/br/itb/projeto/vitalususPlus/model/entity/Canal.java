@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Canal")
+@Table(name = "CanalController")
 public class Canal{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

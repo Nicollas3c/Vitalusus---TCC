@@ -35,7 +35,7 @@ public class TreinadorController {
         return new ResponseEntity<Treinador>(treinadorSalvo, HttpStatus.OK);
     }
     @DeleteMapping("delete")
-    public void deletarUsuario(@RequestBody Treinador treinador){
+    public void deletarTreinador(@RequestBody Treinador treinador){
         this.treinadorService.delete(treinador);
     }
     @PutMapping("update")
