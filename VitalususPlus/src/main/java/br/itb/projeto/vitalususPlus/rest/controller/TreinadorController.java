@@ -14,10 +14,12 @@ import java.util.List;
 @RequestMapping("/vitalusus/treinador")
 public class TreinadorController {
     private TreinadorService treinadorService;
+    private UsuarioService usuarioService;
 
-    public TreinadorController(TreinadorService treinadorService) {
+    public TreinadorController(TreinadorService treinadorService, UsuarioService usuarioService) {
         super();
         this.treinadorService = treinadorService;
+        this.usuarioService = usuarioService;
     }
     @GetMapping("findAll")
     public ResponseEntity<List<Treinador>> findAll(){
@@ -30,7 +32,7 @@ public class TreinadorController {
         return  new ResponseEntity<Treinador>(treinador, HttpStatus.OK);
     }
     @PostMapping("post")
-    public ResponseEntity<Treinador> salvarUsuario(@RequestBody Treinador treinador){
+    public ResponseEntity<Treinador> salvarTreinador(@RequestBody Treinador treinador){
         Treinador treinadorSalvo = this.treinadorService.save(treinador);
         return new ResponseEntity<Treinador>(treinadorSalvo, HttpStatus.OK);
     }
@@ -39,7 +41,7 @@ public class TreinadorController {
         this.treinadorService.delete(treinador);
     }
     @PutMapping("update")
-    public ResponseEntity<Treinador> updateUsuario(@RequestBody Treinador treinador){
+    public ResponseEntity<Treinador> updateTreinador(@RequestBody Treinador treinador){
         Treinador treinadorUpdatado = this.treinadorService.update(treinador);
         return new ResponseEntity<Treinador>(treinadorUpdatado, HttpStatus.OK);
     }

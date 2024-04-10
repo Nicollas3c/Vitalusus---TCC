@@ -30,6 +30,12 @@ public class UsuarioService {
 				"Usuário não encontrado"
 		));
 	}
+	public Usuario findByLogin(String email, String senha) {
+		Optional<Usuario> usuario = this.usuarioRepository.findByEmailAndSenha(email,senha);
+		return usuario.orElseThrow(() -> new RuntimeException(
+				"Usuário não encontrado"
+		));
+	}
 	public Usuario save(Usuario usuario){
 		usuario.setId(null);
 		return usuarioRepository.save(usuario);

@@ -28,6 +28,11 @@ public class UsuarioController {
 		Usuario usuario = this.usuarioService.findById(id);
 		return  new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 	}
+	@GetMapping("findByLogin/{email}/{senha}")
+	public ResponseEntity<Usuario> findByLogin(@PathVariable String email, @PathVariable String senha){
+		Usuario usuario = this.usuarioService.findByLogin(email, senha);
+		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+	}
 	@PostMapping("post")
 	public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){
 		Usuario usuarioSalvo = this.usuarioService.save(usuario);

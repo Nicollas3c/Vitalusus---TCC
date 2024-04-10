@@ -60,7 +60,7 @@ VALUES(
 )
 GO
 
--- Tabela administrador
+-- Tabela admin
 CREATE TABLE Administrador
 (
 	id			 INT		    IDENTITY,
@@ -141,7 +141,7 @@ GO
 INSERT Canal(visualizacoes, nome, treinador_id) 
 VALUES(
 	3243254,
-	'Paradas Musculatórias', 1
+	'Paradas Musculatï¿½rias', 1
 )
 -- Tabela Videoaula
 CREATE TABLE Videoaula(
@@ -160,8 +160,8 @@ GO
 INSERT Videoaula(link, descricao, titulo, likes, deslikes, canal_id)
 VALUES(
 	'vitalusus/video/comofazerflexoes',
-	'Um vídeo sobre como fazer belas flexões',
-	'Como Fazer Flexões',
+	'Um vï¿½deo sobre como fazer belas flexï¿½es',
+	'Como Fazer Flexï¿½es',
 	1332,
 	0,
 	1
@@ -206,7 +206,7 @@ CREATE TABLE Comentario(
 GO
 INSERT Comentario(texto, usuario_id, videoaula_id)
 VALUES(
-	'Uau, que aula daora! Segui as suas instruções por 6 meses e agora eu tô sheipado!',
+	'Uau, que aula daora! Segui as suas instruï¿½ï¿½es por 6 meses e agora eu tï¿½ sheipado!',
 	1,
 	1
 )
@@ -229,18 +229,36 @@ VALUES(
 )
 GO
 -- Tabela Admin_aluno
-CREATE TABLE Admin_usuario(
+CREATE TABLE Admin_aluno(
 	id						INT				IDENTITY,
 	administrador_id		INT				NOT NULL,
-	usuario_id				INT				NOT NULL,
+	aluno_id				INT				NOT NULL,
 
 	PRIMARY KEY(id),
 	FOREIGN KEY(administrador_id) REFERENCES Administrador(id),
-	FOREIGN KEY(usuario_id) REFERENCES Usuario(id)
+	FOREIGN KEY(aluno_id) REFERENCES Aluno(id)
 )
 GO
 
-INSERT Admin_usuario(administrador_id, usuario_id)
+INSERT Admin_aluno(administrador_id, aluno_id)
+VALUES(
+	1,
+	1
+)
+GO
+-- Tabela Admin_treinador
+CREATE TABLE Admin_treinador(
+	id						INT				IDENTITY,
+	administrador_id		INT				NOT NULL,
+	treinador_id			INT				NOT NULL,
+
+	PRIMARY KEY(id),
+	FOREIGN KEY(administrador_id) REFERENCES Administrador(id),
+	FOREIGN KEY(treinador_id) REFERENCES Treinador(id)
+)
+GO
+
+INSERT Admin_treinador(administrador_id, treinador_id)
 VALUES(
 	1,
 	1
@@ -275,6 +293,7 @@ SELECT * FROM Treinador
 SELECT * FROM Evolucao
 SELECT * FROM Comentario
 SELECT * FROM Aluno_segue_canal
+SELECT * FROM Admin_treinador
 SELECT * FROM Admin_usuario
 SELECT * FROM Aluno_videoaula
  

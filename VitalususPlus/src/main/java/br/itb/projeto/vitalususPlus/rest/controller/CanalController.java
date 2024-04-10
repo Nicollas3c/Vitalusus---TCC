@@ -38,7 +38,7 @@ public class CanalController {
 	        return  new ResponseEntity<Canal>(canal, HttpStatus.OK);
 	    }
 	    @PostMapping("post")
-	    public ResponseEntity<Canal> salvarUsuario(@RequestBody Canal canal){
+	    public ResponseEntity<Canal> salvarCanal(@RequestBody Canal canal){
 	        Canal canalSalvo = this.canalService.save(canal);
 	        return new ResponseEntity<Canal>(canalSalvo, HttpStatus.OK);
 	    }
@@ -47,7 +47,7 @@ public class CanalController {
 	        this.canalService.delete(canal);
 	    }
 	    @PutMapping("update")
-	    public ResponseEntity<Canal> updateUsuario(@RequestBody Canal canal){
+	    public ResponseEntity<Canal> updateCanal(@RequestBody Canal canal){
 	        Canal canalUpdatado = this.canalService.update(canal);
 	        return new ResponseEntity<Canal>(canalUpdatado, HttpStatus.OK);
 	    }

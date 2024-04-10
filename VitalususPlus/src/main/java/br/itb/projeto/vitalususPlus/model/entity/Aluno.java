@@ -26,7 +26,6 @@ public class Aluno{
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
-
 	public Usuario getUsuario() {
 		return usuario;
 	}

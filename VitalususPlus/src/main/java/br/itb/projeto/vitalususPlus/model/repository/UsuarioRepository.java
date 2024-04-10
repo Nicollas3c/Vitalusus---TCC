@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 
+import java.util.Optional;
+
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+    Optional<Usuario> findByEmailAndSenha(String email, String senha);
 }
