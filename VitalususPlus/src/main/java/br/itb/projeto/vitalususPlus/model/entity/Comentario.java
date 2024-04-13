@@ -13,8 +13,8 @@ public class Comentario {
     private String texto;
 
     @ManyToOne
-    @JoinColumn(name="aluno_id")
-    private Aluno aluno;
+    @JoinColumn(name="usuario_id")
+    private Usuario usuario;
 
     @OneToOne
     @JoinColumn(name="videoaula_id")
@@ -36,12 +36,12 @@ public class Comentario {
         this.texto = texto;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Videoaula getVideoaula() {

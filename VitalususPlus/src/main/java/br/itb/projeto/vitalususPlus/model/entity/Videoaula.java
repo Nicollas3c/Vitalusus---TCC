@@ -11,12 +11,15 @@ public class Videoaula {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String link;
-
 	private String descricao;
 	private String titulo;
 	private long likes;
 	private long deslikes;
-	private long visualizacoes;
+	@ManyToMany
+	@JoinTable(name="aluno_videoaula",
+			joinColumns = {@JoinColumn(name="videoaula_id")},
+			inverseJoinColumns = {@JoinColumn(name="aluno_id")})
+	private List<Aluno> visualizacoes;
 
 	@OneToOne
 	@JoinColumn(name = "canal_id")
@@ -28,19 +31,6 @@ public class Videoaula {
 
 	public void setCanal(Canal canal) {
 		this.canal = canal;
-	}
-	@ManyToMany
-	@JoinTable(name="Aluno_videoaula", joinColumns=
-			{@JoinColumn(name="videoaula_id")}, inverseJoinColumns=
-			{@JoinColumn(name="aluno_id")})
-	private List<Aluno> alunos;
-
-	public List<Aluno> getAlunos() {
-		return alunos;
-	}
-
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
 	}
 
 	public Long getId() {
@@ -91,12 +81,11 @@ public class Videoaula {
 		this.deslikes = deslikes;
 	}
 
-	public long getVisualizacoes() {
+	public List<Aluno> getVisualizacoes() {
 		return visualizacoes;
 	}
 
-	public void setVisualizacoes(long visualizacoes) {
+	public void setVisualizacoes(List<Aluno> visualizacoes) {
 		this.visualizacoes = visualizacoes;
 	}
-
 }

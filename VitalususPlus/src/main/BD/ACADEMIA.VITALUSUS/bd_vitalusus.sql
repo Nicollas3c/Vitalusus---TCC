@@ -64,13 +64,14 @@ GO
 CREATE TABLE Administrador
 (
 	id			 INT		    IDENTITY,
+	codAdmin	 INT			NOT NULL,
 	usuario_id	 INT			NOT NULL,
 
+	FOREIGN KEY(usuario_id) REFERENCES Usuario(id),
 	PRIMARY KEY (id),
-	FOREIGN KEY (usuario_id) REFERENCES Usuario (id)
 )
 GO
-INSERT Administrador(usuario_id) VALUES(3)
+INSERT Administrador(codAdmin, usuario_id) VALUES(36785645,3)
 GO
 -- Tabela Aluno
 CREATE TABLE Aluno
@@ -228,42 +229,6 @@ VALUES(
 	1
 )
 GO
--- Tabela Admin_aluno
-CREATE TABLE Admin_aluno(
-	id						INT				IDENTITY,
-	administrador_id		INT				NOT NULL,
-	aluno_id				INT				NOT NULL,
-
-	PRIMARY KEY(id),
-	FOREIGN KEY(administrador_id) REFERENCES Administrador(id),
-	FOREIGN KEY(aluno_id) REFERENCES Aluno(id)
-)
-GO
-
-INSERT Admin_aluno(administrador_id, aluno_id)
-VALUES(
-	1,
-	1
-)
-GO
--- Tabela Admin_treinador
-CREATE TABLE Admin_treinador(
-	id						INT				IDENTITY,
-	administrador_id		INT				NOT NULL,
-	treinador_id			INT				NOT NULL,
-
-	PRIMARY KEY(id),
-	FOREIGN KEY(administrador_id) REFERENCES Administrador(id),
-	FOREIGN KEY(treinador_id) REFERENCES Treinador(id)
-)
-GO
-
-INSERT Admin_treinador(administrador_id, treinador_id)
-VALUES(
-	1,
-	1
-)
-GO
 -- Tabela Aluno_videoaula
 CREATE TABLE Aluno_videoaula(
 	id					INT				IDENTITY,
@@ -282,6 +247,24 @@ VALUES(
 	1
 )
 GO
+-- Tabela Admin_usuario
+CREATE TABLE Admin_usuario(
+	id					INT				IDENTITY,
+	admin_id			INT				NOT NULL,
+	usuario_id			INT				NOT NULL,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY(admin_id) REFERENCES Administrador(id),
+	FOREIGN KEY(usuario_id) REFERENCES Usuario(id)
+)
+GO
+
+INSERT Admin_usuario(admin_id, usuario_id)
+VALUES(
+	1,
+	1
+)
+GO
 
 SELECT * FROM Usuario
 SELECT * FROM Canal
@@ -293,9 +276,8 @@ SELECT * FROM Treinador
 SELECT * FROM Evolucao
 SELECT * FROM Comentario
 SELECT * FROM Aluno_segue_canal
-SELECT * FROM Admin_treinador
-SELECT * FROM Admin_usuario
 SELECT * FROM Aluno_videoaula
+SELECT * FROM Admin_usuario
  
 
 
