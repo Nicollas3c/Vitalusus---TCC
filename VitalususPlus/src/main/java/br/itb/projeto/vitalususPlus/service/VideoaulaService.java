@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static java.lang.Double.isNaN;
+
+
 @Service
 public class VideoaulaService {
     private VideoaulaRepository videoaulaRepository;
@@ -29,12 +32,16 @@ public class VideoaulaService {
     }
     public Videoaula save(Videoaula videoaula){
         videoaula.setId(null);
+        videoaula.setVisualizacoes(0);
+        videoaula.setVisualizacoes(videoaula.getAlunos().size());
         return videoaulaRepository.save(videoaula);
     }
     public void delete(Videoaula videoaula) {
         this.videoaulaRepository.delete(videoaula);
     }
     public Videoaula update(Videoaula videoaula){
+        videoaula.setVisualizacoes(0);
+        videoaula.setVisualizacoes(videoaula.getAlunos().size());
         return videoaulaRepository.save(videoaula);
     }
 }

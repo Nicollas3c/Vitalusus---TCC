@@ -1,11 +1,18 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "Administrador")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,45 +20,13 @@ public class Admin {
 	private int codAdmin;
 
 	@OneToOne
-	@JoinColumn(name="usuario_id")
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
 	@ManyToMany
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@JoinTable(name = "admin_usuario",
-			joinColumns = {@JoinColumn(name="admin_id")},
-			inverseJoinColumns = {@JoinColumn(name="usuario_id")} )
+			joinColumns = {@JoinColumn(name = "admin_id")},
+			inverseJoinColumns = {@JoinColumn(name = "usuario_id")})
 	private List<Usuario> listaUsuarios;
-
-	public int getCodAdmin() {
-		return codAdmin;
-	}
-
-	public void setCodAdmin(int codAdmin) {
-		this.codAdmin = codAdmin;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public List<Usuario> getListaUsuarios() {
-		return listaUsuarios;
-	}
-
-	public void setListaUsuarios(List<Usuario> listaUsuarios) {
-		this.listaUsuarios = listaUsuarios;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 }

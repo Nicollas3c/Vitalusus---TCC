@@ -30,6 +30,8 @@ public class CanalService {
 	    }
 	    public Canal save(Canal canal){
 	        canal.setId(null);
+			canal.setVisualizacoes(0);
+			canal.setVisualizacoes(canal.getAlunos().size());
 	        return canalRepository.save(canal);
 	    }
 	    public void delete(Canal canal) {

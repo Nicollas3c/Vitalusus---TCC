@@ -1,6 +1,7 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -8,6 +9,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "Aluno")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Aluno{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,45 +31,5 @@ public class Aluno{
 	@OneToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Date getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(Date dataNasc) {
-		this.dataNasc = dataNasc;
-	}
-
-	public float getAltura() {
-		return altura;
-	}
-
-	public void setAltura(float altura) {
-		this.altura = altura;
-	}
-
-	public float getPeso() {
-		return peso;
-	}
-
-	public void setPeso(float peso) {
-		this.peso = peso;
-	}
 
 }

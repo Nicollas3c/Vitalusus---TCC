@@ -134,15 +134,16 @@ CREATE TABLE Canal(
 	visualizacoes	INT				NULL,
 	nome			VARCHAR(100)	NOT NULL,
 	treinador_id	INT				NOT NULL,
+	seguidores		BIGINT			NOT NULL,
 
 	FOREIGN KEY (treinador_id) REFERENCES Treinador(id),
 	PRIMARY KEY (id)
 )
 GO
-INSERT Canal(visualizacoes, nome, treinador_id) 
+INSERT Canal(visualizacoes, nome, treinador_id, seguidores) 
 VALUES(
 	3243254,
-	'Paradas Musculat�rias', 1
+	'Paradas Musculat�rias', 1, 1
 )
 -- Tabela Videoaula
 CREATE TABLE Videoaula(
@@ -153,19 +154,21 @@ CREATE TABLE Videoaula(
 	likes			INT				NULL,
 	deslikes		INT				NULL,
 	canal_id		INT				NULL,
+	visualizacoes	BIGINT			NOT NULL,
 
 	FOREIGN KEY (canal_id) REFERENCES Canal(id),
 	PRIMARY KEY(id)
 )
 GO
-INSERT Videoaula(link, descricao, titulo, likes, deslikes, canal_id)
+INSERT Videoaula(link, descricao, titulo, likes, deslikes, canal_id, visualizacoes)
 VALUES(
 	'vitalusus/video/comofazerflexoes',
 	'Um v�deo sobre como fazer belas flex�es',
 	'Como Fazer Flex�es',
 	1332,
 	0,
-	1
+	1, 
+	123
 )
 GO
 

@@ -1,9 +1,15 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "Banco")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Banco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,29 +20,4 @@ public class Banco {
     @OneToOne
     @JoinColumn(name="treinador_id")
     private Treinador treinaodor;
-
-    public Treinador getTreinaodor() {
-        return treinaodor;
-    }
-
-    public void setTreinaodor(Treinador treinaodor) {
-        this.treinaodor = treinaodor;
-    }
-
-    public Long getNumeroCartao() {
-        return numeroCartao;
-    }
-
-    public void setNumeroCartao(Long numeroCartao) {
-        this.numeroCartao = numeroCartao;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
 }
