@@ -6,8 +6,7 @@ import br.itb.projeto.vitalususPlus.model.repository.AlunoRepository;
 import br.itb.projeto.vitalususPlus.model.repository.VideoaulaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static java.lang.Double.isNaN;
 
@@ -32,7 +31,9 @@ public class VideoaulaService {
     }
     public Videoaula save(Videoaula videoaula){
         videoaula.setId(null);
-        videoaula.setVisualizacoes(0);
+        if (videoaula.getAlunos()==null){
+            videoaula.setAlunos(new ArrayList<>());
+        }
         videoaula.setVisualizacoes(videoaula.getAlunos().size());
         return videoaulaRepository.save(videoaula);
     }
@@ -40,7 +41,9 @@ public class VideoaulaService {
         this.videoaulaRepository.delete(videoaula);
     }
     public Videoaula update(Videoaula videoaula){
-        videoaula.setVisualizacoes(0);
+        if (videoaula.getAlunos()==null){
+            videoaula.setAlunos(new ArrayList<>());
+        }
         videoaula.setVisualizacoes(videoaula.getAlunos().size());
         return videoaulaRepository.save(videoaula);
     }

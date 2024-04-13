@@ -29,4 +29,5 @@ public class Admin {
 			joinColumns = {@JoinColumn(name = "admin_id")},
 			inverseJoinColumns = {@JoinColumn(name = "usuario_id")})
 	private List<Usuario> listaUsuarios;
+	private Integer numeroUsuarios;
 }

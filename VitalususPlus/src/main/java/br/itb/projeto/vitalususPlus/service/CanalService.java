@@ -1,5 +1,6 @@
 package br.itb.projeto.vitalususPlus.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,14 +31,20 @@ public class CanalService {
 	    }
 	    public Canal save(Canal canal){
 	        canal.setId(null);
-			canal.setVisualizacoes(0);
-			canal.setVisualizacoes(canal.getAlunos().size());
-	        return canalRepository.save(canal);
+			if (canal.getAlunos()==null){
+				canal.setAlunos(new ArrayList<>());
+			}
+			canal.setSeguidores(canal.getAlunos().size());
+			return canalRepository.save(canal);
 	    }
 	    public void delete(Canal canal) {
 	        this.canalRepository.delete(canal);
 	    }
 	    public Canal update(Canal canal){
-	        return canalRepository.save(canal);
+			if (canal.getAlunos()==null){
+				canal.setAlunos(new ArrayList<>());
+			}
+			canal.setSeguidores(canal.getAlunos().size());
+			return canalRepository.save(canal);
 	    }
 }

@@ -28,7 +28,7 @@ public class Videoaula {
 			joinColumns = {@JoinColumn(name="videoaula_id")},
 			inverseJoinColumns = {@JoinColumn(name="aluno_id")})
 	private List<Aluno> alunos;
-	private long visualizacoes;
+	private Integer visualizacoes;
 
 	@OneToOne
 	@JoinColumn(name = "canal_id")

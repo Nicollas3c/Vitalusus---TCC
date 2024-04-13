@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "Canal")
@@ -30,7 +31,7 @@ public class Canal{
 			{@JoinColumn(name="canal_id")}, inverseJoinColumns=
 			{@JoinColumn(name="seguidor_id")})
 	private List<Aluno> alunos;
-	private long seguidores;
+	private Integer seguidores;
 	@OneToOne
 	@JoinColumn(name = "treinador_id")
 	private Treinador treinador;

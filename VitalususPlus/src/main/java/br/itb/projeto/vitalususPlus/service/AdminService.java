@@ -4,6 +4,7 @@ import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.model.repository.AdminRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,12 +30,20 @@ public class AdminService {
     }
     public Admin save(Admin admin){
         admin.setId(null);
+        if (admin.getListaUsuarios()==null){
+            admin.setListaUsuarios(new ArrayList<>());
+        }
+        admin.setNumeroUsuarios(admin.getListaUsuarios().size());
         return administradorRepository.save(admin);
     }
     public void delete(Admin admin) {
         this.administradorRepository.delete(admin);
     }
     public Admin update(Admin admin){
+        if (admin.getListaUsuarios()==null){
+            admin.setListaUsuarios(new ArrayList<>());
+        }
+        admin.setNumeroUsuarios(admin.getListaUsuarios().size());
         return administradorRepository.save(admin);
     }
 }

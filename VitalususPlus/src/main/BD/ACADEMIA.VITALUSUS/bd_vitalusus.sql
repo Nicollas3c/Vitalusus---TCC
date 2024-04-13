@@ -66,12 +66,13 @@ CREATE TABLE Administrador
 	id			 INT		    IDENTITY,
 	codAdmin	 INT			NOT NULL,
 	usuario_id	 INT			NOT NULL,
+	numeroUsuarios INT			NOT NULL,
 
 	FOREIGN KEY(usuario_id) REFERENCES Usuario(id),
 	PRIMARY KEY (id),
 )
 GO
-INSERT Administrador(codAdmin, usuario_id) VALUES(36785645,3)
+INSERT Administrador(codAdmin, usuario_id, numeroUsuarios) VALUES(36785645,3, 5)
 GO
 -- Tabela Aluno
 CREATE TABLE Aluno
