@@ -278,7 +278,3 @@ SELECT * FROM Comentario
 SELECT * FROM Aluno_segue_canal
 SELECT * FROM Aluno_videoaula
 SELECT * FROM Admin_usuario
- 
-
-
-
