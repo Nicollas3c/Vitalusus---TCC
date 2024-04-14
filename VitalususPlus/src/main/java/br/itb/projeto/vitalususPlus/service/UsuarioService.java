@@ -1,5 +1,7 @@
 package br.itb.projeto.vitalususPlus.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,12 +40,15 @@ public class UsuarioService {
 	}
 	public Usuario save(Usuario usuario){
 		usuario.setId(null);
+		usuario.setDataCadastro(LocalDateTime.now());
+		usuario.getDataCadastro().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		return usuarioRepository.save(usuario);
 	}
 	public void delete(Usuario usuario) {
 		this.usuarioRepository.delete(usuario);
 	}
 	public Usuario update(Usuario usuario){
+		usuario.getDataCadastro().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		return usuarioRepository.save(usuario);
 	}
 }
