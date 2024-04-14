@@ -17,6 +17,7 @@ import br.itb.projeto.vitalususPlus.service.CanalService;
 import br.itb.projeto.vitalususPlus.service.TreinadorService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/vitalusus/canal")
 public class CanalController {
 	   private CanalService canalService;

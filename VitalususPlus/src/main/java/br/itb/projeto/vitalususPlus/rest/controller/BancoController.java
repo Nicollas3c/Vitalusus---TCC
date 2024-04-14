@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/vitalusus/banco")
 public class BancoController {
     private BancoService bancoService;

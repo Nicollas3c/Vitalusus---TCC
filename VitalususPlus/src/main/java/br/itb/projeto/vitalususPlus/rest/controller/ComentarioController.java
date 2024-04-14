@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/vitalusus/comentario")
 public class ComentarioController {
     private ComentarioService comentarioService;

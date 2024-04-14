@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/vitalusus/admin")
 public class AdminController {
     private AdminService adminService;
