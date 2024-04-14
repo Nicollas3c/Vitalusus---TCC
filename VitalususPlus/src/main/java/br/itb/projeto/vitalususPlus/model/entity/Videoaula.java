@@ -2,6 +2,7 @@ package br.itb.projeto.vitalususPlus.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class Videoaula {
 	private Long id;
 	private String link;
 	private String descricao;
+	@NotBlank(message = "campo não preenchido")
 	private String titulo;
 	private long likes;
 	private long deslikes;

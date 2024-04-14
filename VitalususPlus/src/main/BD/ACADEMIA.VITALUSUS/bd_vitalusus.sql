@@ -64,7 +64,6 @@ GO
 CREATE TABLE Administrador
 (
 	id			 INT		    IDENTITY,
-	codAdmin	 INT			NOT NULL,
 	usuario_id	 INT			NOT NULL,
 	numeroUsuarios INT			NOT NULL,
 
@@ -72,7 +71,7 @@ CREATE TABLE Administrador
 	PRIMARY KEY (id),
 )
 GO
-INSERT Administrador(codAdmin, usuario_id, numeroUsuarios) VALUES(36785645,3, 5)
+INSERT Administrador(usuario_id, numeroUsuarios) VALUES(3, 1)
 GO
 -- Tabela Aluno
 CREATE TABLE Aluno
@@ -100,7 +99,7 @@ GO
 CREATE TABLE Treinador
 (
 	id	            INT			  IDENTITY,
-	cref			INT			  UNIQUE NOT NULL,
+	cref			VARCHAR(12)	  UNIQUE NOT NULL,
 	dataNasc		DATE		  NOT NULL,
 	usuario_id		INT			  NOT NULL,
 
@@ -110,7 +109,7 @@ CREATE TABLE Treinador
 GO
 INSERT Treinador(cref, dataNasc, usuario_id)
 VALUES(
-	324321,
+	'324321-G/SP',
 	'1998-02-27',
 	2
 )
@@ -118,7 +117,7 @@ GO
 -- Tabela Banco 
 CREATE TABLE Banco(
 	id				INT				IDENTITY,
-	numeroCartao	BIGINT			NOT NULL,
+	numeroCartao	VARCHAR(16)		NOT NULL,
 	treinador_id	INT				NOT NULL,
 
 	FOREIGN KEY (treinador_id) REFERENCES Treinador(id),
@@ -126,7 +125,7 @@ CREATE TABLE Banco(
 )
 GO
 INSERT Banco(numeroCartao, treinador_id)
-VALUES(12323345, 1)
+VALUES('1232334523123', 1)
 GO
 
 -- Tabela Canal

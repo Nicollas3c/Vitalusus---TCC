@@ -1,7 +1,9 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name="Comentario")
@@ -16,6 +18,7 @@ public class Comentario {
     private Long id;
 
     @Column(name="texto")
+    @NotBlank(message = "campo não preenchido")
     private String texto;
 
     @ManyToOne

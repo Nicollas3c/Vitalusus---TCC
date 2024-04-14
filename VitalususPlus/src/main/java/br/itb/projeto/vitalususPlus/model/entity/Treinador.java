@@ -1,6 +1,8 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
+import br.itb.projeto.vitalususPlus.validation.constraints.CREF;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -20,7 +22,9 @@ public class Treinador{
 	private Long id;
 
 	@Column(name="cref")
-	private int cref;
+	@NotBlank(message = "campo não preenchido")
+	@CREF(message ="campo inválido")
+	private String cref;
 
 	@Column(name="dataNasc")
 	private Date dataNasc;

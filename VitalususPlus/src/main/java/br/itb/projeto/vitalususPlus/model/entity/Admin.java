@@ -17,8 +17,6 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int codAdmin;
-
 	@OneToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;

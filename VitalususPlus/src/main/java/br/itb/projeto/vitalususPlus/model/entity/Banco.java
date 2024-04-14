@@ -1,6 +1,7 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -14,8 +15,9 @@ public class Banco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "campo não preenchido")
     @Column(name="numeroCartao")
-    private Long numeroCartao;
+    private String numeroCartao;
 
     @OneToOne
     @JoinColumn(name="treinador_id")

@@ -2,6 +2,7 @@ package br.itb.projeto.vitalususPlus.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class Canal{
 	@Column(name = "visualizacoes")
 	private long visualizacoes;
 
+	@NotBlank(message = "campo não preenchido")
 	@Column(name = "nome")
 	private String nome;
 

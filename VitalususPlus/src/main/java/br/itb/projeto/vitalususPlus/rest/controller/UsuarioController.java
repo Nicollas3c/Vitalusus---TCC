@@ -1,13 +1,18 @@
 package br.itb.projeto.vitalususPlus.rest.controller;
 
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import br.itb.projeto.vitalususPlus.service.UsuarioService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/vitalusus/usuario/")
@@ -34,7 +39,7 @@ public class UsuarioController {
 		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 	}
 	@PostMapping("post")
-	public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){
+	public ResponseEntity<Usuario> salvarUsuario(@RequestBody @Valid Usuario usuario){
 		Usuario usuarioSalvo = this.usuarioService.save(usuario);
 		return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
 	}
@@ -43,8 +48,19 @@ public class UsuarioController {
 		this.usuarioService.delete(usuario);
 	}
 	@PutMapping("update")
-	public ResponseEntity<Usuario> updateUsuario(@RequestBody Usuario usuario){
+	public ResponseEntity<Usuario> updateUsuario(@RequestBody @Valid Usuario usuario){
 		Usuario usuarioUpdatado = this.usuarioService.update(usuario);
 		return new ResponseEntity<Usuario>(usuarioUpdatado, HttpStatus.OK);
+	}
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public Map<String, String> handleValidationException(MethodArgumentNotValidException ex){
+		Map<String, String> erro = new HashMap<>();
+		ex.getBindingResult().getAllErrors().forEach(error ->{
+			String fieldName = ((FieldError)error).getField();
+			String erroMessage = error.getDefaultMessage();
+			erro.put(fieldName, erroMessage);
+		});
+		return erro;
 	}
 }

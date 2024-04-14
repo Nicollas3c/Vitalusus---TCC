@@ -2,11 +2,16 @@ package br.itb.projeto.vitalususPlus.rest.controller;
 
 import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.service.AdminService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/vitalusus/admin")
@@ -28,7 +33,7 @@ public class AdminController {
         return new ResponseEntity<Admin>(admin, HttpStatus.OK);
     }
     @PostMapping("post")
-    public ResponseEntity<Admin> salvarAdmin(@RequestBody Admin admin){
+    public ResponseEntity<Admin> salvarAdmin(@RequestBody @Valid Admin admin){
         Admin adminSalvo = this.adminService.save(admin);
         return new ResponseEntity<Admin>(adminSalvo, HttpStatus.OK);
     }
@@ -37,8 +42,19 @@ public class AdminController {
         this.adminService.delete(admin);
     }
     @PutMapping("update")
-    public ResponseEntity<Admin> updateAdmin(@RequestBody Admin admin){
+    public ResponseEntity<Admin> updateAdmin(@RequestBody @Valid Admin admin){
         Admin adminUpdatado = this.adminService.update(admin);
         return new ResponseEntity<Admin>(adminUpdatado, HttpStatus.OK);
+    }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationException(MethodArgumentNotValidException ex){
+        Map<String, String> erro = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach(error ->{
+            String fieldName = ((FieldError)error).getField();
+            String erroMessage = error.getDefaultMessage();
+            erro.put(fieldName, erroMessage);
+        });
+        return erro;
     }
 }

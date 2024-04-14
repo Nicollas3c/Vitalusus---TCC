@@ -4,11 +4,16 @@ import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.model.entity.Aluno;
 import br.itb.projeto.vitalususPlus.service.AdminService;
 import br.itb.projeto.vitalususPlus.service.AlunoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/vitalusus/aluno")
@@ -30,7 +35,7 @@ public class AlunoController {
         return new ResponseEntity<Aluno>(aluno, HttpStatus.OK);
     }
     @PostMapping("post")
-    public ResponseEntity<Aluno> salvarAluno(@RequestBody Aluno aluno){
+    public ResponseEntity<Aluno> salvarAluno(@RequestBody @Valid Aluno aluno){
         Aluno alunoSalvo = this.alunoService.save(aluno);
         return new ResponseEntity<Aluno>(alunoSalvo, HttpStatus.OK);
     }
@@ -39,8 +44,20 @@ public class AlunoController {
         this.alunoService.delete(aluno);
     }
     @PutMapping("update")
-    public ResponseEntity<Aluno> updateAdmin(@RequestBody Aluno aluno){
+    public ResponseEntity<Aluno> updateAdmin(@RequestBody @Valid Aluno aluno){
         Aluno alunoUpdatado = this.alunoService.update(aluno);
         return new ResponseEntity<Aluno>(alunoUpdatado, HttpStatus.OK);
     }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationException(MethodArgumentNotValidException ex){
+        Map<String, String> erro = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach(error ->{
+            String fieldName = ((FieldError)error).getField();
+            String erroMessage = error.getDefaultMessage();
+            erro.put(fieldName, erroMessage);
+        });
+        return erro;
+    }
+
 }

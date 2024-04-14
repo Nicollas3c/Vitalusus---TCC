@@ -4,11 +4,16 @@ import br.itb.projeto.vitalususPlus.model.entity.Comentario;
 import br.itb.projeto.vitalususPlus.model.entity.Evolucao;
 import br.itb.projeto.vitalususPlus.service.ComentarioService;
 import br.itb.projeto.vitalususPlus.service.EvolucaoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/vitalusus/evolucao")
@@ -30,7 +35,7 @@ public class EvolucaoController {
         return new ResponseEntity<Evolucao>(evolucao, HttpStatus.OK);
     }
     @PostMapping("post")
-    public ResponseEntity<Evolucao> salvarEvolucao(@RequestBody Evolucao evolucao){
+    public ResponseEntity<Evolucao> salvarEvolucao(@RequestBody @Valid Evolucao evolucao){
         Evolucao evolucaoSalvo = this.evolucaoService.save(evolucao);
         return new ResponseEntity<Evolucao>(evolucaoSalvo, HttpStatus.OK);
     }
@@ -39,8 +44,19 @@ public class EvolucaoController {
         this.evolucaoService.delete(evolucao);
     }
     @PutMapping("update")
-    public ResponseEntity<Evolucao> updateEvolucao(@RequestBody Evolucao evolucao){
+    public ResponseEntity<Evolucao> updateEvolucao(@RequestBody @Valid Evolucao evolucao){
         Evolucao evolucaoUpdatado = this.evolucaoService.update(evolucao);
         return new ResponseEntity<Evolucao>(evolucaoUpdatado, HttpStatus.OK);
+    }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationException(MethodArgumentNotValidException ex){
+        Map<String, String> erro = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach(error ->{
+            String fieldName = ((FieldError)error).getField();
+            String erroMessage = error.getDefaultMessage();
+            erro.put(fieldName, erroMessage);
+        });
+        return erro;
     }
 }
