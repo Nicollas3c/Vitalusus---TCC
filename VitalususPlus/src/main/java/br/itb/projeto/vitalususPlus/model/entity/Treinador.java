@@ -1,34 +1,35 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
+import br.itb.projeto.vitalususPlus.validation.constraints.CREF;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
-public class Treinador extends Usuario {
-	private int cref;
-	private LocalDateTime dataNasc;
-	private Banco banco;
+@Entity
+@Table(name = "Treinador")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
+public class Treinador{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	public Banco getBanco() {
-		return banco;
-	}
+	@Column(name="cref")
+	@NotBlank(message = "campo não preenchido")
+	@CREF(message ="campo inválido")
+	private String cref;
 
-	public void setBanco(Banco banco) {
-		this.banco = banco;
-	}
+	@Column(name="dataNasc")
+	private Date dataNasc;
 
-	public int getCref() {
-		return cref;
-	}
-
-	public void setCref(int cref) {
-		this.cref = cref;
-	}
-
-	public LocalDateTime getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(LocalDateTime dataNasc) {
-		this.dataNasc = dataNasc;
-	}
-
+	@OneToOne
+	@JoinColumn(name = "usuario_id",nullable=false)
+	private Usuario usuario;
 }

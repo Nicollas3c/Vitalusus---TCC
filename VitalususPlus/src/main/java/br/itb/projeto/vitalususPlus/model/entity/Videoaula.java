@@ -1,68 +1,38 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "Videoaula")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Videoaula {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String link;
-	private Treinador treinador;
 	private String descricao;
+	@NotBlank(message = "campo não preenchido")
 	private String titulo;
-	private long like;
-	private long deslike;
-	private long visualizacoes;
+	private long likes;
+	private long deslikes;
+	@ManyToMany
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@JoinTable(name="aluno_videoaula",
+			joinColumns = {@JoinColumn(name="videoaula_id")},
+			inverseJoinColumns = {@JoinColumn(name="aluno_id")})
+	private List<Aluno> alunos;
+	private Integer visualizacoes;
 
-	public String getLink() {
-		return link;
-	}
-
-	public void setLink(String link) {
-		this.link = link;
-	}
-
-	public Treinador getTreinador() {
-		return treinador;
-	}
-
-	public void setTreinador(Treinador treinador) {
-		this.treinador = treinador;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public long getLike() {
-		return like;
-	}
-
-	public void setLike(long like) {
-		this.like = like;
-	}
-
-	public long getDeslike() {
-		return deslike;
-	}
-
-	public void setDeslike(long deslike) {
-		this.deslike = deslike;
-	}
-
-	public long getVisualizacoes() {
-		return visualizacoes;
-	}
-
-	public void setVisualizacoes(long visualizacoes) {
-		this.visualizacoes = visualizacoes;
-	}
-
+	@OneToOne
+	@JoinColumn(name = "canal_id")
+	private Canal canal;
 }

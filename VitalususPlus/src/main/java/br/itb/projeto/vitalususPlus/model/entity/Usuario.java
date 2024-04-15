@@ -4,83 +4,52 @@ import java.time.LocalDateTime;
 
 import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import lombok.*;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 
 @Entity
 @Table(name = "Usuario")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Column(nullable = false, length=100, name="nome")
+	private Long id;
+
+	@Column(name="nome")
+	@NotBlank(message = "campo não preenchido")
+	@Pattern(regexp = "^[A-Z]+(.)*", message = "nome deve inicial com letras maiúsculas")
 	private String nome;
-	
-	@Column(nullable = false, length=100, name="email")
+
+	@Email(message ="campo inválido")
+	@NotBlank(message = "campo não preenchido")
+	@Column(name="email")
 	private String email;
-	
-	@Column(nullable = false, length=100, name="senha")
+
+	@NotBlank(message = "campo não preenchido")
+	@Column(name="senha")
 	private String senha;
 	
-	@Column(nullable = true, length=10, name="nivelAcesso")
+	@Column(name="nivelAcesso")
 	private String nivelAcesso;
-	
-	@Column(nullable=true, name="foto")
+
+	@Lob
+	@Column(name="foto")
 	private byte[] foto;
 	
-	@Column(nullable=false, name="dataCadastro")
+	@Column(name="dataCadastro")
 	private LocalDateTime dataCadastro;
-	
-	@Column(nullable=false, name="statusUsuario", length=20)
+
+	@Column(name="statusUsuario")
 	private String statusUsuario;
-	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	public String getNivelAcesso() {
-		return nivelAcesso;
-	}
-	public void setNivelAcesso(String nivelAcesso) {
-		this.nivelAcesso = nivelAcesso;
-	}
-	public byte[] getFoto() {
-		return foto;
-	}
-	public void setFoto(byte[] foto) {
-		this.foto = foto;
-	}
-	public LocalDateTime getDataCadastro() {
-		return dataCadastro;
-	}
-	public void setDataCadastro(LocalDateTime dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
-	public String getStatusUsuario() {
-		return statusUsuario;
-	}
-	public void setStatusUsuario(String statusUsuario) {
-		this.statusUsuario = statusUsuario;
-	}
+
+	@Column(name="tipoUsuario")
+	private String tipoUsuario;
 	
 }

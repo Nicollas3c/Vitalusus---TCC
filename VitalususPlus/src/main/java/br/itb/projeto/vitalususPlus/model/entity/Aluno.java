@@ -1,52 +1,35 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
+import jakarta.persistence.*;
+import lombok.*;
+
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
-public class Aluno extends Usuario {
-	private long codigo;
-	private LocalDateTime dataNasc;
+@Entity
+@Table(name = "Aluno")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
+public class Aluno{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(name = "dataNasc")
+	private Date dataNasc;
+
+	@Column(name="altura")
 	private float altura;
+
+	@Column(name = "peso")
 	private float peso;
-	private Evolucao evolucao;
 
-	public Evolucao getEvolucao() {
-		return evolucao;
-	}
-
-	public void setEvolucao(Evolucao evolucao) {
-		this.evolucao = evolucao;
-	}
-
-	public long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
-	}
-
-	public LocalDateTime getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(LocalDateTime dataNasc) {
-		this.dataNasc = dataNasc;
-	}
-
-	public float getAltura() {
-		return altura;
-	}
-
-	public void setAltura(float altura) {
-		this.altura = altura;
-	}
-
-	public float getPeso() {
-		return peso;
-	}
-
-	public void setPeso(float peso) {
-		this.peso = peso;
-	}
+	@OneToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 
 }

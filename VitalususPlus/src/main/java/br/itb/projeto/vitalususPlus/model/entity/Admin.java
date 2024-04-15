@@ -1,19 +1,31 @@
 package br.itb.projeto.vitalususPlus.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
+@Table(name = "Administrador")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Admin {
 	@Id
-	private long codigo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@OneToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 
-	public long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
-	}
-
+	@ManyToMany
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@JoinTable(name = "admin_usuario",
+			joinColumns = {@JoinColumn(name = "admin_id")},
+			inverseJoinColumns = {@JoinColumn(name = "usuario_id")})
+	private List<Usuario> listaUsuarios;
+	private Integer numeroUsuarios;
 }
