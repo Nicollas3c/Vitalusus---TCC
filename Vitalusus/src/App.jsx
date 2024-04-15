@@ -1,34 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [egua, setEgua] = useState(300)
+  const removeEgua = ()=>{
+    setEgua(egua-1)
+    if (egua<=0) setEgua(0)
+  }
+  let eguaString = ' POCOTÓ RESTANTE'
+  let mensagem = ''
+  let imagem = ''
+  let imagemCavalo = document.getElementById('pocoto')
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+  if (egua==0){
+    mensagem = 'Jumpscare de égua!'
+    imagem = 'https://cptstatic.s3.amazonaws.com/imagens/enviadas/materias/materia16043/caracteristicas-cavalos-saudaveis-artigos-cursos-cpt.jpg'
+    imagemCavalo.className='cavalo'
+  }
+  
+  if (egua>1 || egua==0)
+  eguaString=' POCOTÓS RESTANTES'
+
+
+  return(
+  <div className='App'>
+    <h1>INVOCAÇÃO DE ÉGUAS</h1>
+    <h3>{egua}{eguaString}</h3>
+    <h3>{mensagem}</h3>
+    <img id='pocoto' src={imagem}></img>
+    <br/>
+    <button onClick={removeEgua} className='btn btn-primary'>POCOTÓ</button>
+  </div>
   )
 }
 
