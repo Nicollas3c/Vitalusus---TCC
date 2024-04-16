@@ -45,4 +45,45 @@ public class Canal{
 	public void setTreinador(Treinador treinador) {
 		this.treinador = treinador;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public long getVisualizacoes() {
+		return visualizacoes;
+	}
+
+	public void setVisualizacoes(long visualizacoes) {
+		this.visualizacoes = visualizacoes;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
+	public Integer getSeguidores() {
+		return seguidores;
+	}
+
+	public void setSeguidores(Integer seguidores) {
+		this.seguidores = seguidores;
+	}
+	
 }

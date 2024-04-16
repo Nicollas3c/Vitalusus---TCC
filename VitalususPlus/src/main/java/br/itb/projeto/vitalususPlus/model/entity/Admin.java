@@ -28,4 +28,30 @@ public class Admin {
 			inverseJoinColumns = {@JoinColumn(name = "usuario_id")})
 	private List<Usuario> listaUsuarios;
 	private Integer numeroUsuarios;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public List<Usuario> getListaUsuarios() {
+		return listaUsuarios;
+	}
+	public void setListaUsuarios(List<Usuario> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
+	public Integer getNumeroUsuarios() {
+		return numeroUsuarios;
+	}
+	public void setNumeroUsuarios(Integer numeroUsuarios) {
+		this.numeroUsuarios = numeroUsuarios;
+	}
+	
+	
 }

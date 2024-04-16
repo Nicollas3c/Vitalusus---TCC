@@ -22,4 +22,30 @@ public class Banco {
     @OneToOne
     @JoinColumn(name="treinador_id")
     private Treinador treinaodor;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNumeroCartao() {
+		return numeroCartao;
+	}
+
+	public void setNumeroCartao(String numeroCartao) {
+		this.numeroCartao = numeroCartao;
+	}
+
+	public Treinador getTreinaodor() {
+		return treinaodor;
+	}
+
+	public void setTreinaodor(Treinador treinaodor) {
+		this.treinaodor = treinaodor;
+	}
+    
+    
 }

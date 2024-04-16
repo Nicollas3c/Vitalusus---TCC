@@ -1,4 +1,4 @@
-package br.itb.projeto.vitalususPlus.validation;
+ package br.itb.projeto.vitalususPlus.validation;
 
 import br.itb.projeto.vitalususPlus.validation.constraints.CREF;
 import jakarta.validation.ConstraintValidator;

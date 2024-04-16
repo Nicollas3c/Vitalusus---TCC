@@ -32,4 +32,37 @@ public class Treinador{
 	@OneToOne
 	@JoinColumn(name = "usuario_id",nullable=false)
 	private Usuario usuario;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCref() {
+		return cref;
+	}
+
+	public void setCref(String cref) {
+		this.cref = cref;
+	}
+
+	public Date getDataNasc() {
+		return dataNasc;
+	}
+
+	public void setDataNasc(Date dataNasc) {
+		this.dataNasc = dataNasc;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 }
