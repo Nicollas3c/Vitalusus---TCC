@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import Tabela from "../Tabela";
+
 
 function App() {
-  const [egua, setEgua] = useState(300)
-  const removeEgua = ()=>{
-    setEgua(egua-1)
-    if (egua<=0) setEgua(0)
+  const [usuarios, setUsuarios] = useState([])
+  useEffect(()=>{
+    fetch('http://localhost:8080/vitalusus/usuario/findAll')
+    .then(retorno => retorno.json())
+    .then(retornoJson => setUsuarios(retornoJson))
   }
+<<<<<<< HEAD
   let eguaString = ' QI RESTANTE'
   let mensagem = ''
   let imagem = ''
@@ -31,7 +35,14 @@ function App() {
     <br/>
     <button onClick={removeEgua} className='btn btn-primary'>USAR DORGAS</button>
   </div>
+=======
+)
+  return(
+   <div className="App">
+    <Tabela vetor = {usuarios}/>
+   </div>
+>>>>>>> frontend
   )
 }
 
-export default App
+export default App;
