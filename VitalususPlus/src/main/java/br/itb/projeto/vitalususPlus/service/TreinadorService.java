@@ -1,6 +1,7 @@
 package br.itb.projeto.vitalususPlus.service;
 
 import br.itb.projeto.vitalususPlus.model.entity.Treinador;
+import br.itb.projeto.vitalususPlus.model.entity.Treinador;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 import br.itb.projeto.vitalususPlus.model.repository.TreinadorRepository;
 import br.itb.projeto.vitalususPlus.model.repository.UsuarioRepository;
@@ -12,10 +13,12 @@ import java.util.Optional;
 @Service
 public class TreinadorService {
     private TreinadorRepository treinadorRepository;
+    private UsuarioService usuarioService;
 
-    public TreinadorService(TreinadorRepository treinadorRepository) {
+    public TreinadorService(TreinadorRepository treinadorRepository, UsuarioService usuarioService) {
         super();
         this.treinadorRepository = treinadorRepository;
+        this.usuarioService = usuarioService;
     }
     public List<Treinador> findAll(){
         List<Treinador> listaTreinadores = treinadorRepository.findAll();
@@ -27,14 +30,29 @@ public class TreinadorService {
                 "treinador não encontrado"
         ));
     }
-    public Treinador save(Treinador treinador){
+    public Treinador save(Treinador treinador, Usuario usuario){
         treinador.setId(null);
+        usuario = treinador.getUsuario();
+        usuario.setStatusUsuario("ATIVO");
+        usuario.setTipoUsuario("TREINADOR");
+        usuario.setNivelAcesso("USER");
+        usuarioService.save(usuario);
         return treinadorRepository.save(treinador);
     }
-    public void delete(Treinador treinador) {
-        this.treinadorRepository.delete(treinador);
+    public Treinador inativate(Treinador treinador, Usuario usuario) {
+        usuario = treinador.getUsuario();
+        usuario.setStatusUsuario("INATIVO");
+        usuario.setTipoUsuario("TREINADOR");
+        usuario.setNivelAcesso("USER");
+        usuarioService.update(usuario);
+        return treinadorRepository.save(treinador);
     }
-    public Treinador update(Treinador treinador){
+    public Treinador update(Treinador treinador, Usuario usuario){
+        usuario = treinador.getUsuario();
+        usuario.setStatusUsuario("ATIVO");
+        usuario.setTipoUsuario("TREINADOR");
+        usuario.setNivelAcesso("USER");
+        usuarioService.update(usuario);
         return treinadorRepository.save(treinador);
     }
 }

@@ -1,6 +1,7 @@
 package br.itb.projeto.vitalususPlus.rest.controller;
 
 import br.itb.projeto.vitalususPlus.model.entity.Treinador;
+import br.itb.projeto.vitalususPlus.model.entity.Treinador;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 import br.itb.projeto.vitalususPlus.service.TreinadorService;
 import br.itb.projeto.vitalususPlus.service.UsuarioService;
@@ -39,16 +40,20 @@ public class TreinadorController {
     }
     @PostMapping("post")
     public ResponseEntity<Treinador> salvarTreinador(@RequestBody @Valid Treinador treinador){
-        Treinador treinadorSalvo = this.treinadorService.save(treinador);
+        Usuario usuario = treinador.getUsuario();
+        Treinador treinadorSalvo = this.treinadorService.save(treinador, usuario);
         return new ResponseEntity<Treinador>(treinadorSalvo, HttpStatus.OK);
     }
-    @DeleteMapping("delete")
-    public void deletarTreinador(@RequestBody Treinador treinador){
-        this.treinadorService.delete(treinador);
+    @PutMapping("inativate")
+    public ResponseEntity<Treinador> deletarTreinador(@RequestBody Treinador treinador){
+        Usuario usuario = treinador.getUsuario();
+        Treinador treinadorInativate = treinadorService.inativate(treinador, usuario);
+        return new ResponseEntity<Treinador>(treinadorInativate, HttpStatus.OK);
     }
     @PutMapping("update")
-    public ResponseEntity<Treinador> updateTreinador(@RequestBody @Valid Treinador treinador){
-        Treinador treinadorUpdatado = this.treinadorService.update(treinador);
+    public ResponseEntity<Treinador> updateAdmin(@RequestBody @Valid Treinador treinador){
+        Usuario usuario = treinador.getUsuario();
+        Treinador treinadorUpdatado = this.treinadorService.update(treinador, usuario);
         return new ResponseEntity<Treinador>(treinadorUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

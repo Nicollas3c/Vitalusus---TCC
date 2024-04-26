@@ -2,6 +2,7 @@ package br.itb.projeto.vitalususPlus.rest.controller;
 
 import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.model.entity.Aluno;
+import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 import br.itb.projeto.vitalususPlus.service.AdminService;
 import br.itb.projeto.vitalususPlus.service.AlunoService;
 import jakarta.validation.Valid;
@@ -37,16 +38,20 @@ public class AlunoController {
     }
     @PostMapping("post")
     public ResponseEntity<Aluno> salvarAluno(@RequestBody @Valid Aluno aluno){
-        Aluno alunoSalvo = this.alunoService.save(aluno);
+        Usuario usuario = aluno.getUsuario();
+        Aluno alunoSalvo = this.alunoService.save(aluno, usuario);
         return new ResponseEntity<Aluno>(alunoSalvo, HttpStatus.OK);
     }
-    @DeleteMapping("delete")
-    public void deletarAluno(@RequestBody Aluno aluno){
-        this.alunoService.delete(aluno);
+    @PutMapping("inativate")
+    public ResponseEntity<Aluno> deletarAluno(@RequestBody Aluno aluno){
+        Usuario usuario = aluno.getUsuario();
+        Aluno alunoInativate = alunoService.inativate(aluno, usuario);
+        return new ResponseEntity<Aluno>(alunoInativate, HttpStatus.OK);
     }
     @PutMapping("update")
     public ResponseEntity<Aluno> updateAdmin(@RequestBody @Valid Aluno aluno){
-        Aluno alunoUpdatado = this.alunoService.update(aluno);
+        Usuario usuario = aluno.getUsuario();
+        Aluno alunoUpdatado = this.alunoService.update(aluno, usuario);
         return new ResponseEntity<Aluno>(alunoUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

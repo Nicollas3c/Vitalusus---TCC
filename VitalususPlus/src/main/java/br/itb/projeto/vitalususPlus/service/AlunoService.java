@@ -13,10 +13,16 @@ import java.util.Optional;
 @Service
 public class AlunoService {
     private AlunoRepository alunoRepository;
+    private UsuarioService usuarioService;
+    private EvolucaoService evolucaoService;
 
-    public AlunoService(AlunoRepository alunoRepository) {
+    public AlunoService(AlunoRepository alunoRepository,
+                        UsuarioService usuarioService,
+                        EvolucaoService evolucaoService) {
         super();
         this.alunoRepository = alunoRepository;
+        this.usuarioService = usuarioService;
+        this.evolucaoService = evolucaoService;
     }
     public List<Aluno> findAll(){
         List<Aluno> listaAlunos = alunoRepository.findAll();
@@ -28,14 +34,29 @@ public class AlunoService {
                 "Aluno não encontrado"
         ));
     }
-    public Aluno save(Aluno aluno){
+    public Aluno save(Aluno aluno, Usuario usuario){
         aluno.setId(null);
+        usuario = aluno.getUsuario();
+        usuario.setStatusUsuario("ATIVO");
+        usuario.setTipoUsuario("ALUNO");
+        usuario.setNivelAcesso("USER");
+        usuarioService.save(usuario);
         return alunoRepository.save(aluno);
     }
-    public void delete(Aluno aluno) {
-        this.alunoRepository.delete(aluno);
+    public Aluno inativate(Aluno aluno, Usuario usuario) {
+        usuario = aluno.getUsuario();
+        usuario.setStatusUsuario("INATIVO");
+        usuario.setTipoUsuario("ALUNO");
+        usuario.setNivelAcesso("USER");
+        usuarioService.update(usuario);
+        return alunoRepository.save(aluno);
     }
-    public Aluno update(Aluno aluno){
+    public Aluno update(Aluno aluno, Usuario usuario){
+        usuario = aluno.getUsuario();
+        usuario.setStatusUsuario("ATI-VO");
+        usuario.setTipoUsuario("ALUNO");
+        usuario.setNivelAcesso("USER");
+        usuarioService.update(usuario);
         return alunoRepository.save(aluno);
     }
 }
