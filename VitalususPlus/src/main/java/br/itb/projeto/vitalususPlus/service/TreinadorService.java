@@ -36,15 +36,12 @@ public class TreinadorService {
         usuario.setStatusUsuario("ATIVO");
         usuario.setTipoUsuario("TREINADOR");
         usuario.setNivelAcesso("USER");
-        usuarioService.save(usuario);
         return treinadorRepository.save(treinador);
     }
     public Treinador inativate(Treinador treinador, Usuario usuario) {
         usuario = treinador.getUsuario();
-        usuario.setStatusUsuario("INATIVO");
         usuario.setTipoUsuario("TREINADOR");
         usuario.setNivelAcesso("USER");
-        usuarioService.update(usuario);
         return treinadorRepository.save(treinador);
     }
     public Treinador update(Treinador treinador, Usuario usuario){
@@ -52,7 +49,6 @@ public class TreinadorService {
         usuario.setStatusUsuario("ATIVO");
         usuario.setTipoUsuario("TREINADOR");
         usuario.setNivelAcesso("USER");
-        usuarioService.update(usuario);
         return treinadorRepository.save(treinador);
     }
 }

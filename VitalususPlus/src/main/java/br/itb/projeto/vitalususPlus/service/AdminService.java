@@ -4,6 +4,8 @@ import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 import br.itb.projeto.vitalususPlus.model.repository.AdminRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -40,7 +42,6 @@ public class AdminService {
             admin.setListaUsuarios(new ArrayList<>());
         }
         admin.setNumeroUsuarios(admin.getListaUsuarios().size());
-        usuarioService.save(usuario);
         return adminRepository.save(admin);
     }
     public Admin inativate(Admin admin, Usuario usuario) {
@@ -52,7 +53,6 @@ public class AdminService {
             admin.setListaUsuarios(new ArrayList<>());
         }
         admin.setNumeroUsuarios(admin.getListaUsuarios().size());
-        usuarioService.update(usuario);
         return adminRepository.save(admin);
     }
     public Admin update(Admin admin, Usuario usuario){
@@ -64,7 +64,6 @@ public class AdminService {
             admin.setListaUsuarios(new ArrayList<>());
         }
         admin.setNumeroUsuarios(admin.getListaUsuarios().size());
-        usuarioService.update(usuario);
         return adminRepository.save(admin);
     }
 }

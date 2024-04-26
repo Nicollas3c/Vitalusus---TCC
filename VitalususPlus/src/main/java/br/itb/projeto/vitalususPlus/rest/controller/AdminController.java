@@ -4,6 +4,7 @@ import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.model.entity.Admin;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 import br.itb.projeto.vitalususPlus.service.AdminService;
+import br.itb.projeto.vitalususPlus.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +21,12 @@ import java.util.Map;
 @RequestMapping("/vitalusus/admin")
 public class AdminController {
     private AdminService adminService;
+    private UsuarioService usuarioService;
 
-    public AdminController(AdminService adminService) {
+    public AdminController(AdminService adminService, UsuarioService usuarioService) {
         super();
         this.adminService = adminService;
+        this.usuarioService = usuarioService;
     }
     @GetMapping("findAll")
     public ResponseEntity<List<Admin>> findAll(){
@@ -39,18 +42,21 @@ public class AdminController {
     public ResponseEntity<Admin> salvarAdmin(@RequestBody @Valid Admin admin){
         Usuario usuario = admin.getUsuario();
         Admin adminSalvo = this.adminService.save(admin, usuario);
+        if (adminSalvo != null) usuarioService.save(usuario);
         return new ResponseEntity<Admin>(adminSalvo, HttpStatus.OK);
     }
     @PutMapping("inativate")
     public ResponseEntity<Admin> deletarAdmin(@RequestBody Admin admin){
         Usuario usuario = admin.getUsuario();
         Admin adminInativate = adminService.inativate(admin, usuario);
+        if (adminInativate != null) usuarioService.update(usuario);
         return new ResponseEntity<Admin>(adminInativate, HttpStatus.OK);
     }
     @PutMapping("update")
     public ResponseEntity<Admin> updateAdmin(@RequestBody @Valid Admin admin){
         Usuario usuario = admin.getUsuario();
         Admin adminUpdatado = this.adminService.update(admin, usuario);
+        if (adminUpdatado != null) usuarioService.update(usuario);
         return new ResponseEntity<Admin>(adminUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

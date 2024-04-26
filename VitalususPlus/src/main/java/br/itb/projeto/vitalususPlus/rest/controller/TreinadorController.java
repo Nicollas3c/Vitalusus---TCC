@@ -42,18 +42,24 @@ public class TreinadorController {
     public ResponseEntity<Treinador> salvarTreinador(@RequestBody @Valid Treinador treinador){
         Usuario usuario = treinador.getUsuario();
         Treinador treinadorSalvo = this.treinadorService.save(treinador, usuario);
+        if (treinadorSalvo != null) usuarioService.save(usuario);
         return new ResponseEntity<Treinador>(treinadorSalvo, HttpStatus.OK);
     }
     @PutMapping("inativate")
     public ResponseEntity<Treinador> deletarTreinador(@RequestBody Treinador treinador){
         Usuario usuario = treinador.getUsuario();
         Treinador treinadorInativate = treinadorService.inativate(treinador, usuario);
+        if (treinadorInativate != null) {
+            usuario.setStatusUsuario("INATIVO");
+            usuarioService.update(usuario);
+        }
         return new ResponseEntity<Treinador>(treinadorInativate, HttpStatus.OK);
     }
     @PutMapping("update")
     public ResponseEntity<Treinador> updateAdmin(@RequestBody @Valid Treinador treinador){
         Usuario usuario = treinador.getUsuario();
         Treinador treinadorUpdatado = this.treinadorService.update(treinador, usuario);
+        if (treinadorUpdatado != null) usuarioService.update(usuario);
         return new ResponseEntity<Treinador>(treinadorUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

@@ -5,6 +5,7 @@ import br.itb.projeto.vitalususPlus.model.entity.Aluno;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
 import br.itb.projeto.vitalususPlus.service.AdminService;
 import br.itb.projeto.vitalususPlus.service.AlunoService;
+import br.itb.projeto.vitalususPlus.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,12 @@ import java.util.Map;
 @RequestMapping("/vitalusus/aluno")
 public class AlunoController {
     private AlunoService alunoService;
+    private UsuarioService usuarioService;
 
-    public AlunoController(AlunoService alunoService) {
+    public AlunoController(AlunoService alunoService, UsuarioService usuarioService) {
         super();
         this.alunoService = alunoService;
+        this.usuarioService = usuarioService;
     }
     @GetMapping("findAll")
     public ResponseEntity<List<Aluno>> findAll(){
@@ -40,18 +43,21 @@ public class AlunoController {
     public ResponseEntity<Aluno> salvarAluno(@RequestBody @Valid Aluno aluno){
         Usuario usuario = aluno.getUsuario();
         Aluno alunoSalvo = this.alunoService.save(aluno, usuario);
+        if (alunoSalvo != null) usuarioService.save(usuario);
         return new ResponseEntity<Aluno>(alunoSalvo, HttpStatus.OK);
     }
     @PutMapping("inativate")
     public ResponseEntity<Aluno> deletarAluno(@RequestBody Aluno aluno){
         Usuario usuario = aluno.getUsuario();
         Aluno alunoInativate = alunoService.inativate(aluno, usuario);
+        if (alunoInativate != null) usuarioService.save(usuario);
         return new ResponseEntity<Aluno>(alunoInativate, HttpStatus.OK);
     }
     @PutMapping("update")
     public ResponseEntity<Aluno> updateAdmin(@RequestBody @Valid Aluno aluno){
         Usuario usuario = aluno.getUsuario();
         Aluno alunoUpdatado = this.alunoService.update(aluno, usuario);
+        if (alunoUpdatado != null) usuarioService.save(usuario);
         return new ResponseEntity<Aluno>(alunoUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

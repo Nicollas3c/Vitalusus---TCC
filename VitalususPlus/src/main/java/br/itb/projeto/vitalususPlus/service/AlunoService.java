@@ -40,7 +40,6 @@ public class AlunoService {
         usuario.setStatusUsuario("ATIVO");
         usuario.setTipoUsuario("ALUNO");
         usuario.setNivelAcesso("USER");
-        usuarioService.save(usuario);
         return alunoRepository.save(aluno);
     }
     public Aluno inativate(Aluno aluno, Usuario usuario) {
@@ -48,7 +47,6 @@ public class AlunoService {
         usuario.setStatusUsuario("INATIVO");
         usuario.setTipoUsuario("ALUNO");
         usuario.setNivelAcesso("USER");
-        usuarioService.update(usuario);
         return alunoRepository.save(aluno);
     }
     public Aluno update(Aluno aluno, Usuario usuario){
@@ -56,7 +54,6 @@ public class AlunoService {
         usuario.setStatusUsuario("ATI-VO");
         usuario.setTipoUsuario("ALUNO");
         usuario.setNivelAcesso("USER");
-        usuarioService.update(usuario);
         return alunoRepository.save(aluno);
     }
 }
