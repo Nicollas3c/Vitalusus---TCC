@@ -47,7 +47,7 @@ public class AlunoController {
         return new ResponseEntity<Aluno>(alunoSalvo, HttpStatus.OK);
     }
     @PutMapping("inativate")
-    public ResponseEntity<Aluno> deletarAluno(@RequestBody Aluno aluno){
+    public ResponseEntity<Aluno> deletarAluno(@RequestBody @Valid Aluno aluno){
         Usuario usuario = aluno.getUsuario();
         Aluno alunoInativate = alunoService.inativate(aluno, usuario);
         if (alunoInativate != null) usuarioService.save(usuario);

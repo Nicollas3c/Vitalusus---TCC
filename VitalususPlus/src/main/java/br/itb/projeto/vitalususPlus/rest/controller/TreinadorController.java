@@ -1,8 +1,10 @@
 package br.itb.projeto.vitalususPlus.rest.controller;
 
+import br.itb.projeto.vitalususPlus.model.entity.Canal;
 import br.itb.projeto.vitalususPlus.model.entity.Treinador;
 import br.itb.projeto.vitalususPlus.model.entity.Treinador;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
+import br.itb.projeto.vitalususPlus.service.CanalService;
 import br.itb.projeto.vitalususPlus.service.TreinadorService;
 import br.itb.projeto.vitalususPlus.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -22,11 +24,15 @@ import java.util.Map;
 public class TreinadorController {
     private TreinadorService treinadorService;
     private UsuarioService usuarioService;
+    private CanalService canalService;
 
-    public TreinadorController(TreinadorService treinadorService, UsuarioService usuarioService) {
+    public TreinadorController(TreinadorService treinadorService,
+                               UsuarioService usuarioService,
+                               CanalService canalService) {
         super();
         this.treinadorService = treinadorService;
         this.usuarioService = usuarioService;
+        this.canalService = canalService;
     }
     @GetMapping("findAll")
     public ResponseEntity<List<Treinador>> findAll(){
@@ -41,25 +47,36 @@ public class TreinadorController {
     @PostMapping("post")
     public ResponseEntity<Treinador> salvarTreinador(@RequestBody @Valid Treinador treinador){
         Usuario usuario = treinador.getUsuario();
-        Treinador treinadorSalvo = this.treinadorService.save(treinador, usuario);
-        if (treinadorSalvo != null) usuarioService.save(usuario);
+        Canal canal = treinador.getCanal();
+        Treinador treinadorSalvo = this.treinadorService.save(treinador, usuario, canal);
+        if (treinadorSalvo != null) {
+            usuarioService.save(usuario);
+            canalService.save(canal);
+        }
         return new ResponseEntity<Treinador>(treinadorSalvo, HttpStatus.OK);
     }
     @PutMapping("inativate")
-    public ResponseEntity<Treinador> deletarTreinador(@RequestBody Treinador treinador){
+    public ResponseEntity<Treinador> deletarTreinador(@RequestBody @Valid Treinador treinador){
         Usuario usuario = treinador.getUsuario();
-        Treinador treinadorInativate = treinadorService.inativate(treinador, usuario);
+        Canal canal = treinador.getCanal();
+
+        Treinador treinadorInativate = treinadorService.inativate(treinador, usuario, canal);
         if (treinadorInativate != null) {
             usuario.setStatusUsuario("INATIVO");
             usuarioService.update(usuario);
+            canalService.update(canal);
         }
         return new ResponseEntity<Treinador>(treinadorInativate, HttpStatus.OK);
     }
     @PutMapping("update")
     public ResponseEntity<Treinador> updateAdmin(@RequestBody @Valid Treinador treinador){
         Usuario usuario = treinador.getUsuario();
-        Treinador treinadorUpdatado = this.treinadorService.update(treinador, usuario);
-        if (treinadorUpdatado != null) usuarioService.update(usuario);
+        Canal canal = treinador.getCanal();
+        Treinador treinadorUpdatado = this.treinadorService.update(treinador, usuario, canal);
+        if (treinadorUpdatado != null) {
+            usuarioService.update(usuario);
+            canalService.update(canal);
+        }
         return new ResponseEntity<Treinador>(treinadorUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

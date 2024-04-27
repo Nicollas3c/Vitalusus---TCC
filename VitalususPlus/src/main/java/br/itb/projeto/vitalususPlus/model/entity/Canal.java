@@ -28,23 +28,11 @@ public class Canal{
 	private String nome;
 
 	@ManyToMany
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@JoinTable(name="Aluno_segue_canal", joinColumns=
 			{@JoinColumn(name="canal_id")}, inverseJoinColumns=
 			{@JoinColumn(name="seguidor_id")})
 	private List<Aluno> alunos;
 	private Integer seguidores;
-	@OneToOne
-	@JoinColumn(name = "treinador_id")
-	private Treinador treinador;
-
-	public Treinador getTreinador() {
-		return treinador;
-	}
-
-	public void setTreinador(Treinador treinador) {
-		this.treinador = treinador;
-	}
 
 	public Long getId() {
 		return id;

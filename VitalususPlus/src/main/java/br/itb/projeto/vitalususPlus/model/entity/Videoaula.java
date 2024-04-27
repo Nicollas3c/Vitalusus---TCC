@@ -25,7 +25,6 @@ public class Videoaula {
 	private long likes;
 	private long deslikes;
 	@ManyToMany
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@JoinTable(name="aluno_videoaula",
 			joinColumns = {@JoinColumn(name="videoaula_id")},
 			inverseJoinColumns = {@JoinColumn(name="aluno_id")})

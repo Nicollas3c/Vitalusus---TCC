@@ -1,5 +1,6 @@
 package br.itb.projeto.vitalususPlus.service;
 
+import br.itb.projeto.vitalususPlus.model.entity.Canal;
 import br.itb.projeto.vitalususPlus.model.entity.Treinador;
 import br.itb.projeto.vitalususPlus.model.entity.Treinador;
 import br.itb.projeto.vitalususPlus.model.entity.Usuario;
@@ -14,11 +15,15 @@ import java.util.Optional;
 public class TreinadorService {
     private TreinadorRepository treinadorRepository;
     private UsuarioService usuarioService;
+    private CanalService canalService;
 
-    public TreinadorService(TreinadorRepository treinadorRepository, UsuarioService usuarioService) {
+    public TreinadorService(TreinadorRepository treinadorRepository,
+                            UsuarioService usuarioService,
+                            CanalService canalService) {
         super();
         this.treinadorRepository = treinadorRepository;
         this.usuarioService = usuarioService;
+        this.canalService = canalService;
     }
     public List<Treinador> findAll(){
         List<Treinador> listaTreinadores = treinadorRepository.findAll();
@@ -30,7 +35,7 @@ public class TreinadorService {
                 "treinador não encontrado"
         ));
     }
-    public Treinador save(Treinador treinador, Usuario usuario){
+    public Treinador save(Treinador treinador, Usuario usuario, Canal canal){
         treinador.setId(null);
         usuario = treinador.getUsuario();
         usuario.setStatusUsuario("ATIVO");
@@ -38,13 +43,13 @@ public class TreinadorService {
         usuario.setNivelAcesso("USER");
         return treinadorRepository.save(treinador);
     }
-    public Treinador inativate(Treinador treinador, Usuario usuario) {
+    public Treinador inativate(Treinador treinador, Usuario usuario, Canal canal) {
         usuario = treinador.getUsuario();
         usuario.setTipoUsuario("TREINADOR");
         usuario.setNivelAcesso("USER");
         return treinadorRepository.save(treinador);
     }
-    public Treinador update(Treinador treinador, Usuario usuario){
+    public Treinador update(Treinador treinador, Usuario usuario, Canal canal){
         usuario = treinador.getUsuario();
         usuario.setStatusUsuario("ATIVO");
         usuario.setTipoUsuario("TREINADOR");

@@ -46,7 +46,7 @@ public class AdminController {
         return new ResponseEntity<Admin>(adminSalvo, HttpStatus.OK);
     }
     @PutMapping("inativate")
-    public ResponseEntity<Admin> deletarAdmin(@RequestBody Admin admin){
+    public ResponseEntity<Admin> deletarAdmin(@RequestBody @Valid Admin admin){
         Usuario usuario = admin.getUsuario();
         Admin adminInativate = adminService.inativate(admin, usuario);
         if (adminInativate != null) usuarioService.update(usuario);
