@@ -1,6 +1,7 @@
 package br.itb.projeto.vitalususPlus.service;
 
 import br.itb.projeto.vitalususPlus.model.entity.Aluno;
+import br.itb.projeto.vitalususPlus.model.entity.Canal;
 import br.itb.projeto.vitalususPlus.model.entity.Videoaula;
 import br.itb.projeto.vitalususPlus.model.repository.AlunoRepository;
 import br.itb.projeto.vitalususPlus.model.repository.VideoaulaRepository;
@@ -14,10 +15,12 @@ import static java.lang.Double.isNaN;
 @Service
 public class VideoaulaService {
     private VideoaulaRepository videoaulaRepository;
+    private CanalService canalService;
 
-    public VideoaulaService(VideoaulaRepository videoaulaRepository) {
+    public VideoaulaService(VideoaulaRepository videoaulaRepository, CanalService canalService) {
         super();
         this.videoaulaRepository = videoaulaRepository;
+        this.canalService = canalService;
     }
     public List<Videoaula> findAll(){
         List<Videoaula> listaVideoaula = videoaulaRepository.findAll();
@@ -29,22 +32,24 @@ public class VideoaulaService {
                 "Aluno não encontrado"
         ));
     }
-    public Videoaula save(Videoaula videoaula){
+    public Videoaula save(Videoaula videoaula, Canal canal){
         videoaula.setId(null);
         if (videoaula.getAlunos()==null){
             videoaula.setAlunos(new ArrayList<>());
         }
         videoaula.setVisualizacoes(videoaula.getAlunos().size());
+        canal.setVisualizacoes(canal.getVisualizacoes()+videoaula.getVisualizacoes());
         return videoaulaRepository.save(videoaula);
     }
     public void delete(Videoaula videoaula) {
         this.videoaulaRepository.delete(videoaula);
     }
-    public Videoaula update(Videoaula videoaula){
+    public Videoaula update(Videoaula videoaula, Canal canal){
         if (videoaula.getAlunos()==null){
             videoaula.setAlunos(new ArrayList<>());
         }
         videoaula.setVisualizacoes(videoaula.getAlunos().size());
+        canal.setVisualizacoes(canal.getVisualizacoes()+videoaula.getVisualizacoes());
         return videoaulaRepository.save(videoaula);
     }
 }
