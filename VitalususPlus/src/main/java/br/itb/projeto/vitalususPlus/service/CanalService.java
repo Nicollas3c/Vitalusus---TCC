@@ -35,6 +35,7 @@ public class CanalService {
 				canal.setAlunos(new ArrayList<>());
 			}
 			canal.setSeguidores(canal.getAlunos().size());
+			canal.setVisualizacoes(0);
 			return canalRepository.save(canal);
 	    }
 	    public void delete(Canal canal) {

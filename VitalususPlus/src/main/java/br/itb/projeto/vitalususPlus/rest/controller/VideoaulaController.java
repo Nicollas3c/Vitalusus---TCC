@@ -1,7 +1,9 @@
 package br.itb.projeto.vitalususPlus.rest.controller;
 
+import br.itb.projeto.vitalususPlus.model.entity.Canal;
 import br.itb.projeto.vitalususPlus.model.entity.Comentario;
 import br.itb.projeto.vitalususPlus.model.entity.Videoaula;
+import br.itb.projeto.vitalususPlus.service.CanalService;
 import br.itb.projeto.vitalususPlus.service.ComentarioService;
 import br.itb.projeto.vitalususPlus.service.VideoaulaService;
 import jakarta.validation.Valid;
@@ -20,10 +22,12 @@ import java.util.Map;
 @RequestMapping("/vitalusus/videoaula")
 public class VideoaulaController {
     private VideoaulaService videoaulaService;
+    private CanalService canalService;
 
-    public VideoaulaController(VideoaulaService videoaulaService) {
+    public VideoaulaController(VideoaulaService videoaulaService, CanalService canalService) {
         super();
         this.videoaulaService = videoaulaService;
+        this.canalService = canalService;
     }
     @GetMapping("findAll")
     public ResponseEntity<List<Videoaula>> findAll(){
@@ -37,7 +41,9 @@ public class VideoaulaController {
     }
     @PostMapping("post")
     public ResponseEntity<Videoaula> salvarVideoaula(@RequestBody @Valid Videoaula videoaula){
-        Videoaula videoaulaSalvo = this.videoaulaService.save(videoaula);
+        Canal canal = videoaula.getCanal();
+        Videoaula videoaulaSalvo = this.videoaulaService.save(videoaula, canal);
+        if (videoaulaSalvo !=null) canalService.update(canal);
         return new ResponseEntity<Videoaula>(videoaulaSalvo, HttpStatus.OK);
     }
     @DeleteMapping("delete")
@@ -46,7 +52,9 @@ public class VideoaulaController {
     }
     @PutMapping("update")
     public ResponseEntity<Videoaula> updateVideoaula(@RequestBody @Valid Videoaula videoaula){
-        Videoaula videoaulaUpdatado = this.videoaulaService.update(videoaula);
+        Canal canal = videoaula.getCanal();
+        Videoaula videoaulaUpdatado = this.videoaulaService.update(videoaula, canal);
+        if (videoaulaUpdatado !=null) canalService.update(canal);
         return new ResponseEntity<Videoaula>(videoaulaUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)
