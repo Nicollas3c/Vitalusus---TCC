@@ -41,9 +41,7 @@ public class VideoaulaController {
     }
     @PostMapping("post")
     public ResponseEntity<Videoaula> salvarVideoaula(@RequestBody @Valid Videoaula videoaula){
-        Canal canal = videoaula.getCanal();
-        Videoaula videoaulaSalvo = this.videoaulaService.save(videoaula, canal);
-        if (videoaulaSalvo !=null) canalService.update(canal);
+        Videoaula videoaulaSalvo = this.videoaulaService.save(videoaula);
         return new ResponseEntity<Videoaula>(videoaulaSalvo, HttpStatus.OK);
     }
     @DeleteMapping("delete")
@@ -52,9 +50,7 @@ public class VideoaulaController {
     }
     @PutMapping("update")
     public ResponseEntity<Videoaula> updateVideoaula(@RequestBody @Valid Videoaula videoaula){
-        Canal canal = videoaula.getCanal();
-        Videoaula videoaulaUpdatado = this.videoaulaService.update(videoaula, canal);
-        if (videoaulaUpdatado !=null) canalService.update(canal);
+        Videoaula videoaulaUpdatado = this.videoaulaService.update(videoaula);
         return new ResponseEntity<Videoaula>(videoaulaUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

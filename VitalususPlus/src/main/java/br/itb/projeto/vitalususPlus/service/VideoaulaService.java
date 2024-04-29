@@ -32,24 +32,22 @@ public class VideoaulaService {
                 "Aluno não encontrado"
         ));
     }
-    public Videoaula save(Videoaula videoaula, Canal canal){
+    public Videoaula save(Videoaula videoaula){
         videoaula.setId(null);
         if (videoaula.getAlunos()==null){
             videoaula.setAlunos(new ArrayList<>());
         }
         videoaula.setVisualizacoes(videoaula.getAlunos().size());
-        canal.setVisualizacoes(canal.getVisualizacoes()+videoaula.getVisualizacoes());
         return videoaulaRepository.save(videoaula);
     }
     public void delete(Videoaula videoaula) {
         this.videoaulaRepository.delete(videoaula);
     }
-    public Videoaula update(Videoaula videoaula, Canal canal){
+    public Videoaula update(Videoaula videoaula){
         if (videoaula.getAlunos()==null){
             videoaula.setAlunos(new ArrayList<>());
         }
         videoaula.setVisualizacoes(videoaula.getAlunos().size());
-        canal.setVisualizacoes(canal.getVisualizacoes()+videoaula.getVisualizacoes());
         return videoaulaRepository.save(videoaula);
     }
 }

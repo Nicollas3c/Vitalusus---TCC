@@ -32,34 +32,18 @@ public class AdminService {
                 "Admin não encontrado"
         ));
     }
-    public Admin save(Admin admin, Usuario usuario){
+    public Admin save(Admin admin){
         admin.setId(null);
-        usuario = admin.getUsuario();
-        usuario.setStatusUsuario("ATIVO");
-        usuario.setTipoUsuario("ADMINISTRADOR");
-        usuario.setNivelAcesso("ADMIN");
         if (admin.getListaUsuarios()==null){
             admin.setListaUsuarios(new ArrayList<>());
         }
         admin.setNumeroUsuarios(admin.getListaUsuarios().size());
         return adminRepository.save(admin);
     }
-    public Admin inativate(Admin admin, Usuario usuario) {
-        usuario = admin.getUsuario();
-        usuario.setStatusUsuario("INATIVO");
-        usuario.setTipoUsuario("ADMINISTRADOR");
-        usuario.setNivelAcesso("ADMIN");
-        if (admin.getListaUsuarios()==null){
-            admin.setListaUsuarios(new ArrayList<>());
-        }
-        admin.setNumeroUsuarios(admin.getListaUsuarios().size());
-        return adminRepository.save(admin);
+    public void delete(Admin admin) {
+        adminRepository.delete(admin);
     }
-    public Admin update(Admin admin, Usuario usuario){
-        usuario = admin.getUsuario();
-        usuario.setStatusUsuario("ATIVO");
-        usuario.setTipoUsuario("ADMINISTRADOR");
-        usuario.setNivelAcesso("ADMIN");
+    public Admin update(Admin admin){
         if (admin.getListaUsuarios()==null){
             admin.setListaUsuarios(new ArrayList<>());
         }
