@@ -35,25 +35,14 @@ public class TreinadorService {
                 "treinador não encontrado"
         ));
     }
-    public Treinador save(Treinador treinador, Usuario usuario, Canal canal){
+    public Treinador save(Treinador treinador){
         treinador.setId(null);
-        usuario = treinador.getUsuario();
-        usuario.setStatusUsuario("ATIVO");
-        usuario.setTipoUsuario("TREINADOR");
-        usuario.setNivelAcesso("USER");
         return treinadorRepository.save(treinador);
     }
-    public Treinador inativate(Treinador treinador, Usuario usuario, Canal canal) {
-        usuario = treinador.getUsuario();
-        usuario.setTipoUsuario("TREINADOR");
-        usuario.setNivelAcesso("USER");
-        return treinadorRepository.save(treinador);
+    public void delete(Treinador treinador) {
+        treinadorRepository.delete(treinador);
     }
-    public Treinador update(Treinador treinador, Usuario usuario, Canal canal){
-        usuario = treinador.getUsuario();
-        usuario.setStatusUsuario("ATIVO");
-        usuario.setTipoUsuario("TREINADOR");
-        usuario.setNivelAcesso("USER");
+    public Treinador update(Treinador treinador){
         return treinadorRepository.save(treinador);
     }
 }
