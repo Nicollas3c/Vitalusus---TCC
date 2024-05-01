@@ -40,23 +40,16 @@ public class AdminController {
     }
     @PostMapping("post")
     public ResponseEntity<Admin> salvarAdmin(@RequestBody @Valid Admin admin){
-        Usuario usuario = admin.getUsuario();
-        Admin adminSalvo = this.adminService.save(admin, usuario);
-        if (adminSalvo != null) usuarioService.save(usuario);
+        Admin adminSalvo = this.adminService.save(admin);
         return new ResponseEntity<Admin>(adminSalvo, HttpStatus.OK);
     }
-    @PutMapping("inativate")
-    public ResponseEntity<Admin> deletarAdmin(@RequestBody @Valid Admin admin){
-        Usuario usuario = admin.getUsuario();
-        Admin adminInativate = adminService.inativate(admin, usuario);
-        if (adminInativate != null) usuarioService.update(usuario);
-        return new ResponseEntity<Admin>(adminInativate, HttpStatus.OK);
+    @DeleteMapping("delete")
+    public void deletarAdmin(@RequestBody @Valid Admin admin){
+        adminService.delete(admin);
     }
     @PutMapping("update")
     public ResponseEntity<Admin> updateAdmin(@RequestBody @Valid Admin admin){
-        Usuario usuario = admin.getUsuario();
-        Admin adminUpdatado = this.adminService.update(admin, usuario);
-        if (adminUpdatado != null) usuarioService.update(usuario);
+        Admin adminUpdatado = this.adminService.update(admin);
         return new ResponseEntity<Admin>(adminUpdatado, HttpStatus.OK);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

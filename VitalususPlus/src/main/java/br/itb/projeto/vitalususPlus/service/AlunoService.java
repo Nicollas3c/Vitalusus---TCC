@@ -34,26 +34,14 @@ public class AlunoService {
                 "Aluno não encontrado"
         ));
     }
-    public Aluno save(Aluno aluno, Usuario usuario){
+    public Aluno save(Aluno aluno){
         aluno.setId(null);
-        usuario = aluno.getUsuario();
-        usuario.setStatusUsuario("ATIVO");
-        usuario.setTipoUsuario("ALUNO");
-        usuario.setNivelAcesso("USER");
         return alunoRepository.save(aluno);
     }
-    public Aluno inativate(Aluno aluno, Usuario usuario) {
-        usuario = aluno.getUsuario();
-        usuario.setStatusUsuario("INATIVO");
-        usuario.setTipoUsuario("ALUNO");
-        usuario.setNivelAcesso("USER");
-        return alunoRepository.save(aluno);
+    public void delete(Aluno aluno) {
+        alunoRepository.delete(aluno);
     }
-    public Aluno update(Aluno aluno, Usuario usuario){
-        usuario = aluno.getUsuario();
-        usuario.setStatusUsuario("ATI-VO");
-        usuario.setTipoUsuario("ALUNO");
-        usuario.setNivelAcesso("USER");
+    public Aluno update(Aluno aluno){
         return alunoRepository.save(aluno);
     }
 }
